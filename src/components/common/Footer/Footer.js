@@ -8,28 +8,28 @@ import Behance from "../../Icons/Behance"
 import Instagram from "../../Icons/Instragram"
 
 const StyledFooter = styled.div`
-  padding: 2em 0;
-  border-top: 1px solid #0a3;
+  padding: 4rem 0 2rem;
   text-align: center;
+  ul {
+    padding: 1rem;
+    margin: 0;
+  }
   li {
-    font-size: 1em;
-    margin-top: 0.5em;
+    padding: 0.5rem 0;
   }
   .links {
     text-decoration: underline;
-    color: #000;
-    padding: 0.5rem 0;
+    color: var(--black);
   }
   .info {
-    font-size: 0.875rem;
-    padding: 0.5rem 0;
+    font-size: var(--font-sm);
   }
   .social-media {
     display: flex;
-    margin: 0 auto;
     justify-content: center;
+    margin: 0;
     li {
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
     }
   }
 `
