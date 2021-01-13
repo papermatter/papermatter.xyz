@@ -4,7 +4,7 @@ import SEO from '../components/common/seo'
 import { graphql } from 'gatsby'
 import { colors } from '../styles/Vars'
 import {Title} from '../components/ui/Title'
-import PortfolioContainer from '../components/Portfolio/PortfolioContainer'
+import PortfolioContainer from '../components/portfolio/PortfolioContainer'
 import {TitleWithDescription} from '../components/ui/TitleWithDescription'
 
 export const portafolioQuery = graphql`

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Card from './Card'
 import SkeletonCard from './SkeletonCard'
-import { breakpoints} from '../../styles/Vars'
+import { breakpoints} from '../../../styles/Vars'
 
 const StyledCardContainer = styled.div`
   padding: 2em 0;

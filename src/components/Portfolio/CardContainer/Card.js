@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
-import { colors, breakpoints, fontStyleItalic } from '../../styles/Vars';
-import { LinkComponent } from '../ui';
-import { DivPhoto } from '../project/Project/styles';
+import { colors, breakpoints, fontStyleItalic } from '../../../styles/Vars';
+import { LinkComponent } from '../../ui';
+import { DivPhoto } from '../../project/Project/styles';
 
 const StyledCard = styled.div`
   width: 100%;

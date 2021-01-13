@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import CardContainer from '../CardContainer/CardContainer'
+import CardContainer from './CardContainer/CardContainer'
 import { colors, breakpoints } from '../../styles/Vars'
 import withLocation from '../HoC/withLocation' 
 import ButtonComponent from '../ui/ButtonComponent'
