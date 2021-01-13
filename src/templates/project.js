@@ -1,9 +1,9 @@
 import React from 'react'
 import { Layout } from '../components'
 import SEO from '../components/common/seo'
-import Project from '../components/Project/Project';
+import {Project} from '../components/project/Project';
 import { graphql } from 'gatsby';
-import NextProjectCard from '../components/NextProjectCard/NextProjectCard'
+import {NextProjectCard} from '../components/project/NextProjectCard'
 
 export const project_query = graphql`
   query GET_PROJECT($id: Int!) {

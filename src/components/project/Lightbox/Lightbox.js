@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { ExitIcon, ArrowLeftIcon, ArrowRightIcon } from '../Icons'
 import usePanAndZoom from "../../lib/hooks/usePanAndZoom";
 import { StyledLightbox } from "./styles";
-import { colors } from "../../styles/Vars";
+import { colors } from "../../../styles/Vars";
 
 export default function Lightbox({photos, initialActiveTab, handleCloseClick}) {
   const [activeTab, setActiveTab] = useState(0)
