@@ -1,6 +1,6 @@
 import React from "react"
 
-import {Layout} from '../components'
+import {Layout} from '../components/common/Layout'
 import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
 import {PageCover} from "../components/common/PageCover"

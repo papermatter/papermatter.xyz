@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { colors } from '../../styles/Vars';
+import { colors } from '../../../styles/Vars';
 import { Link } from 'gatsby';
 
 const StyledLinkComponent = styled.div`

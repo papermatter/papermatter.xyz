@@ -1,12 +1,12 @@
 import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 
-import { Layout } from "../components"
+import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
 import { colors } from "../styles/Vars"
 import {DescriptionList} from '../components/ui/DescriptionList'
 import Clients from "../components/Clients/Clients"
-import withLocation from "../HoC/withLocation"
+import withLocation from "../components/HoC/withLocation"
 import Slideshow from "../components/Slideshow/Slideshow"
 import AboutPageCover from "../components/common/PageCover/AboutPageCover"
 import { useBreakpoint } from "../lib/hooks/useBreakpoints"

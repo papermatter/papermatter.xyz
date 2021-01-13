@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {colors} from '../../../styles/Vars'
+import {colors} from '../../../../styles/Vars'
 
 export const Div = styled.div`
   position: fixed;

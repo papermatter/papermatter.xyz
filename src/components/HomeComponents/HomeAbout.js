@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledHomeSectionAbout } from './styles'
-import { LinkComponent } from '../ui'
+import { LinkComponent } from '../ui/LinkComponent'
 
 
 export default function HomeAbout() {

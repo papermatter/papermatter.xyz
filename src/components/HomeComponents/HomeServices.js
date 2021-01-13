@@ -3,7 +3,7 @@ import {Title} from '../ui/Title'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { ArrowRightIcon } from '../Icons'
 import { StyledHomeSectionServices } from './styles'
-import { LinkComponent } from '../ui'
+import { LinkComponent } from '../ui/LinkComponent'
 import { TitleWithDescription } from '../ui/TitleWithDescription'
 import { useBreakpoint } from '../../lib/hooks/useBreakpoints'
 

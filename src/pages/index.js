@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react"
 
-import { Layout } from "../components"
+import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
-import PageCover from "../components/PageCover/PageCover"
-import Title from "../components/Title/Title"
+import {PageCover} from "../components/common/PageCover"
+import {Title} from "../components/ui/Title"
 import HomeServicesSection from "../components/HomeComponents/HomeServices"
 import HomePortfolio from "../components/HomeComponents/HomePortfolio"
 import HomeAbout from "../components/HomeComponents/HomeAbout"
 import { colors } from "../styles/Vars"
-import { Helmet } from "react-helmet"
 
 export const index_query = graphql`
   query GET_HOME_DATA {

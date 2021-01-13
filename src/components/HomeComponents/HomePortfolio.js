@@ -1,7 +1,7 @@
 import React from 'react'
 import {Title} from '../ui/Title'
 import { StyledHomeSectionPortfolio } from './styles'
-import { LinkComponent } from '../ui'
+import { LinkComponent } from '../ui/LinkComponent'
 import CardContainer from '../portfolio/CardContainer/CardContainer'
 import { colors } from '../../styles/Vars'
 import {TitleWithDescription} from '../ui/TitleWithDescription'

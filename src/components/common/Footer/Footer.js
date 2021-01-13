@@ -1,14 +1,12 @@
 import React from "react"
 import styled from "styled-components"
-
-import SocialMedia from "../../SocialMedia/SocialMedia"
-import FullLogo from '../../assets/full_logo.svg'
+import SocialMedia from "../SocialMedia/SocialMedia"
 
 const Div = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 4em 2em 1em;
-  border-top: 1px solid #e2e2e2;
+  border-top: 1px solid #0a3;
   & p {
     font-size: 0.8em;
     margin-top: 0.5em;
@@ -17,16 +15,13 @@ const Div = styled.div`
 
 export default function Footer() {
   return (
-    <div>
+    <Div>
+      <div>
+        <p>(C) 2020 MONCADA CO.</p>
+      </div>
       <div style={{padding: '64px 0'}}>
         <SocialMedia />
       </div>
-      <Div>
-        <div>
-          <FullLogo style={{width:'8em', margin: '0 -12px'}} />
-          <p>(C) 2020 MONCADA CO.</p>
-        </div>
-      </Div>
-    </div>
+    </Div>
   )
 }

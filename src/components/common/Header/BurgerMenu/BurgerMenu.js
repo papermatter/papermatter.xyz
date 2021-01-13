@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Logo, ExitIcon, BurgerIcon} from '../../Icons'
+import {Logo, ExitIcon, BurgerIcon} from '../../../Icons'
 import { Div, Header, Button } from './styles'
 import SocialMedia from '../../SocialMedia/SocialMedia'
 import { Link } from 'gatsby'
