@@ -6,7 +6,7 @@ import {Header, Footer} from '../../components'
 import "./normalize.css"
 import "./layout.css"
 import { Main } from "./styles"
-import ContactForm from "../ContactForm/ContactForm"
+import {ContactForm} from "../ContactForm"
 
 
 const Layout = ({ children, backgroundColor }) => {

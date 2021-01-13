@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-import { ArrowDownIcon } from '../Icons'
+import { ArrowDownIcon } from '../../Icons'
 
 const StyledPageCover = styled.section`
   height: 100vh;

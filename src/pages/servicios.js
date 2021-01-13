@@ -3,7 +3,7 @@ import React from "react"
 import {Layout} from '../components'
 import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
-import PageCover from "../components/PageCover/PageCover"
+import {PageCover} from "../components/common/PageCover"
 import Services from "../components/Services/Services"
 import {Title} from '../components/ui/Title'
 import {TitleWithDescription} from "../components/ui/TitleWithDescription"

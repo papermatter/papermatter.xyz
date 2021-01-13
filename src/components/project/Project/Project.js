@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {StyledProject, StyledProjectInfoContainer, StyledPhotosContainer, DivPhoto} from './styles'
 import {Lightbox} from '../Lightbox'
 import { useBreakpoint } from "../../../lib/hooks/useBreakpoints"
-import Nav from '../Nav/Nav'
+import Nav from '../../common/Nav/Nav'
 
 export default function Project({project}) {
   const [initialActiveTab, setInitialActiveTab] = useState(null)
