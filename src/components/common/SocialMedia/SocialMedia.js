@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import {
   FaBehance,
   FaFacebook,
@@ -6,38 +6,38 @@ import {
   FaPinterest,
   FaDribbble,
 } from "react-icons/fa"
-import { StyledIconsList, StyledDiv, StyledTitle } from './styles'
+import ExternalLink from "../../ui/ExternalLink"
+import { StyledIconsList, StyledDiv } from "./styles"
 
 export default function SocialMedia() {
-  const iconSize = '2em'
+  const iconSize = "2em"
   return (
     <StyledDiv>
-      <StyledTitle>#estudiomoncada</StyledTitle>
       <StyledIconsList>
         <li>
-          <a href="https://www.instagram.com/estudiomoncada/" target="_blank" rel="noreferrer">
+          <ExternalLink>
             <FaBehance size={iconSize} />
-          </a>
+          </ExternalLink>
         </li>
         <li>
-          <a href="https://www.instagram.com/estudiomoncada/" target="_blank" rel="noreferrer">
+          <ExternalLink>
             <FaFacebook size={iconSize} />
-          </a>
+          </ExternalLink>
         </li>
         <li>
-          <a href="https://www.instagram.com/estudiomoncada/" target="_blank" rel="noreferrer">
+          <ExternalLink>
             <FaInstagram size={iconSize} />
-          </a>
+          </ExternalLink>
         </li>
         <li>
-          <a href="https://www.instagram.com/estudiomoncada/" target="_blank" rel="noreferrer">
+          <ExternalLink>
             <FaPinterest size={iconSize} />
-          </a>
+          </ExternalLink>
         </li>
         <li>
-          <a href="https://www.instagram.com/estudiomoncada/" target="_blank" rel="noreferrer">
+          <ExternalLink>
             <FaDribbble size={iconSize} />
-          </a>
+          </ExternalLink>
         </li>
       </StyledIconsList>
     </StyledDiv>
