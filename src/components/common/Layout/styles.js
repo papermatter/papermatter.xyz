@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, breakpoints } from '../../styles/Vars'
+import { colors, breakpoints } from '../../../styles/Vars'
 
 export const Main = styled.main`
   padding: 0 2em 2em;

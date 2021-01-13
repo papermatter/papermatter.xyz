@@ -7,8 +7,7 @@ import "./normalize.css"
 import "./layout.css"
 import { Main } from "./styles"
 import ContactForm from "../ContactForm/ContactForm"
-// import SocialMediaWidget from "../SocialMedia/SocialMediaWidget"
-// import QuickNav from "../QuickNav/QuickNav"
+
 
 const Layout = ({ children, backgroundColor }) => {
   const data = useStaticQuery(graphql`
@@ -31,12 +30,6 @@ const Layout = ({ children, backgroundColor }) => {
       <Main backgroundColor={backgroundColor}>
         <>
           {children}
-          {/* {breakpoints.laptop ? (
-            <>
-              <QuickNav />
-              <SocialMediaWidget />
-            </>
-          ) : null} */}
         </>
       </Main>
       <ContactForm />

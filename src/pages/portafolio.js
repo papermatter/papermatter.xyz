@@ -1,6 +1,6 @@
 import React from 'react'
 import { Layout } from '../components'
-import SEO from '../components/seo'
+import SEO from '../components/common/seo'
 import { graphql } from 'gatsby'
 import { colors } from '../styles/Vars'
 import Title from '../components/Title/Title'

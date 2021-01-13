@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { ArrowLeftIcon } from '../Icons'
+import { ArrowLeftIcon } from '../../Icons'
 import { Link } from 'gatsby'
 import { StyledNav } from './styles'
-import { useBreakpoint } from '../../lib/hooks/useBreakpoints'
+import { useBreakpoint } from '../../../lib/hooks/useBreakpoints'
 
 export default function Nav({data, title}) {
   const [isActive, setIsActive] = useState(false)

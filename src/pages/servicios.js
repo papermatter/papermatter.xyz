@@ -1,7 +1,7 @@
 import React from "react"
 
 import {Layout} from '../components'
-import SEO from "../components/seo"
+import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
 import PageCover from "../components/PageCover/PageCover"
 import Services from "../components/Services/Services"

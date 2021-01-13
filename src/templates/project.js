@@ -1,6 +1,6 @@
 import React from 'react'
 import { Layout } from '../components'
-import SEO from '../components/seo'
+import SEO from '../components/common/seo'
 import Project from '../components/Project/Project';
 import { graphql } from 'gatsby';
 import NextProjectCard from '../components/NextProjectCard/NextProjectCard'

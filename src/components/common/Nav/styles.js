@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { colors, breakpoints } from '../../styles/Vars';
+import { colors, breakpoints } from '../../../styles/Vars';
 
 const slideTop = keyframes`
   from {

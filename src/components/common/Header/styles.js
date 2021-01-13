@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from "gatsby";
-import { colors, breakpoints } from '../../styles/Vars'
+import { colors, breakpoints } from '../../../styles/Vars'
 
 export const StyledHeader = styled.div`
   width: 100%;

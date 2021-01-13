@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 
 import { Layout } from "../components"
-import SEO from "../components/seo"
+import SEO from "../components/common/seo"
 import { colors } from "../styles/Vars"
 import History from "../components/History/History"
 import DescriptionList from '../components/DescriptionList/DescriptionList'
