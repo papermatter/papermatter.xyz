@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-import {colors} from '../../../../styles/Vars'
+import styled from "styled-components"
 
 export const Div = styled.div`
   position: fixed;
@@ -13,17 +12,29 @@ export const Div = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 0 2em 8vh;
-  transition: .2s;
+  transition: 0.2s;
+  .contact-email {
+    text-decoration: underline;
+    text-align: center;
+    margin-bottom: 8rem;
+  }
   nav {
+    margin: auto 0;
     a {
       color: var(--black);
-      font-size: 1.5em;
-      font-weight:800;
-      margin: 1em 0;
+      font-size: 2rem;
+      margin: 1.5em 0;
       display: block;
       text-transform: uppercase;
+      position: relative;
       &[aria-current] {
-        color: ${colors.black}
+        color: var(--black);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        color: var(--gray-25);
       }
     }
   }
@@ -37,8 +48,8 @@ export const Button = styled.button`
 
 export const Header = styled.div`
   padding: 1em 0;
-  margin: 0 -1.1em 0 -.1em;
-  display: flex; 
+  margin: 0 -1.1em 0 -0.1em;
+  display: flex;
   justify-content: space-between;
   align-items: flex-start;
   height: 3.8em;

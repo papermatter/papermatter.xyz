@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
-import {Logo, ExitIcon, BurgerIcon} from '../../../Icons'
-import { Div, Header, Button } from './styles'
-import { Link } from 'gatsby'
+import React, { useState } from "react"
+import { Logo, ExitIcon, BurgerIcon } from "../../../Icons"
+import { Div, Header, Button } from "./styles"
+import { Link } from "gatsby"
+import ExternalLink from "../../../ui/ExternalLink"
+import { CONTACT_EMAIL } from "../../../../lib/contants"
 
-export const BurgerMenu = ({children, color}) => {
+export const BurgerMenu = ({ children, color }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
-  }
-
-  const closeMenu = () => {
-    setIsOpen(false)
   }
 
   if (!isOpen) {
@@ -31,15 +29,10 @@ export const BurgerMenu = ({children, color}) => {
           <ExitIcon />
         </Button>
       </Header>
-      <div
-        role="button"
-        onClick={() => closeMenu()}
-        onKeyDown={() => closeMenu()}
-        tabIndex={0}
-      >
-        {children}
-      </div>
+      {children}
+      <ExternalLink to={`mailto:${CONTACT_EMAIL}`} className="contact-email">
+        {CONTACT_EMAIL}
+      </ExternalLink>
     </Div>
   )
 }
-
