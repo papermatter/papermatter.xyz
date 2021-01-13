@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { StyledContainer, StyledContactInfo, StyledForm, StyledButton, Label, StyledTextarea } from "./styles";
-import Title from '../Title/Title'
-import TitleWithDescription from "../TitleWithDescription/TitleWithDescription";
+import {Title} from '../ui/Title'
+import {TitleWithDescription} from "../ui/TitleWithDescription";
 import { colors } from "../../styles/Vars";
 
 export default function ContactForm () {

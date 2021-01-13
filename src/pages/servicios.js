@@ -5,8 +5,8 @@ import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
 import PageCover from "../components/PageCover/PageCover"
 import Services from "../components/Services/Services"
-import Title from '../components/Title/Title'
-import TitleWithDescription from "../components/TitleWithDescription/TitleWithDescription"
+import {Title} from '../components/ui/Title'
+import {TitleWithDescription} from "../components/ui/TitleWithDescription"
 
 export const query = graphql`
   query GET_DATA  {

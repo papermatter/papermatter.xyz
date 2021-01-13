@@ -5,7 +5,7 @@ import { Layout } from "../components"
 import SEO from "../components/common/seo"
 import { colors } from "../styles/Vars"
 import History from "../components/History/History"
-import DescriptionList from '../components/DescriptionList/DescriptionList'
+import {DescriptionList} from '../components/ui/DescriptionList'
 import Clients from "../components/Clients/Clients"
 import Team from "../components/Team/Team"
 import withLocation from "../HoC/withLocation"

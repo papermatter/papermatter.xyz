@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import PhotoCarousel from '../PhotoCarousel/PhotoCarousel'
 import { StyledHomeSectionAbout } from './styles'
-import { LinkComponent } from '../UI'
+import { LinkComponent } from '../ui'
 
 
 export default function HomeAbout() {

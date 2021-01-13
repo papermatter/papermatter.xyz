@@ -1,10 +1,10 @@
 import React from 'react'
-import Title from '../Title/Title'
+import {Title} from '../ui/Title'
 import { StyledHomeSectionPortfolio } from './styles'
-import { LinkComponent } from '../UI'
+import { LinkComponent } from '../ui'
 import CardContainer from '../CardContainer/CardContainer'
 import { colors } from '../../styles/Vars'
-import TitleWithDescription from '../TitleWithDescription/TitleWithDescription'
+import {TitleWithDescription} from '../ui/TitleWithDescription'
 import { useBreakpoint } from '../../lib/hooks/useBreakpoints'
 
 export default function HomePortfolio({data, projects}) {

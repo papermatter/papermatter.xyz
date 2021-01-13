@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, breakpoints, fontStyleItalic } from '../../styles/Vars'
+import { colors, breakpoints, fontStyleItalic } from '../../../styles/Vars'
 
 export const StyledDescriptionList = styled.div`
   padding: 2em 0;

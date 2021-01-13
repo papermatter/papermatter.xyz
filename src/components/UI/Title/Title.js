@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import { colors, breakpoints, fontStyleItalic } from "../../styles/Vars"
+import { colors, breakpoints, fontStyleItalic } from "../../../styles/Vars"
 
 const responsivesFontSizes = () => {
   return `

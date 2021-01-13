@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from '../Title/Title'
+import { Title }from '../ui/Title'
 import { StyledClients } from './styles'
 import Slideshow from '../Slideshow/Slideshow'
 
