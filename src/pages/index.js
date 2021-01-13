@@ -59,9 +59,6 @@ const IndexPage = ({data}) => {
   return (
     <Layout backgroundColor={backgroundColor}>
       <SEO title="Inicio" />
-      <Helmet>
-        {/* <link rel="icon" href={favicon} /> */}
-      </Helmet>
       <PageCover scrollTo="services-section">
         <Title data={data.strapiPageHome.title} inverted={true} />
       </PageCover>

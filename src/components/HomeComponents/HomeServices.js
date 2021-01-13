@@ -5,7 +5,7 @@ import { ArrowRightIcon } from '../Icons'
 import { StyledHomeSectionServices } from './styles'
 import { LinkComponent } from '../UI'
 import TitleWithDescription from '../TitleWithDescription/TitleWithDescription'
-import { useBreakpoint } from '../../hooks/useBreakpoints'
+import { useBreakpoint } from '../../lib/hooks/useBreakpoints'
 
 
 export default function HomeServicesSection({data, id}) {

@@ -7,7 +7,7 @@
 // You can delete this file if you're not using it
 
 const React = require("react")
-const {BreackpointProvider} = require('./src/hooks/useBreakpoints')
+const {BreackpointProvider} = require('./src/lib/hooks/useBreakpoints')
 const {ThemeContext} = require('./src/ThemeContext')
 
 const queries = {

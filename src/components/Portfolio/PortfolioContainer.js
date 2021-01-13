@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import CardContainer from '../CardContainer/CardContainer'
 import { colors, breakpoints } from '../../styles/Vars'
-import withLocation from '../../HoC/withLocation' 
+import withLocation from '../HoC/withLocation' 
 import ButtonComponent from '../UI/ButtonComponent'
 import PortfolioNav from './PortfolioNav'
 import styled from 'styled-components'

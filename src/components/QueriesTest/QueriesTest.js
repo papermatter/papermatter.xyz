@@ -1,5 +1,5 @@
 import React from "react"
-import {useBreakpoint} from '../../hooks/useBreakpoints'
+import {useBreakpoint} from '../../lib/hooks/useBreakpoints'
 
 export default function QueriesTest() {
  const breakpoints = useBreakpoint()

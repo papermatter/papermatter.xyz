@@ -1,7 +1,7 @@
 import React from 'react'
 import {Div, Title, DesktopDiv, StyledPhotoContainer} from './styles'
 import Tab from './Tab'
-import { useBreakpoint } from '../../hooks/useBreakpoints'
+import { useBreakpoint } from '../../lib/hooks/useBreakpoints'
 import ServiceContainer from './ServiceContainer'
 
 

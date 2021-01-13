@@ -3,12 +3,12 @@ import {colors} from '../../../styles/Vars'
 
 export const Div = styled.div`
   position: fixed;
-  background: #979797;
+  background: var(--white);
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 20;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,7 +16,7 @@ export const Div = styled.div`
   transition: .2s;
   nav {
     a {
-      color: ${colors.darkGray};
+      color: var(--black);
       font-size: 1.5em;
       font-weight:800;
       margin: 1em 0;

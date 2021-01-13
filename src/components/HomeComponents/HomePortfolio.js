@@ -5,7 +5,7 @@ import { LinkComponent } from '../UI'
 import CardContainer from '../CardContainer/CardContainer'
 import { colors } from '../../styles/Vars'
 import TitleWithDescription from '../TitleWithDescription/TitleWithDescription'
-import { useBreakpoint } from '../../hooks/useBreakpoints'
+import { useBreakpoint } from '../../lib/hooks/useBreakpoints'
 
 export default function HomePortfolio({data, projects}) {
   const breakpoints = useBreakpoint()

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { ExitIcon, ArrowLeftIcon, ArrowRightIcon } from '../Icons'
-import usePanAndZoom from "../../hooks/usePanAndZoom";
+import usePanAndZoom from "../../lib/hooks/usePanAndZoom";
 import { StyledLightbox } from "./styles";
 import { colors } from "../../styles/Vars";
 

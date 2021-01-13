@@ -3,7 +3,7 @@ import {Logo} from '../Icons'
 import {StyledHeader, StyledLink, StyledDesktopNav} from './styles'
 import {BurgerMenu} from './BurgerMenu/BurgerMenu'
 import { colors } from "../../styles/Vars"
-import { useBreakpoint } from "../../hooks/useBreakpoints"
+import { useBreakpoint } from "../../lib/hooks/useBreakpoints"
 
 const Header = ({backgroundColor = 'white'}) => {
   const [burgerIconColor, setburgerIconColor] = useState(colors.black)

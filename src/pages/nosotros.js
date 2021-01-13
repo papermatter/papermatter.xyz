@@ -11,7 +11,7 @@ import Team from "../components/Team/Team"
 import withLocation from "../HoC/withLocation"
 import Slideshow from "../components/Slideshow/Slideshow"
 import AboutPageCover from "../components/PageCover/AboutPageCover"
-import { useBreakpoint } from "../hooks/useBreakpoints"
+import { useBreakpoint } from "../lib/hooks/useBreakpoints"
 
 export const aboutQuery = graphql`
   query GET_DATA_ABOUT {
