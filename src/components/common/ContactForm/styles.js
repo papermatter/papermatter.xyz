@@ -1,8 +1,12 @@
-import styled from 'styled-components';
-import { colors, breakpoints, fontStyleItalic } from '../../../styles/Vars';
+import styled from "styled-components"
+import {
+  colors,
+  breakpoints,
+  fontStyleItalic,
+  HorizontalDashedBorder,
+} from "../../../styles/Vars"
 
 export const StyledContainer = styled.section`
-  background: ${colors.gray};
   padding: 5em 2em 4em;
   h3 {
     font-size: 2em;
@@ -23,56 +27,47 @@ export const StyledContainer = styled.section`
   }
 `
 
-export const StyledContactInfo = styled.div`
-  h6 {
-    color: ${colors.darkGray};
-    margin: 0;
-    font-size: .75em;
-  }
-  p {
-    margin: 0 0 1em;
-  }
-`
-
 export const Label = styled.label`
-  ${fontStyleItalic}
   font-size: 1em;
   position: absolute;
+  color: var(--gray-50);
   transform-origin: top left;
   left: 0;
   transform: translate(0, 16px) scale(1);
-  transition: all 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 `
 
 export const StyledForm = styled.form`
   padding: 2em 0;
   div {
-    border-bottom: 1px solid ${colors.darkGray};
+    ${HorizontalDashedBorder}
+    background-position: bottom;
     position: relative;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     &:focus-within {
       textarea {
         height: 5em;
       }
       label {
-        transform: translate(0, 0) scale(.75);
+        transform: translate(0, 0) scale(0.75);
       }
     }
   }
-  input, textarea {
-    padding: 1em 0 .5em 0;
+  input,
+  textarea {
+    padding: 1em 0;
     font-size: 1em;
     width: 100%;
     background: transparent;
     border: none;
     outline: 0;
-    &:not(:placeholder-shown) + ${Label}{
-      transform: translate(0, 0) scale(.75);
+    &:not(:placeholder-shown) + ${Label} {
+      transform: translate(0, 0) scale(0.75);
     }
   }
   ${breakpoints.laptop} {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
       "name email message"
       ". tel message"
       ". . btn";
@@ -94,7 +89,7 @@ export const StyledTextarea = styled.div`
     resize: none;
     padding-top: 0;
     margin-top: 1em;
-    margin-bottom: .2em;
+    margin-bottom: 0.2em;
     height: 1em;
     &:not(:placeholder-shown) {
       height: 5em;
@@ -104,10 +99,10 @@ export const StyledTextarea = styled.div`
     grid-area: message;
     border-bottom: none !important;
     textarea {
-      border-bottom: 1px solid ${colors.darkGray};
-      &:not(:placeholder-shown), :focus {
+      &:not(:placeholder-shown),
+      :focus {
         margin-bottom: -6em;
-        padding-bottom: .78em;
+        padding-bottom: 0.78em;
       }
     }
   }
@@ -115,24 +110,23 @@ export const StyledTextarea = styled.div`
 
 export const StyledButton = styled.button`
   margin-top: 4em;
-  background: transparent;
   border: none;
-  border: 1px solid transparent;
-  border-bottom: 1px solid ${colors.darkGray};
-  padding: .5em 1.5em;
-  transition: .15s;
-  position: relative;
+  ${HorizontalDashedBorder}
+  background-position: bottom;
+  padding: 0.5em 1.5em;
+  transition: 0.15s;
   grid-area: btn;
-  &:focus, :hover {
-    border-radius: 30px;
+  cursor: pointer;
+  &:focus,
+  :hover {
     outline: none;
-    border: 1px solid ${colors.darkGray};
+    /* from dashed to solid */
+    background-image: linear-gradient(to right, var(--gray-25), var(--gray-25));
   }
   ${breakpoints.laptop} {
     margin-top: 0;
     width: 35%;
     justify-self: end;
-    padding: .5em 0;
+    padding: 0.5em 0;
   }
 `
-

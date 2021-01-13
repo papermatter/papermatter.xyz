@@ -65,6 +65,7 @@ p {
 :root {
   --black: #000;
   --gray-25: #bfbfbf;
+  --gray-50: #808080;
   --white: #fff;
 
   /* Font sizes */

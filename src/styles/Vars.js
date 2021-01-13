@@ -1,9 +1,9 @@
 export const colors = {
-  black: '#131414',
+  black: "#131414",
   gray: "#979797",
-  darkGray: '#5E5F5F',
-  lightGray: '#E2E2E2',
-  white: '#fff',
+  darkGray: "#5E5F5F",
+  lightGray: "#E2E2E2",
+  white: "#fff",
 }
 
 export const size = {
@@ -20,6 +20,16 @@ export const fontStyleItalic = () => {
     font-weight: normal;
   `
 }
+
+export const HorizontalDashedBorder = () => `
+  background-image: linear-gradient(
+    to right,
+    var(--gray-25) 33%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
+`
 
 export const breakpoints = {
   mobileS: "@media screen and (max-width: 320px)",

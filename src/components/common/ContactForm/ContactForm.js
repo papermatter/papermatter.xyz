@@ -1,11 +1,15 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { StyledContainer, StyledContactInfo, StyledForm, StyledButton, Label, StyledTextarea } from "./styles";
-import {Title} from '../../ui/Title'
-import {TitleWithDescription} from "../../ui/TitleWithDescription";
-import { colors } from "../../../styles/Vars";
+import {
+  StyledContainer,
+  StyledForm,
+  StyledButton,
+  Label,
+  StyledTextarea,
+} from "./styles"
+import { Title } from "../../ui/Title"
 
-export default function ContactForm () {
+export default function ContactForm() {
   const data = useStaticQuery(graphql`
     query FORM_QUERY {
       allStrapiContactForm {
@@ -15,9 +19,6 @@ export default function ContactForm () {
               title_black
               title_italic
             }
-            phone
-            email
-            adress
           }
         }
       }
@@ -25,42 +26,22 @@ export default function ContactForm () {
   `)
   return (
     <StyledContainer id="contact-form">
-      <TitleWithDescription>
-        <Title data={data.allStrapiContactForm.edges[0].node.title[0]} />
-        <StyledContactInfo>
-          <div>
-            <h6>TELÉFONO</h6>
-            <p style={{color: colors.black}}>{data.allStrapiContactForm.edges[0].node.phone}</p>
-          </div>
-          <div>
-            <h6>CORREO</h6>
-            <p style={{color: colors.black}}>{data.allStrapiContactForm.edges[0].node.email}</p>
-          </div>
-          <div>
-            <h6>DIRECCIÓN</h6>
-            <p style={{color: colors.black}}>{data.allStrapiContactForm.edges[0].node.adress}</p>
-          </div>
-        </StyledContactInfo>
-      </TitleWithDescription>
+      <Title data={data.allStrapiContactForm.edges[0].node.title[0]} />
       <StyledForm>
-        <div id='nameContainer'>
-          <input id="name" type="text" placeholder=" " />
+        <div id="nameContainer">
           <Label htmlFor="name">Nombre</Label>
+          <input id="name" type="text" placeholder=" " />
         </div>
-        <div id='emailContainer'>
+        <div id="emailContainer">
           <input id="email" type="email" placeholder=" " />
           <Label htmlFor="email">Correo electrónico</Label>
         </div>
-        <div id='telContainer'>
+        <div id="telContainer">
           <input id="tel" type="tel" name="tel" placeholder=" " />
           <Label htmlFor="tel">Teléfono</Label>
         </div>
-        <StyledTextarea id='messageContainer'>
-          <textarea
-            id="message"
-            name="message"
-            placeholder=" "
-          ></textarea>
+        <StyledTextarea id="messageContainer">
+          <textarea id="message" name="message" placeholder=" " />
           <Label htmlFor="message">Escribe un mensaje</Label>
         </StyledTextarea>
         <StyledButton>Enviar</StyledButton>
