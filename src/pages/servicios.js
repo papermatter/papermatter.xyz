@@ -6,46 +6,33 @@ import { graphql } from "gatsby"
 import { PageCover } from "../components/common/PageCover"
 import Services from "../components/Services/Services"
 
-// export const query = graphql`
-//   query GET_DATA {
-//     allStrapiPageServices {
-//       edges {
-//         node {
-//           title {
-//             title_black
-//             title_italic
-//           }
-//           description
-//         }
-//       }
-//     }
-//     allStrapiServices {
-//       edges {
-//         node {
-//           title
-//           shortname
-//           description
-//           strapiId
-//           advantages
-//           Illustration {
-//             publicURL
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query MyQuery {
+    strapiPageServices {
+      heading
+      description
+    }
+    allStrapiServices {
+      nodes {
+        id
+        title
+        slug
+        description
+      }
+    }
+  }
+`
 
-const ServicesPage = () => {
+const ServicesPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Servicios" />
       <PageCover
         pageName="Servicios"
-        heading="Hacemos más de lo que necesitas"
-        description="Somos un estudio basado en Ciudad de México, que busca innovar, con tecnología de por medio, el mercado inmobiliario y transformarlo en una toda una experiencia, más allá de la compra-venta."
+        heading={data.strapiPageServices.heading}
+        description={data.strapiPageServices.description}
       />
-      {/* <Services services={data.allStrapiServices.edges} id="services" /> */}
+      <Services services={data.allStrapiServices.nodes} />
     </Layout>
   )
 }
