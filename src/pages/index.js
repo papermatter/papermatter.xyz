@@ -6,6 +6,7 @@ import { PageCover } from "../components/common/PageCover"
 import HomeSection from "../components/sections/HomeSection"
 import ArrowsDivider from "../components/ui/ArrowsDivider"
 import Slider from "../components/ui/Slider"
+import ServicesSlider from "../components/sections/ServicesSlider"
 
 export const homeQuery = graphql`
   query GET_HOME {
@@ -23,34 +24,20 @@ export const homeQuery = graphql`
         heading
       }
     }
+    allStrapiServices {
+      nodes {
+        title
+        id
+      }
+    }
   }
 `
 
-const IndexPage = ({ data: { strapiHome: data } }) => {
+const IndexPage = ({ data: { strapiHome: data, allStrapiServices } }) => {
   return (
     <Layout>
       <SEO title="Inicio" />
       <PageCover heading={data.heading} />
-
-      <Slider time="17s" gap="2rem">
-        <p>Hola</p>
-        <p>Hola</p>
-        <p>Hola</p>
-        <p>Hola</p>
-        <p>Hola</p>
-        <p>Hola</p>
-        <p>Hola</p>
-      </Slider>
-
-      <Slider initialPosition="10%">
-        <p>Hola</p>
-        <p>Hola</p>
-        <p>Hola</p>
-        <p>Hola</p>
-        <p>Hola</p>
-        <p>Hola</p>
-        <p>Hola</p>
-      </Slider>
 
       <HomeSection
         heading={data.about.heading}
@@ -58,6 +45,9 @@ const IndexPage = ({ data: { strapiHome: data } }) => {
         linkTo="/about-us"
         linkLabel="ver nosotros"
       />
+
+      <ServicesSlider services={allStrapiServices.nodes} />
+
       <HomeSection
         heading={data.services.heading}
         description={data.services.description}
@@ -65,6 +55,7 @@ const IndexPage = ({ data: { strapiHome: data } }) => {
         linkLabel="ver servicios"
       />
       <ArrowsDivider />
+
       <HomeSection
         heading={data.projects.heading}
         linkTo="/portfolio"
