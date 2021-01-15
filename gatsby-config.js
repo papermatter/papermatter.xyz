@@ -18,7 +18,7 @@ module.exports = {
         //If using single types place them in this array.
         singleTypes: [
           "page-about-us",
-          "page-home",
+          "home",
           "page-portfolio",
           "page-services",
         ],

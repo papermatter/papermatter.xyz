@@ -1,54 +1,54 @@
-import React, { useState } from "react"
-
+import React from "react"
+import { graphql } from "gatsby"
 import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
-import { graphql } from "gatsby"
 import { PageCover } from "../components/common/PageCover"
+import HomeSection from "../components/sections/HomeSection"
 
-import HomeAbout from "../components/HomeComponents/HomeAbout"
-import { colors } from "../styles/Vars"
+export const homeQuery = graphql`
+  query GET_HOME {
+    strapiHome {
+      heading
+      about {
+        description
+        heading
+      }
+      projects {
+        heading
+      }
+      services {
+        description
+        heading
+      }
+    }
+  }
+`
 
-// export const index_query = graphql`
-//   query GET_HOME_DATA {
-//     strapiPageHome {
-//       portfolio_description
-//       portfolio_title {
-//         title_black
-//         title_italic
-//       }
-//       services_description
-//       services_title {
-//         title_black
-//         title_italic
-//       }
-//       title {
-//         title_black
-//         title_italic
-//       }
-//     }
-//     allStrapiProjects(limit: 3) {
-//       edges {
-//         node {
-//           slug
-//           title
-//           main_photo {
-//             publicURL
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
-
-const IndexPage = ({ data }) => {
-  const [backgroundColor] = useState(colors.white)
-
+const IndexPage = ({ data: { strapiHome: data } }) => {
   return (
-    <Layout backgroundColor={backgroundColor}>
+    <Layout>
       <SEO title="Inicio" />
-      <PageCover heading="Creamos experiencias visuales e interactivas." />
-      <HomeAbout />
-      {/* <HomePortfolio data={data.strapiPageHome} projects={projects} /> */}
+      <PageCover heading={data.heading} />
+
+      <HomeSection
+        heading={data.about.heading}
+        description={data.about.description}
+        linkTo="/about-us"
+        linkLabel="ver nosotros"
+      />
+      <HomeSection
+        heading={data.services.heading}
+        description={data.services.description}
+        linkTo="/services"
+        linkLabel="ver servicios"
+      />
+      <HomeSection
+        heading={data.projects.heading}
+        linkTo="/portfolio"
+        linkLabel="ver portafolio"
+      >
+        <div>Hola</div>
+      </HomeSection>
     </Layout>
   )
 }
