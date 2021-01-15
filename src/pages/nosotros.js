@@ -1,32 +1,60 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { graphql } from "gatsby"
-
 import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
+import { PageCover } from "../components/common/PageCover"
+import AboutSection from "../components/sections/AboutSection"
 
 import withLocation from "../components/HoC/withLocation"
 // import Slideshow from "../components/Slideshow/Slideshow"
-// import AboutPageCover from "../components/common/PageCover/AboutPageCover"
-// import { useBreakpoint } from "../lib/hooks/useBreakpoints"
-import { PageCover } from "../components/common/PageCover"
 
 export const aboutQuery = graphql`
   query GET_ABOUT_US {
-    strapiPageAboutUs {
+    strapiAboutUs {
       heading
+      goal {
+        description
+        heading
+      }
+      experience {
+        description
+        heading
+      }
+      location {
+        description
+        heading
+      }
     }
   }
 `
 
-const AboutPage = ({ data }) => {
+const AboutPage = ({ data: { strapiAboutUs: data } }) => {
   return (
     <>
       <Layout>
         <SEO title="Nosotros" />
-        <PageCover
-          pageName="nosotros"
-          heading={data.strapiPageAboutUs.heading}
-        />
+        <PageCover pageName="nosotros" heading={data.heading} />
+
+        <AboutSection
+          heading={data.goal.heading}
+          description={data.goal.description}
+        >
+          <div>Hola</div>
+        </AboutSection>
+
+        <AboutSection
+          heading={data.experience.heading}
+          description={data.experience.description}
+        >
+          <div>Hola</div>
+        </AboutSection>
+
+        <AboutSection
+          heading={data.location.heading}
+          description={data.location.description}
+        >
+          <div>Hola</div>
+        </AboutSection>
 
         {/* <Slideshow time="30">
             <>
@@ -59,9 +87,7 @@ const AboutPage = ({ data }) => {
               </Slideshow>
             </>
           )}
-          <p>{data.strapiPageAbout.description}</p>
-        <DescriptionList data={data.strapiPageAbout.description_list} />
-        <Clients title={data.strapiPageAbout.clients_title} /> */}
+          <p>{data.strapiPageAbout.description}</p> */}
       </Layout>
     </>
   )

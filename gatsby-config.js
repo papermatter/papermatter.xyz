@@ -16,12 +16,7 @@ module.exports = {
         queryLimit: 1000, // Default to 100
         contentTypes: ["clients", "projects", "services"],
         //If using single types place them in this array.
-        singleTypes: [
-          "page-about-us",
-          "home",
-          "page-portfolio",
-          "page-services",
-        ],
+        singleTypes: ["about-us", "home", "page-portfolio", "page-services"],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
       },
     },
