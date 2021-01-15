@@ -5,6 +5,7 @@ import SEO from "../components/common/seo"
 import { PageCover } from "../components/common/PageCover"
 import HomeSection from "../components/sections/HomeSection"
 import ArrowsDivider from "../components/ui/ArrowsDivider"
+import Slider from "../components/ui/Slider"
 
 export const homeQuery = graphql`
   query GET_HOME {
@@ -30,6 +31,26 @@ const IndexPage = ({ data: { strapiHome: data } }) => {
     <Layout>
       <SEO title="Inicio" />
       <PageCover heading={data.heading} />
+
+      <Slider time="17s" gap="2rem">
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+      </Slider>
+
+      <Slider initialPosition="10%">
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+      </Slider>
 
       <HomeSection
         heading={data.about.heading}
