@@ -12,18 +12,15 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.API_URL
-          ? "https://estudiomoncada-cms.herokuapp.com"
-          : "http://localhost:1337",
+        apiURL: process.env.API_URL,
         queryLimit: 1000, // Default to 100
-        contentTypes: [`services`, `projects`, `project-categories`],
+        contentTypes: ["clients", "projects", "services"],
         //If using single types place them in this array.
         singleTypes: [
-          `page-services`,
-          `contact-form`,
-          `page-about`,
-          `page-portafolio`,
-          `page-home`,
+          "page-about-us",
+          "page-home",
+          "page-portfolio",
+          "page-services",
         ],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
       },

@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog articles pages.
   const projects = result.data.projects.edges
-  projects.forEach((project) => {
+  projects.forEach(project => {
     createPage({
       path: `/portafolio/${project.node.slug}`,
       component: require.resolve("./src/templates/project.js"),

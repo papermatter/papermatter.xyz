@@ -1,43 +1,25 @@
-import React from 'react'
-import {Div, Title, DesktopDiv, StyledPhotoContainer} from './styles'
-import Tab from './Tab'
-import { useBreakpoint } from '../../lib/hooks/useBreakpoints'
-import ServiceContainer from './ServiceContainer'
+import React from "react"
+import { Div, Title, StyledPhotoContainer } from "./styles"
+import styled from "styled-components"
 
+const StyledServices = styled.section`
+  background: red;
+`
 
-
-export default function Services({services}) {
-  const breakpoints = useBreakpoint()
-  if (breakpoints.laptop) {
-    return (
-      <div id='services'>
-        {services.map(({ node }, index) => (
-          <DesktopDiv key={node.strapiId} id={`${node.strapiId}`}>
-            <ServiceContainer
-              data={node}
-              index={index}
-              services={services}
-              isRight={index % 2 !== 0}
-            />
-          </DesktopDiv>
-        ))}
-      </div>
-    )
-  }
+export default function Services({ services }) {
   return (
-    <div id="services">
+    <StyledServices>
       {services.map(({ node }, index) => (
         <Div key={node.strapiId} id={`${node.strapiId}`}>
           <p>
             {index + 1} / {services.length}
           </p>
           <Title>{node.title}</Title>
-          <Tab data={node} />
-          <StyledPhotoContainer imgWidth='60%' imgHeight={'40vh'}>
+          <StyledPhotoContainer imgWidth="60%" imgHeight={"40vh"}>
             <img src={node.Illustration.publicURL} alt="" />
           </StyledPhotoContainer>
         </Div>
       ))}
-    </div>
+    </StyledServices>
   )
 }

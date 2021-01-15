@@ -1,5 +1,4 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import {
   StyledContainer,
   StyledForm,
@@ -7,26 +6,13 @@ import {
   Label,
   StyledTextarea,
 } from "./styles"
-import { Title } from "../../ui/Title"
+import Heading from "../../ui/Heading/Heading"
 
 export default function ContactForm() {
-  const data = useStaticQuery(graphql`
-    query FORM_QUERY {
-      allStrapiContactForm {
-        edges {
-          node {
-            title {
-              title_black
-              title_italic
-            }
-          }
-        }
-      }
-    }
-  `)
   return (
     <StyledContainer id="contact-form">
-      <Title data={data.allStrapiContactForm.edges[0].node.title[0]} />
+      <Heading>¿Algo en mente?</Heading>
+      <Heading>Hablemos</Heading>
       <StyledForm>
         <div id="nameContainer">
           <Label htmlFor="name">Nombre</Label>

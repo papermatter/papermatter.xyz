@@ -1,37 +1,21 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
 import "./normalize.css"
 import "./layout.css"
 import { Main } from "./styles"
-import {ContactForm} from "../ContactForm"
-
+import { ContactForm } from "../ContactForm"
+import { SITE_NAME } from "../../../lib/contants"
 
 const Layout = ({ children, backgroundColor }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      } 
-    }
-  `)
-
   return (
     <>
-      <Header
-        backgroundColor={backgroundColor}
-        siteTitle={data.site.siteMetadata.title}
-      />
+      <Header backgroundColor={backgroundColor} siteTitle={SITE_NAME} />
 
       <Main backgroundColor={backgroundColor}>
-        <>
-          {children}
-        </>
+        <>{children}</>
       </Main>
       <ContactForm />
       <Footer />
