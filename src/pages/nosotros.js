@@ -3,59 +3,30 @@ import { graphql } from "gatsby"
 
 import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
-import { colors } from "../styles/Vars"
-import { DescriptionList } from "../components/ui/DescriptionList"
-import Clients from "../components/Clients/Clients"
+
 import withLocation from "../components/HoC/withLocation"
-import Slideshow from "../components/Slideshow/Slideshow"
-import AboutPageCover from "../components/common/PageCover/AboutPageCover"
-import { useBreakpoint } from "../lib/hooks/useBreakpoints"
+// import Slideshow from "../components/Slideshow/Slideshow"
+// import AboutPageCover from "../components/common/PageCover/AboutPageCover"
+// import { useBreakpoint } from "../lib/hooks/useBreakpoints"
+import { PageCover } from "../components/common/PageCover"
 
-// export const aboutQuery = graphql`
-//   query GET_DATA_ABOUT {
-//     strapiPageAbout {
-//       description
-//       history_title {
-//         title_black
-//         title_italic
-//       }
-//       history {
-//         year_date
-//         description
-//       }
-//       description_list {
-//         title_black
-//         title_italic
-//       }
-//       team {
-//         first_name
-//         last_name
-//         business_title
-//         photo {
-//           publicURL
-//         }
-//       }
-//       clients_title {
-//         title_black
-//         title_italic
-//       }
-//     }
-//   }
-// `
-
-const AboutPage = ({ data, search }) => {
-  const breakpoints = useBreakpoint()
-
-  useEffect(() => {
-    if (search !== undefined) {
-      window.scrollTo({ top: search.scroll, behavior: "smooth" })
+export const aboutQuery = graphql`
+  query GET_ABOUT_US {
+    strapiPageAboutUs {
+      heading
     }
-  }, [search])
+  }
+`
 
+const AboutPage = ({ data }) => {
   return (
     <>
-      <Layout backgroundColor={colors.gray}>
+      <Layout>
         <SEO title="Nosotros" />
+        <PageCover
+          pageName="nosotros"
+          heading={data.strapiPageAboutUs.heading}
+        />
 
         {/* <Slideshow time="30">
             <>

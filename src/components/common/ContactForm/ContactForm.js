@@ -6,13 +6,12 @@ import {
   Label,
   StyledTextarea,
 } from "./styles"
-import Heading from "../../ui/Heading/Heading"
 
 export default function ContactForm() {
   return (
     <StyledContainer id="contact-form">
-      <Heading>¿Algo en mente?</Heading>
-      <Heading>Hablemos</Heading>
+      <h4>¿Algo en mente?</h4>
+      <h4>Hablemos</h4>
       <StyledForm>
         <div id="nameContainer">
           <Label htmlFor="name">Nombre</Label>

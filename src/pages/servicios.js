@@ -5,9 +5,10 @@ import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
 import { PageCover } from "../components/common/PageCover"
 import Services from "../components/Services/Services"
+import { colors } from "../styles/Vars"
 
 export const query = graphql`
-  query MyQuery {
+  query GET_SERVICES {
     strapiPageServices {
       heading
       description
@@ -25,7 +26,7 @@ export const query = graphql`
 
 const ServicesPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout backgroundColor={colors.black}>
       <SEO title="Servicios" />
       <PageCover
         pageName="Servicios"

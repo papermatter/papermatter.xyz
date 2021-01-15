@@ -1,20 +1,12 @@
 import styled from "styled-components"
-import {
-  colors,
-  breakpoints,
-  fontStyleItalic,
-  HorizontalDashedBorder,
-} from "../../../styles/Vars"
+import { breakpoints, HorizontalDashedBorder } from "../../../styles/Vars"
 
 export const StyledContainer = styled.section`
   padding: 5em 2em 4em;
-  h3 {
-    font-size: 2em;
-    margin: 0;
-  }
   h4 {
-    font-size: 2em;
-    ${fontStyleItalic}
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+    text-align: center;
   }
   ${breakpoints.tablet} {
     padding: 5em 4em 4em;
@@ -38,6 +30,7 @@ export const Label = styled.label`
 `
 
 export const StyledForm = styled.form`
+  margin-top: 4rem;
   padding: 2em 0;
   div {
     ${HorizontalDashedBorder}

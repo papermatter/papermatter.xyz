@@ -64,6 +64,7 @@ p {
 
 :root {
   --black: #000;
+  --gray-15: #d9d9d9;
   --gray-25: #bfbfbf;
   --gray-50: #808080;
   --white: #fff;

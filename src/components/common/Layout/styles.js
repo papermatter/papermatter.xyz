@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import { colors, breakpoints } from '../../../styles/Vars'
+import styled from "styled-components"
+import { colors, breakpoints } from "../../../styles/Vars"
 
 export const Main = styled.main`
-  padding: 0 2em 2em;
+  padding: 0 1.5rem 2rem;
   margin: 0 auto;
   background: ${props => props.backgroundColor || colors.white};
 
@@ -18,4 +18,4 @@ export const Main = styled.main`
     padding-left: 14em;
     padding-right: 14em;
   }
-  `
+`
