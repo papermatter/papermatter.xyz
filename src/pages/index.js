@@ -4,6 +4,7 @@ import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
 import { PageCover } from "../components/common/PageCover"
 import HomeSection from "../components/sections/HomeSection"
+import ArrowsDivider from "../components/ui/ArrowsDivider"
 
 export const homeQuery = graphql`
   query GET_HOME {
@@ -42,6 +43,7 @@ const IndexPage = ({ data: { strapiHome: data } }) => {
         linkTo="/services"
         linkLabel="ver servicios"
       />
+      <ArrowsDivider />
       <HomeSection
         heading={data.projects.heading}
         linkTo="/portfolio"

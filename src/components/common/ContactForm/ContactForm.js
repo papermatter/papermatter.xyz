@@ -1,4 +1,5 @@
 import React from "react"
+import ArrowsDivider from "../../ui/ArrowsDivider"
 import {
   StyledContainer,
   StyledForm,
@@ -12,6 +13,8 @@ export default function ContactForm() {
     <StyledContainer id="contact-form">
       <h4>¿Algo en mente?</h4>
       <h4>Hablemos</h4>
+
+      <ArrowsDivider />
       <StyledForm>
         <div id="nameContainer">
           <Label htmlFor="name">Nombre</Label>
