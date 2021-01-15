@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components';
-import { colors, breakpoints, fontStyleItalic } from '../../styles/Vars';
-import { LinkComponent } from '../ui/LinkComponent';
-import { DivPhoto } from '../project/Project/styles';
+import React from "react"
+import styled from "styled-components"
+import { colors, breakpoints, fontStyleItalic } from "../../styles/Vars"
+import { LinkComponent } from "../ui/LinkComponent"
+import { DivPhoto } from "../project/Project/styles"
 
 const StyledCard = styled.div`
   width: 100%;
@@ -16,7 +16,7 @@ const StyledCard = styled.div`
     margin: 0.5em;
     color: ${colors.black};
     font-size: 2em;
-    
+
     ${fontStyleItalic}
   }
   ${breakpoints.mobileS} {
@@ -50,12 +50,20 @@ const StyledCard = styled.div`
   }
 `
 
-export default function Card({data, staticData}) {
+export default function Card({ data, staticData }) {
   return (
-    <StyledCard key={data.index} >
-      <DivPhoto url={!staticData ? data.main_photo.formats.small.url : data.main_photo.publicURL} />
+    <StyledCard key={data.index}>
+      <DivPhoto
+        url={
+          !staticData
+            ? data.main_photo.formats.small.url
+            : data.main_photo.publicURL
+        }
+      />
       <h3>{data.title}</h3>
-      <LinkComponent to={`/portafolio/${data.slug}`}>VER PROYECTO</LinkComponent>
+      <LinkComponent to={`/portafolio/${data.slug}`}>
+        VER PROYECTO
+      </LinkComponent>
     </StyledCard>
   )
 }
