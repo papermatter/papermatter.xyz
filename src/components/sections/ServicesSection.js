@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-const StyledServices = styled.section`
+const StyledServicesSection = styled.section`
   display: flex;
   flex-wrap: wrap;
   .service-card {
@@ -28,14 +28,15 @@ const StyledServices = styled.section`
   }
 `
 
-export default function Services({ services }) {
+export default function ServicesSection({ services }) {
   return (
-    <StyledServices>
+    <StyledServicesSection>
       {services.map((service, index) => (
-        <div className="service-card" key={service.id} id={service.id}>
+        <div className="service-card" key={service.id}>
           <span>
             {index < 10 ? `0${index + 1}` : index + 1} / {services.length}
           </span>
+
           <h3>{service.title}</h3>
 
           <p>{service.description}</p>
@@ -43,6 +44,6 @@ export default function Services({ services }) {
           <Link to="/projects">ver projectos</Link>
         </div>
       ))}
-    </StyledServices>
+    </StyledServicesSection>
   )
 }
