@@ -19,16 +19,6 @@ export const StyledContainer = styled.section`
   }
 `
 
-export const Label = styled.label`
-  font-size: var(--font-md);
-  position: absolute;
-  color: var(--gray-50);
-  transform-origin: top left;
-  left: 0;
-  transform: translate(0, 16px) scale(1);
-  transition: transform 0.1s ease-in-out;
-`
-
 export const StyledForm = styled.form`
   margin-top: 4rem;
   padding: 2rem 0;
@@ -36,10 +26,10 @@ export const StyledForm = styled.form`
     ${HorizontalDashedBorder}
     background-position: bottom;
     position: relative;
-    margin-bottom: 0.5em;
+    margin-bottom: 1rem;
     &:focus-within {
       textarea {
-        height: 5rem;
+        height: 6rem;
       }
       label {
         transform: translate(0, 0) scale(0.75);
@@ -48,16 +38,27 @@ export const StyledForm = styled.form`
   }
   input,
   textarea {
-    padding: 1rem 0;
-    font-size: var(--font-xl);
+    padding: 1.2rem 0 0.8rem;
+    font-size: var(--font-md);
+    font-family: inherit;
     width: 100%;
     background: transparent;
     border: none;
     outline: 0;
-    &:not(:placeholder-shown) + ${Label} {
+    &:not(:placeholder-shown) + label {
       transform: translate(0, 0) scale(0.75);
     }
   }
+  label {
+    font-size: var(--font-md);
+    position: absolute;
+    color: var(--gray-50);
+    transform-origin: top left;
+    left: 0;
+    transform: translate(0, 16px) scale(1);
+    transition: transform 0.1s ease-in-out;
+  }
+
   ${breakpoints.laptop} {
     display: grid;
     grid-template-areas:
@@ -80,12 +81,9 @@ export const StyledForm = styled.form`
 export const StyledTextarea = styled.div`
   textarea {
     resize: none;
-    padding-top: 0;
-    margin-top: 1rem;
-    margin-bottom: 0.2rem;
-    height: 1rem;
+    padding: 1rem 0 0;
     &:not(:placeholder-shown) {
-      height: 5rem;
+      height: 6rem;
     }
   }
   ${breakpoints.laptop} {
