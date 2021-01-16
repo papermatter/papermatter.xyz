@@ -8,6 +8,13 @@ const StyledCard = styled.div`
   width: calc(50% - 0.5rem);
   margin: 0.5rem 0;
   cursor: pointer;
+  &:nth-of-type(2n) {
+    transform: translateY(-50%);
+  }
+  &:nth-of-type(2) {
+    height: 150px;
+    transform: translateY(0);
+  }
   .info {
     z-index: 2;
     background: rgba(0, 0, 0, 0.35);
