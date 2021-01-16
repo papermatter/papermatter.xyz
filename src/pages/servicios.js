@@ -4,12 +4,23 @@ import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
 import { PageCover } from "../components/common/PageCover"
 import ServicesSection from "../components/sections/ServicesSection"
+import Img from "gatsby-image"
 
 export const query = graphql`
   query GET_SERVICES {
     strapiPageServices {
       heading
       description
+      cover {
+        alt
+        project_photo {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
     }
     allStrapiServices {
       nodes {
@@ -17,6 +28,13 @@ export const query = graphql`
         title
         slug
         description
+        cover {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
@@ -24,13 +42,22 @@ export const query = graphql`
 
 const ServicesPage = ({ data }) => {
   return (
-    <Layout bgColor="black">
+    <Layout bgColor="var(--black)">
       <SEO title="Servicios" />
       <PageCover
         pageName="Servicios"
         heading={data.strapiPageServices.heading}
         description={data.strapiPageServices.description}
       />
+
+      <Img
+        fluid={
+          data.strapiPageServices.cover.project_photo.childImageSharp.fluid
+        }
+        alt={data.strapiPageServices.cover.alt}
+        style={{ margin: "0 -1.5rem 8rem" }}
+      />
+
       <ServicesSection services={data.allStrapiServices.nodes} />
     </Layout>
   )

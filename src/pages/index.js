@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
-import { PageCover } from "../components/common/PageCover"
+import HomeCover from "../components/common/PageCover/HomeCover"
 import HomeSection from "../components/sections/HomeSection"
 import ArrowsDivider from "../components/ui/ArrowsDivider"
 import ServicesSlider from "../components/sections/ServicesSlider"
@@ -22,6 +22,13 @@ export const homeQuery = graphql`
         description
         heading
       }
+      cover {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
     allStrapiServices {
       nodes {
@@ -36,7 +43,11 @@ const IndexPage = ({ data: { strapiHome: data, allStrapiServices } }) => {
   return (
     <Layout>
       <SEO title="Inicio" />
-      <PageCover heading={data.heading} />
+
+      <HomeCover
+        heading={data.heading}
+        cover={data.cover.childImageSharp.fluid}
+      />
 
       <HomeSection
         heading={data.about.heading}

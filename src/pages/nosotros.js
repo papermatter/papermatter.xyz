@@ -6,7 +6,7 @@ import { PageCover } from "../components/common/PageCover"
 import AboutSection from "../components/sections/AboutSection"
 
 import withLocation from "../components/HoC/withLocation"
-// import Slideshow from "../components/Slideshow/Slideshow"
+import Img from "gatsby-image"
 
 export const aboutQuery = graphql`
   query GET_ABOUT_US {
@@ -24,6 +24,13 @@ export const aboutQuery = graphql`
         description
         heading
       }
+      cover {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
 `
@@ -34,6 +41,11 @@ const AboutPage = ({ data: { strapiAboutUs: data } }) => {
       <Layout>
         <SEO title="Nosotros" />
         <PageCover pageName="nosotros" heading={data.heading} />
+
+        <Img
+          fluid={data.cover.childImageSharp.fluid}
+          style={{ margin: "0 -1.5rem 8rem" }}
+        />
 
         <AboutSection
           heading={data.goal.heading}
@@ -55,39 +67,6 @@ const AboutPage = ({ data: { strapiAboutUs: data } }) => {
         >
           <div>Hola</div>
         </AboutSection>
-
-        {/* <Slideshow time="30">
-            <>
-              <h3>¿De dónde venimos?</h3>
-              <h3>¿Quiénes somos?</h3>
-              <h3>¿Qué hacemos?</h3>
-              <h3>¿Cómo te podemos ayudar?</h3>
-              <h3>¿Qué queremos?</h3>
-            </>
-          </Slideshow>
-          {!breakpoints.tablet && (
-            <>
-              <Slideshow time="20" start="even">
-                <>
-                  <h3>¿Qué hacemos?</h3>
-                  <h3>¿Cómo te podemos ayudar?</h3>
-                  <h3>¿Quiénes somos?</h3>
-                  <h3>¿Qué queremos?</h3>
-                  <h3>¿De dónde venimos?</h3>
-                </>
-              </Slideshow>
-              <Slideshow time="35">
-                <>
-                  <h3>¿Qué queremos?</h3>
-                  <h3>¿Qué podemos hacer?</h3>
-                  <h3>¿De dónde venimos?</h3>
-                  <h3>¿Qué hacemos?</h3>
-                  <h3>¿Quiénes somos?</h3>
-                </>
-              </Slideshow>
-            </>
-          )}
-          <p>{data.strapiPageAbout.description}</p> */}
       </Layout>
     </>
   )
