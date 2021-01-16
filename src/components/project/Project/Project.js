@@ -1,23 +1,26 @@
-import React, { useState, useEffect } from 'react'
-import {StyledProject, StyledProjectInfoContainer, StyledPhotosContainer, DivPhoto} from './styles'
-import {Lightbox} from '../Lightbox'
+import React, { useState, useEffect } from "react"
+import {
+  StyledProject,
+  StyledProjectInfoContainer,
+  StyledPhotosContainer,
+  DivPhoto,
+} from "./styles"
+import { Lightbox } from "../Lightbox"
 import { useBreakpoint } from "../../../lib/hooks/useBreakpoints"
-import Nav from '../../common/Nav/Nav'
+import Nav from "../Nav/Nav"
 
-export default function Project({project}) {
+export default function Project({ project }) {
   const [initialActiveTab, setInitialActiveTab] = useState(null)
   const [photos, setPhotos] = useState([])
 
   useEffect(() => {
     let allPhotos = [project.main_photo.publicURL]
 
-    project.Photos.map((item) => allPhotos.push(item.project_photo.publicURL))
+    project.Photos.map(item => allPhotos.push(item.project_photo.publicURL))
     setPhotos(photos.concat(allPhotos))
   }, [])
 
-  
-
-  const openLightbox = tabIndex => {    
+  const openLightbox = tabIndex => {
     setInitialActiveTab(tabIndex)
   }
 
@@ -34,7 +37,7 @@ export default function Project({project}) {
         handleCloseClick={closeLightbox}
       />
 
-      <Nav data={project.project_category} title={project.title}/>
+      <Nav data={project.project_category} title={project.title} />
 
       {breakpoints.tablet && <h1>{project.title}</h1>}
       <DivPhoto

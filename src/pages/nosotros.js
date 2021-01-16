@@ -7,7 +7,6 @@ import AboutSection from "../components/sections/AboutSection"
 import ClientsSlider from "../components/sections/ClientsSlider"
 import ImagesSlider from "../components/sections/ImagesSlider"
 
-import withLocation from "../components/HoC/withLocation"
 import Img from "gatsby-image"
 
 export const aboutQuery = graphql`
@@ -68,43 +67,41 @@ const AboutPage = ({
   data: { strapiAboutUs: data, allStrapiClients, allStrapiImages },
 }) => {
   return (
-    <>
-      <Layout>
-        <SEO title="Nosotros" />
-        <PageCover pageName="nosotros" heading={data.heading} />
+    <Layout>
+      <SEO title="Nosotros" />
+      <PageCover pageName="nosotros" heading={data.heading} />
 
-        <Img
-          fluid={data.cover.childImageSharp.fluid}
-          style={{ margin: "0 -1.5rem 8rem" }}
+      <Img
+        fluid={data.cover.childImageSharp.fluid}
+        style={{ margin: "0 -1.5rem 8rem" }}
+      />
+
+      <AboutSection
+        heading={data.goal.heading}
+        description={data.goal.description}
+      >
+        <ImagesSlider
+          images={allStrapiImages.nodes.slice(0, 2)}
+          initialPosition="25%"
         />
+        <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
+      </AboutSection>
 
-        <AboutSection
-          heading={data.goal.heading}
-          description={data.goal.description}
-        >
-          <ImagesSlider
-            images={allStrapiImages.nodes.slice(0, 2)}
-            initialPosition="25%"
-          />
-          <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
-        </AboutSection>
+      <AboutSection
+        heading={data.experience.heading}
+        description={data.experience.description}
+      >
+        <ClientsSlider clients={allStrapiClients.nodes} />
+      </AboutSection>
 
-        <AboutSection
-          heading={data.experience.heading}
-          description={data.experience.description}
-        >
-          <ClientsSlider clients={allStrapiClients.nodes} />
-        </AboutSection>
-
-        <AboutSection
-          heading={data.location.heading}
-          description={data.location.description}
-        >
-          <div>Hola</div>
-        </AboutSection>
-      </Layout>
-    </>
+      <AboutSection
+        heading={data.location.heading}
+        description={data.location.description}
+      >
+        <div>Hola</div>
+      </AboutSection>
+    </Layout>
   )
 }
 
-export default withLocation(AboutPage)
+export default AboutPage
