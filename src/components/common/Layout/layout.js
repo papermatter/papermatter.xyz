@@ -8,14 +8,12 @@ import { Main } from "./styles"
 import { ContactForm } from "../ContactForm"
 import { SITE_NAME } from "../../../lib/contants"
 
-const Layout = ({ children, backgroundColor }) => {
+const Layout = ({ children, bgColor }) => {
   return (
     <>
-      <Header backgroundColor={backgroundColor} siteTitle={SITE_NAME} />
+      <Header bgColor={bgColor} siteTitle={SITE_NAME} />
 
-      <Main backgroundColor={backgroundColor}>
-        <>{children}</>
-      </Main>
+      <Main bgColor={bgColor}>{children}</Main>
       <ContactForm />
       <Footer />
     </>

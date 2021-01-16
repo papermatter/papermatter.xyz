@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import { ArrowLeftIcon } from '../../Icons'
-import { Link } from 'gatsby'
-import { StyledNav } from './styles'
-import { useBreakpoint } from '../../../lib/hooks/useBreakpoints'
+import React, { useState, useEffect } from "react"
+import { Link } from "gatsby"
+import { StyledNav } from "./styles"
+import { useBreakpoint } from "../../../lib/hooks/useBreakpoints"
+import ArrowLeft from "../../Icons/ArrowLeft"
 
-export default function Nav({data, title}) {
+export default function Nav({ data, title }) {
   const [isActive, setIsActive] = useState(false)
-  const breakpoints = useBreakpoint();
+  const breakpoints = useBreakpoint()
 
-  const toogleTitle = () => {    
-    if(window.scrollY > 110) {
+  const toogleTitle = () => {
+    if (window.scrollY > 110) {
       setIsActive(true)
-    } else{
+    } else {
       setIsActive(false)
     }
   }
 
   useEffect(() => {
     if (breakpoints.tablet) {
-      window.addEventListener('scroll', toogleTitle)
+      window.addEventListener("scroll", toogleTitle)
     }
     return () => {
       window.removeEventListener("scroll", toogleTitle)
@@ -27,7 +27,7 @@ export default function Nav({data, title}) {
   return (
     <StyledNav>
       <Link to="/portafolio">
-        <ArrowLeftIcon size="2.5em" />
+        <ArrowLeft />
       </Link>
       <div className={"routes-nav"}>
         <Link to="/portafolio">Portafolio </Link>
@@ -36,4 +36,4 @@ export default function Nav({data, title}) {
       {isActive && <h1>{title}</h1>}
     </StyledNav>
   )
-} 
+}

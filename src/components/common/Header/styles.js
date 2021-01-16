@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { colors, breakpoints } from "../../../styles/Vars"
+import { breakpoints } from "../../../styles/Vars"
 
 export const StyledHeader = styled.div`
   width: 100%;
@@ -12,7 +12,14 @@ export const StyledHeader = styled.div`
   z-index: 10000;
   height: 3.8em;
   top: 0;
-  background: ${props => props.backgroundColor || colors.white};
+  background: ${props =>
+    props.bgColor === "black" ? "var(--black)" : "var(--white)"};
+  color: ${props =>
+    props.bgColor === "black" ? "var(--white)" : "var(--black)"};
+  svg {
+    color: ${props =>
+      props.bgColor === "black" ? "var(--white)" : "var(--black)"};
+  }
   nav {
     display: block;
   }
@@ -40,12 +47,5 @@ export const StyledDesktopNav = styled.div`
 `
 
 export const StyledLink = styled(Link)`
-  color: ${props => props.color};
   text-decoration: none;
-  &[aria-current] {
-    color: ${props => props.activecolor};
-    svg {
-      fill: ${props => `${props.activecolor} !important`};
-    }
-  }
 `

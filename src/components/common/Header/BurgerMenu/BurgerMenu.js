@@ -1,11 +1,13 @@
 import React, { useState } from "react"
-import { Logo, ExitIcon, BurgerIcon } from "../../../Icons"
+import { Logo } from "../../../Icons"
 import { Div, Header, Button } from "./styles"
 import { Link } from "gatsby"
 import ExternalLink from "../../../ui/ExternalLink"
 import { CONTACT_EMAIL } from "../../../../lib/contants"
+import Menu from "../../../Icons/Menu"
+import Close from "../../../Icons/Close"
 
-export const BurgerMenu = ({ children, color }) => {
+export const BurgerMenu = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -15,7 +17,7 @@ export const BurgerMenu = ({ children, color }) => {
   if (!isOpen) {
     return (
       <Button onClick={toggleMenu}>
-        <BurgerIcon color={color} />
+        <Menu />
       </Button>
     )
   }
@@ -26,7 +28,7 @@ export const BurgerMenu = ({ children, color }) => {
           <Logo size="1.8em" />
         </Link>
         <Button onClick={toggleMenu}>
-          <ExitIcon />
+          <Close />
         </Button>
       </Header>
       {children}

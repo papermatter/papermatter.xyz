@@ -2,7 +2,6 @@ import styled from "styled-components"
 
 export const Div = styled.div`
   position: fixed;
-  background: var(--white);
   top: 0;
   bottom: 0;
   left: 0;
@@ -13,6 +12,11 @@ export const Div = styled.div`
   justify-content: space-between;
   padding: 0 2em 8vh;
   transition: 0.2s;
+  color: var(--black);
+  background: var(--white);
+  svg {
+    color: var(--black);
+  }
   .contact-email {
     text-decoration: underline;
     text-align: center;

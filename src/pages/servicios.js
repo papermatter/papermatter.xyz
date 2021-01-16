@@ -24,7 +24,7 @@ export const query = graphql`
 
 const ServicesPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout bgColor="black">
       <SEO title="Servicios" />
       <PageCover
         pageName="Servicios"

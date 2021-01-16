@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react"
-import { ExitIcon, ArrowLeftIcon, ArrowRightIcon } from '../../Icons'
-import usePanAndZoom from "../../../lib/hooks/usePanAndZoom";
-import { StyledLightbox } from "./styles";
-import { colors } from "../../../styles/Vars";
+import usePanAndZoom from "../../../lib/hooks/usePanAndZoom"
+import { StyledLightbox } from "./styles"
+import Close from "../../Icons/Close"
+import ArrowLeft from "../../Icons/ArrowLeft"
+import ArrowRight from "../../Icons/ArrowRight"
 
-export default function Lightbox({photos, initialActiveTab, handleCloseClick}) {
+export default function Lightbox({
+  photos,
+  initialActiveTab,
+  handleCloseClick,
+}) {
   const [activeTab, setActiveTab] = useState(0)
-  const [isZoomIn, setIsZoomIn] = useState(false);
+  const [isZoomIn, setIsZoomIn] = useState(false)
 
   useEffect(() => {
-    setActiveTab(initialActiveTab-1)
+    setActiveTab(initialActiveTab - 1)
   }, [initialActiveTab])
 
-  const {onMouseDown, onTouchStart, translateX, translateY} = usePanAndZoom();
-  
+  const { onMouseDown, onTouchStart, translateX, translateY } = usePanAndZoom()
+
   const ZoomIn = () => {
     setIsZoomIn(true)
   }
@@ -35,15 +40,14 @@ export default function Lightbox({photos, initialActiveTab, handleCloseClick}) {
     ZoomOut()
   }
 
-  const onKeyDown = (e) => {
+  const onKeyDown = e => {
     if (e.keyCode === 37) {
       return prevPhoto()
     } else if (e.keyCode === 39) {
       return nextPhoto()
     }
-    return;
+    return
   }
-
 
   useEffect(() => {
     window.addEventListener("keydown", onKeyDown)
@@ -52,7 +56,7 @@ export default function Lightbox({photos, initialActiveTab, handleCloseClick}) {
       window.removeEventListener("keydown", onKeyDown)
     }
   }, [activeTab])
-  
+
   return (
     <StyledLightbox isShow={initialActiveTab}>
       <div
@@ -67,7 +71,7 @@ export default function Lightbox({photos, initialActiveTab, handleCloseClick}) {
               ? "translate(0px, 0px)"
               : `translate(${translateX}px, ${translateY}px)`
           }`,
-          width: `${isZoomIn ? '300%' : '100%'}`,
+          width: `${isZoomIn ? "300%" : "100%"}`,
           cursor: `${isZoomIn ? "move" : "zoom-in"}`,
           marginLeft: `${isZoomIn ? "-50%" : "0"}`,
         }}
@@ -83,13 +87,13 @@ export default function Lightbox({photos, initialActiveTab, handleCloseClick}) {
       </div>
       <p>{`${activeTab + 1}/${photos.length}`}</p>
       <button className="exit-btn" onClick={() => handleCloseClick()}>
-        <ExitIcon size="2em" />
+        <Close />
       </button>
       <button className="btn-left" onClick={() => prevPhoto()}>
-        <ArrowLeftIcon size="2em" color={colors.black} />
+        <ArrowLeft />
       </button>
       <button className="btn-right" onClick={() => nextPhoto()}>
-        <ArrowRightIcon size="2em" color={colors.black} />
+        <ArrowRight />
       </button>
       {isZoomIn && (
         <span onClick={() => ZoomOut()}>Click here to zoom out</span>

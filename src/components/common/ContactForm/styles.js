@@ -2,20 +2,20 @@ import styled from "styled-components"
 import { breakpoints, HorizontalDashedBorder } from "../../../styles/Vars"
 
 export const StyledContainer = styled.section`
-  padding: 5em 2em 4em;
+  padding: 5rem 2rem 4rem;
   h4 {
     font-size: var(--font-xl);
     margin: 0.5rem 0;
     text-align: center;
   }
   ${breakpoints.tablet} {
-    padding: 5em 4em 4em;
+    padding: 5rem 4rem 4rem;
   }
   ${breakpoints.laptop} {
-    padding: 5em 8em 4em;
+    padding: 5rem 8rem 4rem;
   }
   ${breakpoints.laptopL} {
-    padding: 5em 12em 4em;
+    padding: 5rem 12rem 4rem;
   }
 `
 
@@ -31,7 +31,7 @@ export const Label = styled.label`
 
 export const StyledForm = styled.form`
   margin-top: 4rem;
-  padding: 2em 0;
+  padding: 2rem 0;
   div {
     ${HorizontalDashedBorder}
     background-position: bottom;
@@ -39,7 +39,7 @@ export const StyledForm = styled.form`
     margin-bottom: 0.5em;
     &:focus-within {
       textarea {
-        height: 5em;
+        height: 5rem;
       }
       label {
         transform: translate(0, 0) scale(0.75);
@@ -48,7 +48,7 @@ export const StyledForm = styled.form`
   }
   input,
   textarea {
-    padding: 1em 0;
+    padding: 1rem 0;
     font-size: var(--font-xl);
     width: 100%;
     background: transparent;
@@ -64,7 +64,7 @@ export const StyledForm = styled.form`
       "name email message"
       ". tel message"
       ". . btn";
-    grid-gap: 1em;
+    grid-gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
     #nameContainer {
       grid-area: name;
@@ -81,11 +81,11 @@ export const StyledTextarea = styled.div`
   textarea {
     resize: none;
     padding-top: 0;
-    margin-top: 1em;
-    margin-bottom: 0.2em;
-    height: 1em;
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+    height: 1rem;
     &:not(:placeholder-shown) {
-      height: 5em;
+      height: 5rem;
     }
   }
   ${breakpoints.laptop} {
@@ -94,8 +94,8 @@ export const StyledTextarea = styled.div`
     textarea {
       &:not(:placeholder-shown),
       :focus {
-        margin-bottom: -6em;
-        padding-bottom: 0.78em;
+        margin-bottom: -6rem;
+        padding-bottom: 0.78rem;
       }
     }
   }
