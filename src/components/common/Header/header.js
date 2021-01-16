@@ -8,14 +8,14 @@ import { Link } from "gatsby"
 const Header = ({ bgColor }) => {
   const breakpoints = useBreakpoint()
 
-  const Nav = () => (
-    <nav>
+  const Links = () => (
+    <>
       {!breakpoints.tablet && <Link to="/">Inicio</Link>}
       <Link to="/portafolio">Portafolio</Link>
       <Link to="/servicios">Servicios</Link>
       <Link to="/nosotros">Nosotros</Link>
-      <Link to="/nosotros#contact-form">Contactanos</Link>
-    </nav>
+      <a href="#contact-form">Contáctanos</a>
+    </>
   )
 
   return (
@@ -26,11 +26,13 @@ const Header = ({ bgColor }) => {
 
       {breakpoints.tablet ? (
         <StyledDesktopNav>
-          <Nav />
+          <nav>
+            <Links />
+          </nav>
         </StyledDesktopNav>
       ) : (
         <BurgerMenu>
-          <Nav />
+          <Links />
         </BurgerMenu>
       )}
     </StyledHeader>

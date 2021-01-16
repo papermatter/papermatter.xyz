@@ -10,13 +10,11 @@ import Close from "../../../Icons/Close"
 export const BurgerMenu = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+  console.log("hola")
 
   if (!isOpen) {
     return (
-      <Button onClick={toggleMenu}>
+      <Button onClick={() => setIsOpen(true)}>
         <Menu />
       </Button>
     )
@@ -27,11 +25,11 @@ export const BurgerMenu = ({ children }) => {
         <Link to="/">
           <Logo size="1.8em" />
         </Link>
-        <Button onClick={toggleMenu}>
+        <Button onClick={() => setIsOpen(false)}>
           <Close />
         </Button>
       </Header>
-      {children}
+      <nav onClick={() => setIsOpen(false)}>{children}</nav>
       <ExternalLink to={`mailto:${CONTACT_EMAIL}`} className="contact-email">
         {CONTACT_EMAIL}
       </ExternalLink>
