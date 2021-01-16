@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components';
-import { Link } from 'gatsby';
-import { colors, breakpoints } from '../../styles/Vars';
+import React from "react"
+import styled from "styled-components"
+import { Link } from "gatsby"
+import { colors, breakpoints } from "../../styles/Vars"
 
 const StyledPortfolioNav = styled.div`
   position: sticky;
@@ -32,7 +32,7 @@ const StyledPortfolioNav = styled.div`
     a {
       color: white;
       text-align: center;
-      font-size: 1em;
+      font-size: var(--font-xl);
       padding: 1em 1.5em;
       text-transform: uppercase;
       white-space: nowrap;
@@ -48,14 +48,20 @@ const StyledPortfolioNav = styled.div`
   }
 `
 
-export default function PortfolioNav({categories, handleTabClick, activeCategory}) {
+export default function PortfolioNav({
+  categories,
+  handleTabClick,
+  activeCategory,
+}) {
   return (
     <StyledPortfolioNav>
       <nav>
         <Link
           to={`/portafolio?category=todo`}
           onClick={() => handleTabClick("todo")}
-          className={!activeCategory || activeCategory === 'todo' ? "active" : ''}
+          className={
+            !activeCategory || activeCategory === "todo" ? "active" : ""
+          }
         >
           Todo
         </Link>

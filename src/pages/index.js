@@ -5,7 +5,6 @@ import SEO from "../components/common/seo"
 import { PageCover } from "../components/common/PageCover"
 import HomeSection from "../components/sections/HomeSection"
 import ArrowsDivider from "../components/ui/ArrowsDivider"
-import Slider from "../components/ui/Slider"
 import ServicesSlider from "../components/sections/ServicesSlider"
 
 export const homeQuery = graphql`

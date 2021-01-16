@@ -13,7 +13,7 @@ const StyledAboutSection = styled.div`
     }
   }
   h3 {
-    font-size: 2.5rem;
+    font-size: var(--font-xl);
   }
   p {
     margin: 3rem 0 4rem;

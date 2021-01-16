@@ -20,17 +20,17 @@ const ServicesSlider = ({ services }) => {
     <div>
       <Slider>
         {services.map(service => (
-          <StyledTitle>{service.title}</StyledTitle>
+          <StyledTitle key={service.id}>{service.title}</StyledTitle>
         ))}
       </Slider>
       <Slider initialPosition="60%" time="16s">
         {services.map(service => (
-          <StyledTitle>{service.title}</StyledTitle>
+          <StyledTitle key={service.id}>{service.title}</StyledTitle>
         ))}
       </Slider>
       <Slider initialPosition="25%" time="14s">
         {services.map(service => (
-          <StyledTitle>{service.title}</StyledTitle>
+          <StyledTitle key={service.id}>{service.title}</StyledTitle>
         ))}
       </Slider>
     </div>

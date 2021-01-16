@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-import { colors, breakpoints } from '../../../styles/Vars';
+import styled, { keyframes } from "styled-components"
+import { colors, breakpoints } from "../../../styles/Vars"
 
 const slideTop = keyframes`
   from {
@@ -24,7 +24,7 @@ export const StyledNav = styled.div`
   }
   .routes-nav {
     margin-left: 1em;
-    margin-top: -.4em;
+    margin-top: -0.4em;
   }
   ${breakpoints.tablet} {
     justify-content: start;
@@ -34,30 +34,26 @@ export const StyledNav = styled.div`
       display: block;
       font-size: 1.5em !important;
       position: absolute;
-      right: .5em;
+      right: 0.5em;
       margin: 0 !important;
-      animation: ${slideTop} .3s both;
+      animation: ${slideTop} 0.3s both;
     }
   }
   a {
     color: ${colors.gray};
     text-decoration: none;
     text-transform: uppercase;
-    font-size: .5em;
-    &:not(:first-child){
+    font-size: 0.5em;
+    &:not(:first-child) {
       :before {
-        content: '/';
+        content: "/";
       }
     }
   }
   ${breakpoints.tablet} {
     top: 5em;
     a {
-      font-size: .75em;
+      font-size: var(--font-xs);
     }
   }
- 
 `
-
-
-

@@ -1,16 +1,16 @@
-import styled from 'styled-components'
-import { colors, breakpoints, fontStyleItalic } from '../../../styles/Vars'
+import styled from "styled-components"
+import { colors, breakpoints, fontStyleItalic } from "../../../styles/Vars"
 
 export const StyledProject = styled.div`
   padding: 4em 0;
   h1 {
     font-size: 2em;
-    margin: 0 0 .5em;
+    margin: 0 0 0.5em;
     ${fontStyleItalic}
   }
   h5 {
     margin: 0.2em 0;
-    font-size: 1em;
+    font-size: var(--font-xl);
   }
   div.mainPhoto {
     width: 100%;
@@ -31,9 +31,9 @@ export const StyledProject = styled.div`
   ${breakpoints.laptop} {
     padding: 20vh 0;
     h1 {
-      margin-top: .5em;
+      margin-top: 0.5em;
     }
-    .project-info-container{
+    .project-info-container {
       grid-template-columns: 2fr 1fr;
       .description-container {
         padding-right: 10em;

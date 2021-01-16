@@ -15,7 +15,7 @@ const StyledHomeSection = styled.div`
   }
   h3 {
     margin-bottom: 4rem;
-    font-size: 2.5rem;
+    font-size: var(--font-xl);
   }
   a {
     margin-top: 4rem;

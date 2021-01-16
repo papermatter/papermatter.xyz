@@ -21,7 +21,7 @@ const StyledServicesSection = styled.section`
   }
   h3 {
     margin: 1.5rem 0 0;
-    font-size: 2.5rem;
+    font-size: var(--font-xl);
   }
   p {
     margin: 2rem 0;

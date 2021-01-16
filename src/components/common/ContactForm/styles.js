@@ -4,7 +4,7 @@ import { breakpoints, HorizontalDashedBorder } from "../../../styles/Vars"
 export const StyledContainer = styled.section`
   padding: 5em 2em 4em;
   h4 {
-    font-size: 2.5rem;
+    font-size: var(--font-xl);
     margin: 0.5rem 0;
     text-align: center;
   }
@@ -20,7 +20,7 @@ export const StyledContainer = styled.section`
 `
 
 export const Label = styled.label`
-  font-size: 1em;
+  font-size: var(--font-md);
   position: absolute;
   color: var(--gray-50);
   transform-origin: top left;
@@ -49,7 +49,7 @@ export const StyledForm = styled.form`
   input,
   textarea {
     padding: 1em 0;
-    font-size: 1em;
+    font-size: var(--font-xl);
     width: 100%;
     background: transparent;
     border: none;

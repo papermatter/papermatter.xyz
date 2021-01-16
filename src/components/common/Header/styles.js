@@ -1,13 +1,13 @@
-import styled from 'styled-components';
-import { Link } from "gatsby";
-import { colors, breakpoints } from '../../../styles/Vars'
+import styled from "styled-components"
+import { Link } from "gatsby"
+import { colors, breakpoints } from "../../../styles/Vars"
 
 export const StyledHeader = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em .9em .5em 1.9em;
+  padding: 1em 0.9em 0.5em 1.9em;
   position: fixed;
   z-index: 10000;
   height: 3.8em;
@@ -18,9 +18,9 @@ export const StyledHeader = styled.div`
   }
   ${breakpoints.tablet} {
     height: 5em;
-    padding: 2em 2em .5em;
+    padding: 2em 2em 0.5em;
   }
-` 
+`
 
 export const StyledDesktopNav = styled.div`
   width: 100%;
@@ -32,9 +32,9 @@ export const StyledDesktopNav = styled.div`
       :nth-last-child(1) {
         margin-left: auto;
       }
-      margin-left: 2.5em;   
+      margin-left: 2.5em;
       text-transform: uppercase;
-      font-size: .8em;   
+      font-size: var(--font-sm);
     }
   }
 `
