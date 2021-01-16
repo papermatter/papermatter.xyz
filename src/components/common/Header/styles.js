@@ -1,17 +1,15 @@
 import styled from "styled-components"
-import { Link } from "gatsby"
 import { breakpoints } from "../../../styles/Vars"
 
 export const StyledHeader = styled.div`
+  position: fixed;
+  top: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 0.9em 0.5em 1.9em;
-  position: fixed;
-  z-index: 10000;
-  height: 3.8em;
-  top: 0;
+  padding: 1rem 1.5rem;
+  z-index: 1000;
   background: ${props =>
     props.bgColor === "black" ? "var(--black)" : "var(--white)"};
   color: ${props =>
@@ -24,28 +22,23 @@ export const StyledHeader = styled.div`
     display: block;
   }
   ${breakpoints.tablet} {
-    height: 5em;
-    padding: 2em 2em 0.5em;
+    padding: 2rem 2rem 1rem;
   }
 `
 
 export const StyledDesktopNav = styled.div`
   width: 100%;
-  margin-left: 2em;
+  margin-left: 1rem;
   nav {
     display: flex;
     justify-content: flex-start;
     a {
+      margin-left: 2rem;
+      text-transform: uppercase;
+      font-size: var(--font-sm);
       :nth-last-child(1) {
         margin-left: auto;
       }
-      margin-left: 2.5em;
-      text-transform: uppercase;
-      font-size: var(--font-sm);
     }
   }
-`
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
 `

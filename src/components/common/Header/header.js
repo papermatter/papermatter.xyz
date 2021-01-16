@@ -1,26 +1,28 @@
 import React from "react"
 import { Logo } from "../../Icons"
-import { StyledHeader, StyledLink, StyledDesktopNav } from "./styles"
+import { StyledHeader, StyledDesktopNav } from "./styles"
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu"
 import { useBreakpoint } from "../../../lib/hooks/useBreakpoints"
+import { Link } from "gatsby"
 
 const Header = ({ bgColor }) => {
   const breakpoints = useBreakpoint()
 
   const Nav = () => (
     <nav>
-      <StyledLink to="/portafolio">Portafolio</StyledLink>
-      <StyledLink to="/servicios">Servicios</StyledLink>
-      <StyledLink to="/nosotros">Nosotros</StyledLink>
-      <StyledLink to="/nosotros#contact-form">Contactanos</StyledLink>
+      <Link to="/portafolio">Portafolio</Link>
+      <Link to="/servicios">Servicios</Link>
+      <Link to="/nosotros">Nosotros</Link>
+      <Link to="/nosotros#contact-form">Contactanos</Link>
     </nav>
   )
 
   return (
     <StyledHeader bgColor={bgColor}>
-      <StyledLink to="/">
+      <Link to="/">
         <Logo size="1.8em" />
-      </StyledLink>
+      </Link>
+
       {breakpoints.tablet ? (
         <StyledDesktopNav>
           <Nav />

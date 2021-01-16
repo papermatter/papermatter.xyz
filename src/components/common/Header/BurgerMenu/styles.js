@@ -10,8 +10,7 @@ export const Div = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 2em 8vh;
-  transition: 0.2s;
+  padding: 0;
   color: var(--black);
   background: var(--white);
   svg {
@@ -23,6 +22,7 @@ export const Div = styled.div`
     margin-bottom: 8rem;
   }
   nav {
+    padding: 0 2rem 0;
     margin: auto 0;
     a {
       color: var(--black);
@@ -31,15 +31,6 @@ export const Div = styled.div`
       display: block;
       text-transform: uppercase;
       position: relative;
-      &[aria-current] {
-        color: var(--black);
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        color: var(--gray-25);
-      }
     }
   }
 `
@@ -51,10 +42,8 @@ export const Button = styled.button`
 `
 
 export const Header = styled.div`
-  padding: 1em 0;
-  margin: 0 -1.1em 0 -0.1em;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  height: 3.8em;
 `
