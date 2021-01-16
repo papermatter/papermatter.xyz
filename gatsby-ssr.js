@@ -7,7 +7,7 @@
 // You can delete this file if you're not using it
 
 const React = require("react")
-const { BreackpointProvider } = require("./src/lib/hooks/useBreakpoints")
+const { BreakpointProvider } = require("./src/lib/hooks/useBreakpoints")
 
 const queries = {
   mobileS: "(max-width: 320px)",
@@ -20,5 +20,5 @@ const queries = {
 }
 
 exports.wrapRootElement = ({ element }) => (
-  <BreackpointProvider queries={queries}>{element}</BreackpointProvider>
+  <BreakpointProvider queries={queries}>{element}</BreakpointProvider>
 )
