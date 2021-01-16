@@ -5,6 +5,7 @@ import SEO from "../components/common/seo"
 import { PageCover } from "../components/common/PageCover"
 import AboutSection from "../components/sections/AboutSection"
 import ClientsSlider from "../components/sections/ClientsSlider"
+import ImagesSlider from "../components/sections/ImagesSlider"
 
 import withLocation from "../components/HoC/withLocation"
 import Img from "gatsby-image"
@@ -47,10 +48,25 @@ export const aboutQuery = graphql`
         }
       }
     }
+    allStrapiImages(limit: 4) {
+      nodes {
+        id
+        title
+        image {
+          childImageSharp {
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
   }
 `
 
-const AboutPage = ({ data: { strapiAboutUs: data, allStrapiClients } }) => {
+const AboutPage = ({
+  data: { strapiAboutUs: data, allStrapiClients, allStrapiImages },
+}) => {
   return (
     <>
       <Layout>
@@ -66,7 +82,11 @@ const AboutPage = ({ data: { strapiAboutUs: data, allStrapiClients } }) => {
           heading={data.goal.heading}
           description={data.goal.description}
         >
-          <div>Hola</div>
+          <ImagesSlider
+            images={allStrapiImages.nodes.slice(0, 2)}
+            initialPosition="25%"
+          />
+          <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
         </AboutSection>
 
         <AboutSection
