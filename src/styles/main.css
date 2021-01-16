@@ -1,0 +1,89 @@
+:root {
+  --black: #000;
+  --gray-15: #d9d9d9;
+  --gray-25: #bfbfbf;
+  --gray-50: #808080;
+  --white: #fff;
+
+  /* Font sizes */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-xl: 2.5rem;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  touch-action: manipulation;
+  font-feature-settings: "case" 1, "rlig" 1, "calt" 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Circular Std", Helvetica, sans-serif;
+  letter-spacing: normal;
+  color: var(--black);
+  background: var(--white);
+  font-size: var(--font-md);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: 0;
+}
+button[disabled] {
+  opacity: 0.5;
+}
+a {
+  text-decoration: none;
+  color: currentColor;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  letter-spacing: 0;
+}

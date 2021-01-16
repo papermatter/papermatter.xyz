@@ -1,41 +1,51 @@
 import React, { useEffect, useState } from "react"
-
-import { Layout } from "../components"
-import SEO from "../components/seo"
 import { graphql } from "gatsby"
-import PageCover from "../components/PageCover/PageCover"
-import Title from "../components/Title/Title"
-import HomeServicesSection from "../components/HomeComponents/HomeServices"
-import HomePortfolio from "../components/HomeComponents/HomePortfolio"
-import HomeAbout from "../components/HomeComponents/HomeAbout"
-import { colors } from "../styles/Vars"
-import { Helmet } from "react-helmet"
+import { Layout } from "../components/common/Layout"
+import SEO from "../components/common/seo"
+import HomeCover from "../components/common/PageCover/HomeCover"
+import HomeSection from "../components/sections/HomeSection"
+import ArrowsDivider from "../components/ui/ArrowsDivider"
+import ServicesSlider from "../components/sections/ServicesSlider"
+import ImagesSlider from "../components/sections/ImagesSlider"
 
-export const index_query = graphql`
-  query GET_HOME_DATA {
-    strapiPageHome {
-      portfolio_description
-      portfolio_title {
-        title_black
-        title_italic
+export const homeQuery = graphql`
+  query GET_HOME {
+    strapiHome {
+      heading
+      about {
+        description
+        heading
       }
-      services_description
-      services_title {
-        title_black 
-        title_italic
+      projects {
+        heading
       }
-      title {
-        title_black
-        title_italic
+      services {
+        description
+        heading
+      }
+      cover {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
-    allStrapiProjects(limit: 3) {
-      edges {
-        node {
-          slug
-          title
-          main_photo {
-            publicURL
+    allStrapiServices {
+      nodes {
+        title
+        id
+      }
+    }
+    allStrapiImages(limit: 4) {
+      nodes {
+        id
+        title
+        image {
+          childImageSharp {
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
@@ -43,31 +53,63 @@ export const index_query = graphql`
   }
 `
 
-const IndexPage = ({data}) => {
-  const [projects, setProjects] = useState([])
-  const [backgroundColor] = useState(colors.white);
-  
+const IndexPage = ({
+  data: { strapiHome: data, allStrapiServices, allStrapiImages },
+}) => {
+  const [isShowed, setIsShowed] = useState(false)
+
+  const showText = () => {
+    if (window.scrollY > 200) {
+      setIsShowed(true)
+    } else {
+      setIsShowed(false)
+    }
+  }
+
   useEffect(() => {
-    const mapedData = []
-      data.allStrapiProjects.edges.map(project => {
-       mapedData.push(project.node)
-       return mapedData
-      })
-      setProjects(mapedData)
-  }, [data])
-  
+    window.addEventListener("scroll", showText)
+    return () => {
+      window.removeEventListener("scroll", showText)
+    }
+  }, [])
+
   return (
-    <Layout backgroundColor={backgroundColor}>
+    <Layout bgColor={isShowed ? "" : "transparent"}>
       <SEO title="Inicio" />
-      <Helmet>
-        {/* <link rel="icon" href={favicon} /> */}
-      </Helmet>
-      <PageCover scrollTo="services-section">
-        <Title data={data.strapiPageHome.title} inverted={true} />
-      </PageCover>
-      <HomeServicesSection data={data.strapiPageHome} id="services-section" />
-      <HomeAbout />
-      <HomePortfolio data={data.strapiPageHome} projects={projects} />
+
+      <HomeCover
+        heading={data.heading}
+        cover={data.cover.childImageSharp.fluid}
+      />
+
+      <HomeSection
+        heading={data.about.heading}
+        description={data.about.description}
+        linkTo="/about-us"
+        linkLabel="ver nosotros"
+      />
+
+      <ServicesSlider services={allStrapiServices.nodes} />
+
+      <HomeSection
+        heading={data.services.heading}
+        description={data.services.description}
+        linkTo="/services"
+        linkLabel="ver servicios"
+      />
+      <ArrowsDivider />
+
+      <HomeSection
+        heading={data.projects.heading}
+        linkTo="/portfolio"
+        linkLabel="ver portafolio"
+      >
+        <ImagesSlider
+          images={allStrapiImages.nodes.slice(0, 2)}
+          initialPosition="25%"
+        />
+        <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
+      </HomeSection>
     </Layout>
   )
 }

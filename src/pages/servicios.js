@@ -1,36 +1,38 @@
 import React from "react"
-
-import {Layout} from '../components'
-import SEO from "../components/seo"
+import { Layout } from "../components/common/Layout"
+import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
-import PageCover from "../components/PageCover/PageCover"
-import Services from "../components/Services/Services"
-import Title from '../components/Title/Title'
-import TitleWithDescription from "../components/TitleWithDescription/TitleWithDescription"
+import { PageCover } from "../components/common/PageCover"
+import ServicesSection from "../components/sections/ServicesSection"
+import Img from "gatsby-image"
 
 export const query = graphql`
-  query GET_DATA  {
-    allStrapiPageServices {
-      edges {
-        node {
-          title{
-            title_black,
-            title_italic
+  query GET_SERVICES {
+    strapiPageServices {
+      heading
+      description
+      cover {
+        alt
+        project_photo {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
-          description
         }
       }
     }
-    allStrapiServices{
-      edges {
-        node {
-          title
-          shortname
-          description
-          strapiId
-          advantages
-          Illustration {
-            publicURL
+    allStrapiServices {
+      nodes {
+        id
+        title
+        slug
+        description
+        cover {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
@@ -38,17 +40,25 @@ export const query = graphql`
   }
 `
 
-const ServicesPage = ({data}) => {
+const ServicesPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout bgColor="var(--black)">
       <SEO title="Servicios" />
-      <PageCover data={data.allStrapiPageServices.edges[0].node} scrollTo='services'>
-        <TitleWithDescription>
-          <Title data={data.allStrapiPageServices.edges[0].node.title[0]} />
-          <p>{data.allStrapiPageServices.edges[0].node.description}</p>
-        </TitleWithDescription>
-      </PageCover>
-      <Services services={data.allStrapiServices.edges} id='services' />
+      <PageCover
+        pageName="Servicios"
+        heading={data.strapiPageServices.heading}
+        description={data.strapiPageServices.description}
+      />
+
+      <Img
+        fluid={
+          data.strapiPageServices.cover.project_photo.childImageSharp.fluid
+        }
+        alt={data.strapiPageServices.cover.alt}
+        style={{ margin: "0 -1.5rem 8rem" }}
+      />
+
+      <ServicesSection services={data.allStrapiServices.nodes} />
     </Layout>
   )
 }

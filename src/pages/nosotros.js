@@ -1,107 +1,107 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { graphql } from "gatsby"
+import { Layout } from "../components/common/Layout"
+import SEO from "../components/common/seo"
+import { PageCover } from "../components/common/PageCover"
+import AboutSection from "../components/sections/AboutSection"
+import ClientsSlider from "../components/sections/ClientsSlider"
+import ImagesSlider from "../components/sections/ImagesSlider"
 
-import { Layout } from "../components"
-import SEO from "../components/seo"
-import { colors } from "../styles/Vars"
-import History from "../components/History/History"
-import DescriptionList from '../components/DescriptionList/DescriptionList'
-import Clients from "../components/Clients/Clients"
-import Team from "../components/Team/Team"
-import withLocation from "../HoC/withLocation"
-import Slideshow from "../components/Slideshow/Slideshow"
-import AboutPageCover from "../components/PageCover/AboutPageCover"
-import { useBreakpoint } from "../hooks/useBreakpoints"
+import Img from "gatsby-image"
 
 export const aboutQuery = graphql`
-  query GET_DATA_ABOUT {
-    strapiPageAbout {
-      description
-      history_title {
-        title_black
-        title_italic
-      }
-      history {
-        year_date
+  query GET_ABOUT_US {
+    strapiAboutUs {
+      heading
+      goal {
         description
+        heading
       }
-      description_list {
-        title_black
-        title_italic
+      experience {
+        description
+        heading
       }
-      team {
-        first_name
-        last_name
-        business_title
-        photo {
-          publicURL
+      location {
+        description
+        heading
+      }
+      cover {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
-      clients_title {
-        title_black
-        title_italic
+    }
+    allStrapiClients {
+      nodes {
+        id
+        url
+        name
+        logo {
+          childImageSharp {
+            fluid(maxWidth: 150) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    allStrapiImages(limit: 4) {
+      nodes {
+        id
+        title
+        image {
+          childImageSharp {
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
 `
 
-const AboutPage = ({ data, search }) => {
-  const breakpoints = useBreakpoint()
-
-  useEffect(()=> {
-    if (search !== undefined) {
-      window.scrollTo({ top: search.scroll, behavior: "smooth" })
-    }
-  }, [search])
-
+const AboutPage = ({
+  data: { strapiAboutUs: data, allStrapiClients, allStrapiImages },
+}) => {
   return (
-    <>
-      <Layout backgroundColor={colors.gray}>
-        <SEO title="Nosotros" />
-        <AboutPageCover data={data.strapiPageAbout}>
-          <Slideshow time="30">
-            <>
-              <h3>¿De dónde venimos?</h3>
-              <h3>¿Quiénes somos?</h3>
-              <h3>¿Qué hacemos?</h3>
-              <h3>¿Cómo te podemos ayudar?</h3>
-              <h3>¿Qué queremos?</h3>
-            </>
-          </Slideshow>
-          {!breakpoints.tablet && (
-            <>
-              <Slideshow time="20" start="even">
-                <>
-                  <h3>¿Qué hacemos?</h3>
-                  <h3>¿Cómo te podemos ayudar?</h3>
-                  <h3>¿Quiénes somos?</h3>
-                  <h3>¿Qué queremos?</h3>
-                  <h3>¿De dónde venimos?</h3>
-                </>
-              </Slideshow>
-              <Slideshow time="35">
-                <>
-                  <h3>¿Qué queremos?</h3>
-                  <h3>¿Qué podemos hacer?</h3>
-                  <h3>¿De dónde venimos?</h3>
-                  <h3>¿Qué hacemos?</h3>
-                  <h3>¿Quiénes somos?</h3>
-                </>
-              </Slideshow>
-            </>
-          )}
-          <p>{data.strapiPageAbout.description}</p>
-        </AboutPageCover>
-        <History
-          title={data.strapiPageAbout.history_title}
-          data={data.strapiPageAbout.history}
-        />
-        <Team data={data.strapiPageAbout.team} />
-        <DescriptionList data={data.strapiPageAbout.description_list} />
-        <Clients title={data.strapiPageAbout.clients_title} />
-      </Layout>
-    </>
-  )
-} 
+    <Layout>
+      <SEO title="Nosotros" />
+      <PageCover pageName="nosotros" heading={data.heading} />
 
-export default withLocation(AboutPage)
+      <Img
+        fluid={data.cover.childImageSharp.fluid}
+        style={{ margin: "0 -1.5rem 8rem" }}
+      />
+
+      <AboutSection
+        heading={data.goal.heading}
+        description={data.goal.description}
+      >
+        <ImagesSlider
+          images={allStrapiImages.nodes.slice(0, 2)}
+          initialPosition="25%"
+        />
+        <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
+      </AboutSection>
+
+      <AboutSection
+        heading={data.experience.heading}
+        description={data.experience.description}
+      >
+        <ClientsSlider clients={allStrapiClients.nodes} />
+      </AboutSection>
+
+      <AboutSection
+        heading={data.location.heading}
+        description={data.location.description}
+      >
+        <div>Hola</div>
+      </AboutSection>
+    </Layout>
+  )
+}
+
+export default AboutPage

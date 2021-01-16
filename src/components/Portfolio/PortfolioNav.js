@@ -1,77 +1,44 @@
-import React from 'react'
-import styled from 'styled-components';
-import { Link } from 'gatsby';
-import { colors, breakpoints } from '../../styles/Vars';
+import React from "react"
+import styled from "styled-components"
+import { Link } from "gatsby"
 
 const StyledPortfolioNav = styled.div`
   position: sticky;
-  top: 3.5em;
-  z-index: 1000;
-  nav {
-    display: grid;
-    grid-auto-flow: column;
-    overflow-x: scroll;
-    margin: 0 -2em;
-    background: ${colors.black};
-    &:after,
-    :before {
-      content: "";
-      width: 2em;
-    }
-    ${breakpoints.laptop} {
-      margin: 0;
-      &:after,
-      :before {
-        content: "";
-        width: 0;
-      }
-    }
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    a {
-      color: white;
-      text-align: center;
-      font-size: 1em;
-      padding: 1em 1.5em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      border-bottom: 1px solid ${colors.gray};
-    }
-    .active {
-      margin-bottom: -1px;
-      border-bottom: 3px solid ${colors.white};
-    }
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
   }
-  ${breakpoints.tablet} {
-    top: 5em;
+  a {
+    font-size: var(--font-md);
+    padding: 1rem 0;
+    margin-right: 1.5rem;
+    white-space: nowrap;
+    color: var(--gray-50);
+  }
+  .active {
+    color: var(--black);
+    text-decoration: underline;
   }
 `
 
-export default function PortfolioNav({categories, handleTabClick, activeCategory}) {
+const PortfolioNav = ({ categories }) => {
   return (
     <StyledPortfolioNav>
-      <nav>
-        <Link
-          to={`/portafolio?category=todo`}
-          onClick={() => handleTabClick("todo")}
-          className={!activeCategory || activeCategory === 'todo' ? "active" : ''}
-        >
-          Todo
+      <Link className="active" to={`/portafolio?category=todo`}>
+        Todo
+      </Link>
+
+      {categories.map(category => (
+        <Link key={category.slug} to={`/portafolio?category=${category.slug}`}>
+          {category.title}
         </Link>
-        {categories.map((item, index) => (
-          <Link
-            to={`/portafolio?category=${item.node.slug}`}
-            partiallyActive={true}
-            activeClassName="active"
-            key={index}
-            onClick={() => handleTabClick(item.node.slug)}
-            className={item.node.slug === activeCategory ? "active" : ""}
-          >
-            {item.node.short_name ? item.node.short_name : item.node.name}
-          </Link>
-        ))}
-      </nav>
+      ))}
     </StyledPortfolioNav>
   )
 }
+
+export default PortfolioNav
