@@ -1,29 +1,12 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { Logo } from "../../Icons"
 import { StyledHeader, StyledDesktopNav } from "./styles"
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu"
 import { useBreakpoint } from "../../../lib/hooks/useBreakpoints"
 import { Link } from "gatsby"
 
-const Header = ({ bgColor = "var(--white)" }) => {
+const Header = ({ bgColor }) => {
   const breakpoints = useBreakpoint()
-
-  const [isShowed, setIsShowed] = useState(false)
-
-  const showText = () => {
-    if (window.scrollY > 150) {
-      setIsShowed(true)
-    } else {
-      setIsShowed(false)
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", showText)
-    return () => {
-      window.removeEventListener("scroll", showText)
-    }
-  }, [])
 
   const Nav = () => (
     <nav>
@@ -36,12 +19,9 @@ const Header = ({ bgColor = "var(--white)" }) => {
   )
 
   return (
-    <StyledHeader
-      bgColor={bgColor}
-      style={{ background: isShowed ? bgColor : "transparent" }}
-    >
+    <StyledHeader bgColor={bgColor}>
       <Link to="/">
-        <Logo size="1.8em" />
+        <Logo size="1.8em" color={"currentColor"} />
       </Link>
 
       {breakpoints.tablet ? (

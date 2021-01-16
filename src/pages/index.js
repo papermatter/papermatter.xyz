@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
@@ -40,8 +40,25 @@ export const homeQuery = graphql`
 `
 
 const IndexPage = ({ data: { strapiHome: data, allStrapiServices } }) => {
+  const [isShowed, setIsShowed] = useState(false)
+
+  const showText = () => {
+    if (window.scrollY > 200) {
+      setIsShowed(true)
+    } else {
+      setIsShowed(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", showText)
+    return () => {
+      window.removeEventListener("scroll", showText)
+    }
+  }, [])
+
   return (
-    <Layout>
+    <Layout bgColor={isShowed ? "" : "transparent"}>
       <SEO title="Inicio" />
 
       <HomeCover

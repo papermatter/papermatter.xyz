@@ -10,13 +10,10 @@ export const StyledHeader = styled.div`
   align-items: center;
   padding: 1rem 1.5rem;
   z-index: 1000;
-  background: ${props =>
-    props.bgColor === "black" ? "var(--black)" : "var(--white)"};
-  color: ${props =>
-    props.bgColor === "black" ? "var(--white)" : "var(--black)"};
+  background: ${props => props.bgColor || "var(--white)"};
+  color: ${props => (props.bgColor ? "var(--white)" : "var(--black)")};
   svg {
-    color: ${props =>
-      props.bgColor === "black" ? "var(--white)" : "var(--black)"};
+    color: ${props => (props.bgColor ? "var(--white)" : "var(--black)")};
   }
   nav {
     display: block;
