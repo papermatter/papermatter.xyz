@@ -10,8 +10,6 @@ import Close from "../../../Icons/Close"
 export const BurgerMenu = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  console.log("hola")
-
   if (!isOpen) {
     return (
       <Button onClick={() => setIsOpen(true)}>
@@ -20,7 +18,7 @@ export const BurgerMenu = ({ children }) => {
     )
   }
   return (
-    <Div>
+    <Div onClick={() => setIsOpen(false)}>
       <Header>
         <Link to="/">
           <Logo size="1.8em" />
@@ -29,7 +27,7 @@ export const BurgerMenu = ({ children }) => {
           <Close />
         </Button>
       </Header>
-      <nav onClick={() => setIsOpen(false)}>{children}</nav>
+      {children}
       <ExternalLink to={`mailto:${CONTACT_EMAIL}`} className="contact-email">
         {CONTACT_EMAIL}
       </ExternalLink>
