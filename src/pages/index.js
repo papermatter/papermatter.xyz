@@ -6,6 +6,7 @@ import HomeCover from "../components/common/PageCover/HomeCover"
 import HomeSection from "../components/sections/HomeSection"
 import ArrowsDivider from "../components/ui/ArrowsDivider"
 import ServicesSlider from "../components/sections/ServicesSlider"
+import ImagesSlider from "../components/sections/ImagesSlider"
 
 export const homeQuery = graphql`
   query GET_HOME {
@@ -36,10 +37,25 @@ export const homeQuery = graphql`
         id
       }
     }
+    allStrapiImages(limit: 4) {
+      nodes {
+        id
+        title
+        image {
+          childImageSharp {
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
   }
 `
 
-const IndexPage = ({ data: { strapiHome: data, allStrapiServices } }) => {
+const IndexPage = ({
+  data: { strapiHome: data, allStrapiServices, allStrapiImages },
+}) => {
   const [isShowed, setIsShowed] = useState(false)
 
   const showText = () => {
@@ -88,7 +104,11 @@ const IndexPage = ({ data: { strapiHome: data, allStrapiServices } }) => {
         linkTo="/portfolio"
         linkLabel="ver portafolio"
       >
-        <div>Hola</div>
+        <ImagesSlider
+          images={allStrapiImages.nodes.slice(0, 2)}
+          initialPosition="25%"
+        />
+        <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
       </HomeSection>
     </Layout>
   )
