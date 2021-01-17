@@ -43,7 +43,7 @@ export default function Footer() {
             {CONTACT_EMAIL}
           </ExternalLink>
         </li>
-        <li>Política de privacidad</li>
+        {/* <li>Política de privacidad</li> */}
       </ul>
       <ul className="info">
         <li>Ciudad de México, México - {CONTACT_TEL}</li>

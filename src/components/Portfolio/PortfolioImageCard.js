@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import Lightbox from "../UI/Lightbox"
 
 const StyledCard = styled.div`
   position: relative;
@@ -8,13 +9,13 @@ const StyledCard = styled.div`
   width: calc(50% - 0.5rem);
   margin: 0.5rem 0;
   cursor: pointer;
-  &:nth-of-type(2n) {
+  /* &:nth-of-type(2n) {
     transform: translateY(-50%);
   }
   &:nth-of-type(2) {
     height: 150px;
     transform: translateY(0);
-  }
+  } */
   .info {
     z-index: 2;
     background: rgba(0, 0, 0, 0.35);
@@ -37,7 +38,7 @@ const StyledCard = styled.div`
       margin: 0.2rem 0;
       font-size: 1.75rem;
     }
-    a {
+    .client {
       margin: 0;
       font-size: 1.2rem;
     }
@@ -53,13 +54,22 @@ const StyledImg = styled(Img)`
 `
 
 export default function PortfolioImageCard({ image }) {
+  const [isShowed, setIsShowed] = useState(false)
+
+  const handleCloseClick = () => {
+    setIsShowed(false)
+  }
+
   return (
     <StyledCard>
-      <div className="info">
+      <div className="info" onClick={() => setIsShowed(true)}>
         <p>{image.title}</p>
-        <a href={image.client.url}>{image.client.name}</a>
+        <p className="client">{image.client.name}</p>
       </div>
       <StyledImg fluid={image.image.childImageSharp.fluid} alt={image.title} />
+      {isShowed && (
+        <Lightbox image={image} handleCloseClick={handleCloseClick} />
+      )}
     </StyledCard>
   )
 }
