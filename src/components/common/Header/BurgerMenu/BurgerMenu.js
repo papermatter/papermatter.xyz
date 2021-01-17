@@ -12,7 +12,7 @@ export const BurgerMenu = ({ children }) => {
 
   if (!isOpen) {
     return (
-      <Button onClick={() => setIsOpen(true)}>
+      <Button onClick={() => setIsOpen(true)} aria-label="Open nav">
         <Menu />
       </Button>
     )
@@ -20,10 +20,10 @@ export const BurgerMenu = ({ children }) => {
   return (
     <Div onClick={() => setIsOpen(false)}>
       <Header>
-        <Link to="/">
+        <Link to="/" aria-label="Link to home">
           <Logo size="1.8em" />
         </Link>
-        <Button onClick={() => setIsOpen(false)}>
+        <Button onClick={() => setIsOpen(false)} aria-label="Close nav">
           <Close />
         </Button>
       </Header>
