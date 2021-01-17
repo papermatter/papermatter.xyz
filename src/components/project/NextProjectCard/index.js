@@ -1,1 +1,1 @@
-export {default as NextProjectCard} from './NextProjectCard'
+export { default as NextProjectCard } from "./NextProjectCard"

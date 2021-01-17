@@ -1,4 +1,4 @@
-import {types} from './actions'
+import { types } from "./actions"
 
 export const initialState = {
   translateX: 0,
@@ -19,8 +19,8 @@ export const reducer = (state, action) => {
         prevMouseY: action.clientY,
       }
     case types.PAN:
-      const deltaMouseX = action.clientX - state.prevMouseX;
-      const deltaMouseY = action.clientY - state.prevMouseY;
+      const deltaMouseX = action.clientX - state.prevMouseX
+      const deltaMouseY = action.clientY - state.prevMouseY
       return {
         ...state,
         translateX: state.translateX + deltaMouseX,
@@ -29,6 +29,6 @@ export const reducer = (state, action) => {
         prevMouseY: action.clientY,
       }
     default:
-      return state;
+      return state
   }
 }

@@ -7,7 +7,7 @@ export const StyledLightbox = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-  display: ${props => props.isShow ? 'flex' : 'none'};
+  display: ${props => (props.isShow ? "flex" : "none")};
   flex-direction: column;
   justify-content: center;
   background-color: rgba(255, 255, 255, 1);

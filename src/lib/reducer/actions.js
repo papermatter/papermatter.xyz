@@ -1,18 +1,16 @@
 export const types = {
-  PAN: 'PAN',
-  PAN_START: 'PAN_START',
+  PAN: "PAN",
+  PAN_START: "PAN_START",
 }
 
-export const startPan = (event) => ({
+export const startPan = event => ({
   type: types.PAN_START,
   clientX: event.clientX,
   clientY: event.clientY,
 })
 
-export const pan = (event) => ({
+export const pan = event => ({
   type: types.PAN,
   clientX: event.clientX,
-  clientY: event.clientY
+  clientY: event.clientY,
 })
-
-

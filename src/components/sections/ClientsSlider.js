@@ -1,5 +1,5 @@
 import React from "react"
-import Slider from "../ui/Slider"
+import Slider from "../UI/Slider"
 import styled from "styled-components"
 import Img from "gatsby-image"
 
