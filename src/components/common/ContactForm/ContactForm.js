@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
-import ArrowsDivider from "../../ui/ArrowsDivider"
+import ArrowsDivider from "../../UI/ArrowsDivider"
 import {
   StyledContainer,
   StyledForm,

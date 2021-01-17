@@ -3,8 +3,8 @@ import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
 import { PageCover } from "../components/common/PageCover"
-import PortfolioContainer from "../components/portfolio/PortfolioContainer"
-import PortfolioNav from "../components/portfolio/PortfolioNav"
+import PortfolioContainer from "../components/Portfolio/PortfolioContainer"
+import PortfolioNav from "../components/Portfolio/PortfolioNav"
 
 export const portfolioQuery = graphql`
   query GET_PORTFOLIO {

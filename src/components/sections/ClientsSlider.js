@@ -2,7 +2,7 @@ import React from "react"
 
 import styled from "styled-components"
 import Img from "gatsby-image"
-import Slider from "../ui/Slider"
+import Slider from "../UI/Slider"
 
 const StyledLink = styled.a`
   margin-bottom: 1rem;

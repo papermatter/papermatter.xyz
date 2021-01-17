@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { CONTACT_EMAIL, CONTACT_TEL } from "../../../lib/contants"
-import ExternalLink from "../../ui/ExternalLink"
+import ExternalLink from "../../UI/ExternalLink"
 
 import { BEHANCE_URL, INSTAGRAM_URL } from "../../../lib/contants"
 import Behance from "../../Icons/Behance"

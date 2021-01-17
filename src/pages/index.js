@@ -6,7 +6,7 @@ import HomeCover from "../components/common/PageCover/HomeCover"
 import HomeSection from "../components/sections/HomeSection"
 import ServicesSlider from "../components/sections/ServicesSlider"
 import ImagesSlider from "../components/sections/ImagesSlider"
-import ArrowsDivider from "../components/ui/ArrowsDivider"
+import ArrowsDivider from "../components/UI/ArrowsDivider"
 
 export const homeQuery = graphql`
   query GET_HOME {
