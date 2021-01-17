@@ -51,24 +51,13 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `DM Serif Display`,
-            variants: [`400italic`],
-          },
-        ],
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Estudio Moncada`,
-        short_name: `Moncada.co`,
+        name: `PaperMatter`,
+        short_name: `PaperMatter`,
         start_url: `/`,
         background_color: `#131414`,
         theme_color: `#131414`,

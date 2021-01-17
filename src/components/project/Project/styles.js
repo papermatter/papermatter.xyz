@@ -1,12 +1,11 @@
 import styled from "styled-components"
-import { colors, breakpoints, fontStyleItalic } from "../../../styles/Vars"
+import { colors, breakpoints } from "../../../styles/Vars"
 
 export const StyledProject = styled.div`
   padding: 4em 0;
   h1 {
     font-size: 2em;
     margin: 0 0 0.5em;
-    ${fontStyleItalic}
   }
   h5 {
     margin: 0.2em 0;

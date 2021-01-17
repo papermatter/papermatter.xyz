@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react'
-import styled from 'styled-components'
-import { colors, breakpoints, fontStyleItalic } from '../../../styles/Vars'
-import { Link } from 'gatsby'
-import { DivPhoto } from '../Project/styles'
+import React, { useEffect, useState } from "react"
+import styled from "styled-components"
+import { colors, breakpoints } from "../../../styles/Vars"
+import { Link } from "gatsby"
+import { DivPhoto } from "../Project/styles"
 
 const StyledNextProjectCard = styled.div`
   padding: 2em 0 4em;
@@ -13,9 +13,6 @@ const StyledNextProjectCard = styled.div`
   h4 {
     margin: 1em 0 0;
     font-size: 1.7em;
-  }
-  h3 {
-    ${fontStyleItalic}
   }
   a {
   }
@@ -49,12 +46,12 @@ const StyledNextProjectCard = styled.div`
   }
 `
 
-export default function NextProjectCard({currentProject}) {
+export default function NextProjectCard({ currentProject }) {
   const [loading, setLoading] = useState(true)
   const [nextProject, setNextProject] = useState(null)
-  
+
   useEffect(() => {
-    const nextProjectIndex = currentProject === 5 ? 1 : currentProject + 1;
+    const nextProjectIndex = currentProject === 5 ? 1 : currentProject + 1
     setLoading(true)
     fetch(`${process.env.API_URL}/projects/${nextProjectIndex}`)
       .then(response => response.json())
@@ -63,19 +60,23 @@ export default function NextProjectCard({currentProject}) {
         setLoading(false)
       })
   }, [currentProject])
-    console.log(nextProject);
+  console.log(nextProject)
   return (
     <StyledNextProjectCard>
-      {loading
-        ? <p>...</p>
-        : <Link to={`/portafolio/${nextProject.slug}`} >
+      {loading ? (
+        <p>...</p>
+      ) : (
+        <Link to={`/portafolio/${nextProject.slug}`}>
           <div>
             <h4>Siguiente proyecto</h4>
             <h3>{nextProject.title}</h3>
           </div>
-          <DivPhoto className='photo-container' url={nextProject.main_photo.formats.small.url} />
+          <DivPhoto
+            className="photo-container"
+            url={nextProject.main_photo.formats.small.url}
+          />
         </Link>
-      }
+      )}
     </StyledNextProjectCard>
   )
 }

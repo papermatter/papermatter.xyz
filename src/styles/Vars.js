@@ -13,14 +13,6 @@ export const size = {
   large: 1140,
 }
 
-export const fontStyleItalic = () => {
-  return `
-    font-family: 'DM serif Display', serif;
-    font-style: italic;
-    font-weight: normal;
-  `
-}
-
 export const HorizontalDashedBorder = () => `
   background-image: linear-gradient(
     to right,

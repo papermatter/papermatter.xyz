@@ -1,5 +1,4 @@
 import React from "react"
-import { breakpoints } from "../../styles/Vars"
 import styled from "styled-components"
 import PortfolioImageCard from "./PortfolioImageCard"
 
