@@ -4,9 +4,9 @@ import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
 import HomeCover from "../components/common/PageCover/HomeCover"
 import HomeSection from "../components/sections/HomeSection"
-import ArrowsDivider from "../components/ui/ArrowsDivider"
 import ServicesSlider from "../components/sections/ServicesSlider"
 import ImagesSlider from "../components/sections/ImagesSlider"
+import ArrowsDivider from "../components/ui/ArrowsDivider"
 
 export const homeQuery = graphql`
   query GET_HOME {
