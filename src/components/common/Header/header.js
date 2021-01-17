@@ -20,7 +20,7 @@ const Header = ({ bgColor }) => {
 
   return (
     <StyledHeader bgColor={bgColor}>
-      <Link to="/">
+      <Link to="/" aria-label="link to home">
         <Logo size="1.8em" color={"currentColor"} />
       </Link>
 

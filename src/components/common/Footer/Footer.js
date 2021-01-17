@@ -51,12 +51,12 @@ export default function Footer() {
       </ul>
       <ul className="social-media">
         <li>
-          <ExternalLink to={INSTAGRAM_URL}>
+          <ExternalLink to={INSTAGRAM_URL} ariaLabel="Link to instagram">
             <Instagram />
           </ExternalLink>
         </li>
         <li>
-          <ExternalLink to={BEHANCE_URL}>
+          <ExternalLink to={BEHANCE_URL} ariaLabel="Link to behance">
             <Behance />
           </ExternalLink>
         </li>
