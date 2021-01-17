@@ -15,6 +15,7 @@ const StyledSlider = styled.div`
   justify-content: flex-start;
   padding: 0;
   overflow: hidden;
+  margin: 0 -1.5rem;
   .content {
     display: flex;
     transform: translateX(-${props => props.initial});
