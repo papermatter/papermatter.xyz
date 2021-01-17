@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import Header from "../Header/Header"
+import Header from "../Header/header"
 import Footer from "../Footer/Footer"
 import "../../../styles/main.css"
 import { Main } from "./styles"
