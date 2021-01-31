@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import { breakpoints } from "../../../styles/Vars"
 
 const StyledPageCover = styled.section`
   height: 100vh;
@@ -10,12 +11,32 @@ const StyledPageCover = styled.section`
   position: relative;
   text-align: center;
   font-size: 1rem;
+  ${breakpoints.tablet} {
+    margin: 0 -6rem;
+    padding: 0;
+  }
+  ${breakpoints.laptop} {
+    margin: 0 -10rem;
+  }
+  ${breakpoints.laptopL} {
+    margin: 0 -14rem;
+  }
   h1 {
     font-size: var(--font-xl);
     margin: 1.5rem 0 3rem;
     position: absolute;
     z-index: 3;
+    width: 100%;
     color: var(--white);
+    ${breakpoints.tablet} {
+      padding: 0 6rem;
+    }
+    ${breakpoints.laptop} {
+      padding: 0 10rem;
+    }
+    ${breakpoints.laptopL} {
+      padding: 0 14rem;
+    }
   }
   .gradient {
     z-index: 2;
@@ -29,6 +50,9 @@ const StyledPageCover = styled.section`
     height: 100vh;
     width: 100vw;
     margin: 0 -1.5rem;
+    ${breakpoints.tablet} {
+      margin: 0;
+    }
   }
 `
 
@@ -39,6 +63,9 @@ const StyledImg = styled(Img)`
   height: 100vh;
   width: 100vw;
   margin: 0 -1.5rem;
+  ${breakpoints.tablet} {
+    margin: 0;
+  }
 `
 
 export default function HomeCover({ cover, heading }) {
