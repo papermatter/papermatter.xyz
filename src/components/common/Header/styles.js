@@ -10,6 +10,7 @@ export const StyledHeader = styled.div`
   align-items: center;
   padding: 1rem 1.5rem;
   z-index: 1000;
+  transition: color 0.65s;
   background: ${props => props.bgColor || "var(--white)"};
   color: ${props => (props.bgColor ? "var(--white)" : "var(--black)")};
   svg {
