@@ -28,12 +28,16 @@ const StyledPortfolioNav = styled.div`
 const PortfolioNav = ({ categories }) => {
   return (
     <StyledPortfolioNav>
-      <Link className="active" to={`/portafolio?category=todo`}>
+      <Link activeClassName="active" to="/portafolio">
         Todo
       </Link>
 
       {categories.map(category => (
-        <Link key={category.slug} to={`/portafolio?category=${category.slug}`}>
+        <Link
+          activeClassName="active"
+          key={category.slug}
+          to={`/portafolio/${category.slug}`}
+        >
           {category.title}
         </Link>
       ))}

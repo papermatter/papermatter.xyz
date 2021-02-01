@@ -7,7 +7,7 @@ import PortfolioContainer from "../components/Portfolio/PortfolioContainer"
 import PortfolioNav from "../components/Portfolio/PortfolioNav"
 
 export const portfolioQuery = graphql`
-  query GET_PORTFOLIO {
+  query GET_SERVICE_IMAGES($slug: String!) {
     strapiPagePortfolio {
       heading
     }
@@ -17,7 +17,7 @@ export const portfolioQuery = graphql`
         title
       }
     }
-    allStrapiImages {
+    allStrapiImages(filter: { service: { slug: { eq: $slug } } }) {
       nodes {
         id
         title
