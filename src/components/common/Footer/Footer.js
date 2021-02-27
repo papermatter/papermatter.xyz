@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { CONTACT_EMAIL, CONTACT_TEL } from "../../../lib/contants"
+import { CONTACT_EMAIL } from "../../../lib/contants"
 import ExternalLink from "../../UI/ExternalLink"
 
 import { BEHANCE_URL, INSTAGRAM_URL } from "../../../lib/contants"
@@ -46,7 +46,6 @@ export default function Footer() {
         {/* <li>Política de privacidad</li> */}
       </ul>
       <ul className="info">
-        <li>Ciudad de México, México - {CONTACT_TEL}</li>
         <li>(C) 2020 ThePaperMatter</li>
       </ul>
       <ul className="social-media">

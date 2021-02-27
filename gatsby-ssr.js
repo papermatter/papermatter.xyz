@@ -16,7 +16,7 @@ const queries = {
   tablet: "(min-width: 720px)",
   laptop: "(min-width: 1024px)",
   laptopL: "(min-width: 1440px)",
-  or: "(orientation: portrait)", // we can check orientation also
+  or: "(orientation: portrait)", // Check orientation
 }
 
 exports.wrapRootElement = ({ element }) => (
