@@ -102,7 +102,7 @@ const IndexPage = ({
       <HomeSection
         heading={data.projects.heading}
         linkTo="/portfolio"
-        linkLabel="ver portafolio"
+        linkLabel="Ir a trabajos"
       >
         <ImagesSlider
           images={allStrapiImages.nodes.slice(0, 2)}

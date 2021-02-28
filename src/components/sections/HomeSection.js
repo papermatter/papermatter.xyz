@@ -3,22 +3,23 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledHomeSection = styled.div`
-  text-align: center;
+  text-align: left;
   padding: 6.5rem 0;
   display: flex;
   flex-direction: column;
-  &:first-of-type {
-    h3,
-    p {
-      text-align: left;
-    }
-  }
   h3 {
     margin-bottom: 4rem;
-    font-size: var(--font-xl);
+    font-size: var(--font-3xl);
+  }
+  p {
+    font-size: var(--font-lg);
+    color: var(--primary-80);
   }
   a {
-    margin-top: 4rem;
+    display: block;
+    margin: 2.5rem auto 0;
+    padding: 1.5rem;
+    color: var(--primary-60);
     text-decoration: underline;
   }
 `
