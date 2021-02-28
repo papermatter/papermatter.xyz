@@ -11,8 +11,7 @@ import { SITE_NAME } from "../../../lib/contants"
 const Layout = ({ children, bgColor }) => {
   return (
     <>
-      <Header bgColor={bgColor} siteTitle={SITE_NAME} />
-
+      <Header siteTitle={SITE_NAME} />
       <Main bgColor={bgColor}>{children}</Main>
       <ContactForm />
       <Footer />
