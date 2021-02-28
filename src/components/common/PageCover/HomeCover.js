@@ -26,6 +26,7 @@ const StyledPageCover = styled.section`
     margin: 1.5rem 0 3rem;
     position: absolute;
     z-index: 3;
+    font-size: var(--font-3xl);
     width: 100%;
     color: var(--background);
     ${breakpoints.tablet} {

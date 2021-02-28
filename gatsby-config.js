@@ -46,7 +46,7 @@ module.exports = {
         //   families: ["DM Serif Display:italic"],
         // },
         custom: {
-          families: ["Circular Std"],
+          families: ["Sk-Modernist, Sk-Modernist Mono"],
           urls: ["/fonts/fonts.css"],
         },
       },

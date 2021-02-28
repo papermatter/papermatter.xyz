@@ -14,7 +14,7 @@ const StyledPageCover = styled.section`
     text-decoration: underline;
   }
   h1 {
-    font-size: var(--font-xl);
+    font-size: var(--font-3xl);
     margin: 1.5rem 0 3rem;
   }
   p {

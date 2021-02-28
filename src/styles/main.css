@@ -10,6 +10,12 @@
   --primary-05: #f2f2f2;
   --background: #ffffff;
 
+  /* Typography */
+  --font-sans: 'Sk-Modernist', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --font-mono: 'Sk-Modernist Mono', 'Consolas', 'Liberation Mono', 'Menlo',
+    monospace;
+
   /* Font sizes */
   --font-3xl: 2.5rem;
   --font-2xl: 2rem;
@@ -48,7 +54,7 @@ html {
 }
 
 body {
-  font-family: "Circular Std", Helvetica, sans-serif;
+  font-family: var(--font-sans);
   letter-spacing: normal;
   color: var(--primary);
   background: var(--background);

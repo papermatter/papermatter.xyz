@@ -1,16 +1,60 @@
-/* CircularStd @font-face kit */
 @font-face {
-  font-family: 'Circular Std Black';
-  src: url('./CircularStd-Black.eot');
-  src: url('./CircularStd-Black.eot?#iefix') format('embedded-opentype'), url('./CircularStd-Black.woff') format('woff'), url('./CircularStd-Black.ttf') format('truetype'), url('./CircularStd-Black.svg#bcc26993292869431e54c666aafa8fcd') format('svg');
-  font-weight: 800;
+  font-family: 'Sk-Modernist';
+  src: url('./Regular/sk-modernist-regular-webfont.eot');
+  src: url('./Regular/sk-modernist-regular-webfont.eot?#iefix') format('embedded-opentype'), 
+       url('./Regular/sk-modernist-regular-webfont.woff') format('woff'), 
+       url('./Regular/sk-modernist-regular-webfont.ttf') format('truetype'), 
+       url('./Regular/sk-modernist-regular-webfont.svg#webfont') format('svg');
+  font-weight: normal;
   font-style: normal;
-}
-@font-face {
-  font-family: 'Circular Std';
-  src: url('./CircularStd-Medium.eot');
-  src: url('./CircularStd-Medium.eot?#iefix') format('embedded-opentype'), url('./CircularStd-Medium.woff') format('woff'), url('./CircularStd-Medium.ttf') format('truetype'), url('./CircularStd-Medium.svg#bcc26993292869431e54c666aafa8fcd') format('svg');
-  font-weight: 500;
-  font-style: normal;
+  font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+  U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+  U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: 'Sk-Modernist';
+  src: url('./Bold/sk-modernist-bold-webfont.eot');
+  src: url('./Bold/sk-modernist-bold-webfont.eot?#iefix') format('embedded-opentype'), 
+       url('./Bold/sk-modernist-bold-webfont.woff') format('woff'), 
+       url('./Bold/sk-modernist-bold-webfont.ttf') format('truetype'), 
+       url('./Bold/sk-modernist-bold-webfont.svg#webfont') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+  U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+  U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Sk-Modernist';
+  src: url('./Light/sk-modernist-light-webfont.eot');
+  src: url('./Light/sk-modernist-light-webfont.eot?#iefix') format('embedded-opentype'), 
+       url('./Light/sk-modernist-light-webfont.woff') format('woff'), 
+       url('./Light/sk-modernist-light-webfont.ttf') format('truetype'), 
+       url('./Light/sk-modernist-light-webfont.svg#webfont') format('svg');
+  font-weight: lighter;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+  U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+  U+FEFF, U+FFFD;
+}
+
+
+@font-face {
+  font-family: 'Sk-Modernist Mono';
+  src: url('./Mono/sk-modernist-mono-webfont.eot');
+  src: url('./Mono/sk-modernist-mono-webfont.eot?#iefix') format('embedded-opentype'), 
+       url('./Mono/sk-modernist-mono-webfont.woff') format('woff'), 
+       url('./Mono/sk-modernist-mono-webfont.ttf') format('truetype'), 
+       url('./Mono/sk-modernist-mono-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+  U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+  U+FEFF, U+FFFD;
+}
