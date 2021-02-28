@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { Logo } from "../../Icons"
 import { Link } from "gatsby"
 import Menu from "../../Icons/Menu"
@@ -7,15 +7,35 @@ import ExternalLink from "../../UI/ExternalLink"
 import { CONTACT_EMAIL } from "../../../lib/contants"
 import { StyledHeader, StyledNav, StyledButton } from "./styles"
 import { useHideOnScroll } from "../../../lib/hooks/use-hide-on-scroll"
+// import {
+//   disableBodyScroll,
+//   enableBodyScroll,
+//   clearAllBodyScrollLocks,
+// } from "body-scroll-lock"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const navRef = useRef(null)
+
   const { isHidden } = useHideOnScroll()
+
+  // useEffect(() => {
+  //   if (navRef.current) {
+  //     if (isOpen) {
+  //       disableBodyScroll(navRef.current)
+  //     } else {
+  //       enableBodyScroll(navRef.current)
+  //     }
+  //   }
+  //   return () => {
+  //     clearAllBodyScrollLocks()
+  //   }
+  // }, [isOpen])
 
   if (isOpen) {
     return (
-      <StyledNav onClick={() => setIsOpen(false)}>
+      <StyledNav onClick={() => setIsOpen(false)} ref={navRef}>
         <StyledHeader>
           <Link to="/" aria-label="Link to home">
             <Logo size="1.8em" />
