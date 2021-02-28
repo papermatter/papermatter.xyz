@@ -11,10 +11,10 @@ export const Div = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 0;
-  color: var(--black);
-  background: var(--white);
+  color: var(--primary);
+  background: var(--background);
   svg {
-    color: var(--black);
+    color: var(--primary);
   }
   .contact-email {
     text-decoration: underline;
@@ -25,7 +25,7 @@ export const Div = styled.div`
     padding: 0 2rem 0;
     margin: auto 0;
     a {
-      color: var(--black);
+      color: var(--primary);
       font-size: 2rem;
       margin: 1.5em 0;
       display: block;

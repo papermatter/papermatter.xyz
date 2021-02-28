@@ -1,9 +1,4 @@
 :root {
-  /* --black: #000;
-  --gray-15: #d9d9d9;
-  --gray-25: #bfbfbf;
-  --gray-50: #808080;
-  --white: #fff; */
   --primary: #000000;
   --primary-95: #0d0d0d;
   --primary-90: #1a1a1a;
@@ -55,8 +50,8 @@ html {
 body {
   font-family: "Circular Std", Helvetica, sans-serif;
   letter-spacing: normal;
-  color: var(--black);
-  background: var(--white);
+  color: var(--primary);
+  background: var(--background);
   font-size: var(--font-md);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

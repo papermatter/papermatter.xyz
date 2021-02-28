@@ -27,7 +27,7 @@ const StyledPageCover = styled.section`
     position: absolute;
     z-index: 3;
     width: 100%;
-    color: var(--white);
+    color: var(--background);
     ${breakpoints.tablet} {
       padding: 0 6rem;
     }

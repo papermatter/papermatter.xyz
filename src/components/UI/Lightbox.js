@@ -59,7 +59,7 @@ const StyledLightbox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--white);
+  background-color: var(--background);
   z-index: 100000;
   button {
     position: absolute;

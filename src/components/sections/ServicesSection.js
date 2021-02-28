@@ -40,7 +40,7 @@ const StyledServicesSection = styled.section`
     width: 50%;
     min-width: 350px;
     height: 36rem;
-    border-bottom: 2px dashed var(--gray-25);
+    border-bottom: 2px dashed var(--primary-20);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,7 +48,7 @@ const StyledServicesSection = styled.section`
     cursor: pointer;
     transition: opacity 0.35s;
     ${breakpoints.laptop} {
-      border: 1px solid var(--gray-50);
+      border: 1px solid var(--primary-60);
       &:first-child,
       :nth-child(2) {
         border-top: none;

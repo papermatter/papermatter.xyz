@@ -16,7 +16,7 @@ export const size = {
 export const HorizontalDashedBorder = () => `
   background-image: linear-gradient(
     to right,
-    var(--gray-25) 33%,
+    var(--primary-20) 33%,
     rgba(255, 255, 255, 0) 0%
   );
   background-size: 10px 1px;

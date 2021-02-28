@@ -52,7 +52,7 @@ export const StyledForm = styled.form`
   label {
     font-size: var(--font-md);
     position: absolute;
-    color: var(--gray-50);
+    color: var(--primary-60);
     transform-origin: top left;
     left: 0;
     transform: translate(0, 16px) scale(1);
@@ -112,7 +112,11 @@ export const StyledButton = styled.button`
   :hover {
     outline: none;
     /* from dashed to solid */
-    background-image: linear-gradient(to right, var(--gray-25), var(--gray-25));
+    background-image: linear-gradient(
+      to right,
+      var(--primary-20),
+      var(--primary-20)
+    );
   }
   ${breakpoints.laptop} {
     margin-top: 0;

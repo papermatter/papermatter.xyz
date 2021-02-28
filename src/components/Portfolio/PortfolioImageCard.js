@@ -19,7 +19,7 @@ const StyledCard = styled.div`
   .info {
     z-index: 2;
     background: rgba(0, 0, 0, 0.35);
-    color: var(--white);
+    color: var(--background);
     position: absolute;
     padding: 1.5rem 1rem;
     top: 0;

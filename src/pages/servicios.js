@@ -42,7 +42,7 @@ export const query = graphql`
 
 const ServicesPage = ({ data }) => {
   return (
-    <Layout bgColor="var(--black)">
+    <Layout bgColor="var(--primary)">
       <SEO title="Servicios" />
       <PageCover
         pageName="Servicios"

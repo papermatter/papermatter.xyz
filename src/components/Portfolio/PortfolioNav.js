@@ -17,10 +17,10 @@ const StyledPortfolioNav = styled.div`
     padding: 1rem 0;
     margin-right: 1.5rem;
     white-space: nowrap;
-    color: var(--gray-50);
+    color: var(--primary-60);
   }
   .active {
-    color: var(--black);
+    color: var(--primary);
     text-decoration: underline;
   }
 `

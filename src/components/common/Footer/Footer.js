@@ -19,7 +19,7 @@ const StyledFooter = styled.div`
   }
   .links {
     text-decoration: underline;
-    color: var(--black);
+    color: var(--primary);
   }
   .info {
     font-size: var(--font-sm);

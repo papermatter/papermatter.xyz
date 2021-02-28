@@ -6,9 +6,11 @@ export const Main = styled.main`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background: ${props => props.bgColor || "var(--white)"};
+  background: ${props => props.bgColor || "var(--background)"};
   color: ${props =>
-    props.bgColor === "var(--black)" ? "var(--white)" : "var(--black)"};
+    props.bgColor === "var(--primary)"
+      ? "var(--background)"
+      : "var(--primary)"};
 
   ${breakpoints.tablet} {
     padding-left: 6em;
