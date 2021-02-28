@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { CONTACT_EMAIL } from "../../../lib/contants"
+import { CONTACT_EMAIL, CONTACT_TEL } from "../../../lib/contants"
 import ExternalLink from "../../UI/ExternalLink"
 
 import { BEHANCE_URL, INSTAGRAM_URL } from "../../../lib/contants"
@@ -8,10 +8,9 @@ import Behance from "../../Icons/Behance"
 import Instagram from "../../Icons/Instragram"
 
 const StyledFooter = styled.div`
-  padding: 4rem 0 2rem;
+  padding: 4rem 0;
   text-align: center;
   ul {
-    padding: 1rem;
     margin: 0;
   }
   li {
@@ -22,12 +21,15 @@ const StyledFooter = styled.div`
     color: var(--primary);
   }
   .info {
+    padding: 3rem 0 2.5rem;
+    color: var(--primary-60);
     font-size: var(--font-sm);
   }
   .social-media {
     display: flex;
     justify-content: center;
     margin: 0;
+    padding: 0;
     li {
       padding: 0.5rem 1rem;
     }
@@ -46,6 +48,7 @@ export default function Footer() {
         {/* <li>Política de privacidad</li> */}
       </ul>
       <ul className="info">
+      <li>Ciudad de México · {CONTACT_TEL}</li>
         <li>(C) 2020 ThePaperMatter</li>
       </ul>
       <ul className="social-media">
