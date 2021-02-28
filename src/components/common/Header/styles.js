@@ -39,11 +39,11 @@ export const StyledNav = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 20;
+  z-index: 1000;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0;
   color: var(--primary);
   background: var(--background);
   svg {
@@ -52,18 +52,17 @@ export const StyledNav = styled.div`
   .contact-email {
     text-decoration: underline;
     text-align: center;
-    margin-bottom: 8rem;
+    font-size: var(--font-md);
+    margin-bottom: 6rem;
   }
   nav {
-    padding: 0 2rem 0;
+    padding: 0 1.5rem 0;
     margin: auto 0;
     a {
       color: var(--primary);
-      font-size: 2rem;
-      margin: 1.5em 0;
+      font-size: var(--font-3xl);
+      margin: 1.5rem 0;
       display: block;
-      text-transform: uppercase;
-      position: relative;
     }
   }
 `
