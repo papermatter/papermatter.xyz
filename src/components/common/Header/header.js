@@ -7,11 +7,11 @@ import ExternalLink from "../../UI/ExternalLink"
 import { CONTACT_EMAIL } from "../../../lib/contants"
 import { StyledHeader, StyledNav, StyledButton } from "./styles"
 import { useHideOnScroll } from "../../../lib/hooks/use-hide-on-scroll"
-// import {
-//   disableBodyScroll,
-//   enableBodyScroll,
-//   clearAllBodyScrollLocks,
-// } from "body-scroll-lock"
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,18 +20,18 @@ const Header = () => {
 
   const { isHidden } = useHideOnScroll()
 
-  // useEffect(() => {
-  //   if (navRef.current) {
-  //     if (isOpen) {
-  //       disableBodyScroll(navRef.current)
-  //     } else {
-  //       enableBodyScroll(navRef.current)
-  //     }
-  //   }
-  //   return () => {
-  //     clearAllBodyScrollLocks()
-  //   }
-  // }, [isOpen])
+  useEffect(() => {
+    if (navRef.current) {
+      if (isOpen) {
+        disableBodyScroll(navRef.current)
+      } else {
+        enableBodyScroll(navRef.current)
+      }
+    }
+    return () => {
+      clearAllBodyScrollLocks()
+    }
+  }, [isOpen])
 
   if (isOpen) {
     return (
