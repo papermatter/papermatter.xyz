@@ -1,10 +1,12 @@
 import styled from "styled-components"
-import { breakpoints, HorizontalDashedBorder } from "../../../styles/Vars"
+import { breakpoints } from "../../../styles/Vars"
 
 export const StyledContainer = styled.section`
   padding: 5rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
   h4 {
-    font-size: var(--font-xl);
+    font-size: var(--font-3xl);
     margin: 0.5rem 0;
     text-align: center;
   }
@@ -20,14 +22,12 @@ export const StyledContainer = styled.section`
 `
 
 export const StyledForm = styled.form`
-  margin-top: 4rem;
-  padding: 2rem 0;
   div {
-    ${HorizontalDashedBorder}
-    background-position: bottom;
+    border-bottom: 1px solid var(--primary-20);
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     &:focus-within {
+      border-bottom: 1px solid var(--primary-90);
       textarea {
         height: 6rem;
       }
@@ -40,7 +40,6 @@ export const StyledForm = styled.form`
   textarea {
     padding: 1.2rem 0 0.8rem;
     font-size: var(--font-md);
-    font-family: inherit;
     width: 100%;
     background: transparent;
     border: none;
@@ -100,23 +99,19 @@ export const StyledTextarea = styled.div`
 `
 
 export const StyledButton = styled.button`
-  margin-top: 4em;
+  margin: 2rem auto 0;
+  display: block;
+  font-size: var(--font-md);
   border: none;
-  ${HorizontalDashedBorder}
-  background-position: bottom;
-  padding: 0.5em 1.5em;
-  transition: 0.15s;
+  color: var(--primary-60);
+  padding: 1rem 2rem;
   grid-area: btn;
+  font-family: inherit;
   cursor: pointer;
   &:focus,
   :hover {
-    outline: none;
-    /* from dashed to solid */
-    background-image: linear-gradient(
-      to right,
-      var(--primary-20),
-      var(--primary-20)
-    );
+    border-bottom: 1px solid var(--primary-90);
+    color: var(--primary);
   }
   ${breakpoints.laptop} {
     margin-top: 0;

@@ -19,19 +19,19 @@ export default function ContactForm() {
     e.preventDefault()
 
     if (!nameRef.current.value) {
-      setMessage("El nombre es requerido")
+      setMessage("El nombre es requerido*")
       return
     }
     if (!emailRef.current.value) {
-      setMessage("El correo electrónico es requerido")
+      setMessage("El correo electrónico es requerido*")
       return
     }
     if (!telRef.current.value) {
-      setMessage("El teléfono es requerido")
+      setMessage("El teléfono es requerido*")
       return
     }
     if (!messageRef.current.value) {
-      setMessage("El mensaje es requerido")
+      setMessage("El mensaje es requerido*")
       return
     }
 
