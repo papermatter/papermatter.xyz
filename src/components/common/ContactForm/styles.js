@@ -12,6 +12,9 @@ export const StyledContainer = styled.section`
   }
   .message {
     margin-top: 1.5rem;
+    color: var(--text-secondary)
+  }
+  .message.error {
     color: red;
   }
   ${breakpoints.tablet} {

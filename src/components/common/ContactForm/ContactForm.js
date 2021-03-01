@@ -7,7 +7,7 @@ import {
 } from "./styles"
 
 export default function ContactForm() {
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState(null)
 
   const nameRef = useRef(null)
   const emailRef = useRef(null)
@@ -18,19 +18,19 @@ export default function ContactForm() {
     e.preventDefault()
 
     if (!nameRef.current.value) {
-      setMessage("El nombre es requerido*")
+      setMessage({status: "error", content: "El nombre es requerido*"})
       return
     }
     if (!emailRef.current.value) {
-      setMessage("El correo electrónico es requerido*")
+      setMessage({status: "error", content: "El correo electrónico es requerido*"})
       return
     }
     if (!telRef.current.value) {
-      setMessage("El teléfono es requerido*")
+      setMessage({status: "error", content: "El teléfono es requerido*"})
       return
     }
     if (!messageRef.current.value) {
-      setMessage("El mensaje es requerido*")
+      setMessage({status: "error", content: "El mensaje es requerido*"})
       return
     }
 
@@ -59,7 +59,8 @@ export default function ContactForm() {
     nameRef.current.value = ""
     telRef.current.value = ""
     emailRef.current.value = ""
-    setMessage("Se envió el correo exitosamente.")
+    
+    setMessage({status: "succes", content:"Se envió el correo exitosamente."})
   }
 
   useEffect(() => {
@@ -67,7 +68,7 @@ export default function ContactForm() {
     if (!message) return
 
     const timer = setTimeout(() => {
-      setMessage("")
+      setMessage(null)
     }, 15000)
 
     return () => clearTimeout(timer)
@@ -98,8 +99,12 @@ export default function ContactForm() {
         </div>
         <StyledButton type="submit">Enviar</StyledButton>
       </StyledForm>
-      
-      {message && <p className="message">{message}</p>}
+
+      {message && (
+        <p className={`message ${message.status === 'error' ? 'error' : ''}`}>
+          {message.content}
+        </p>
+      )}
     </StyledContainer>
   )
 }
