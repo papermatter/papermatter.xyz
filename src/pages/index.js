@@ -94,7 +94,7 @@ const IndexPage = ({
       <HomeSection
         heading={data.services.heading}
         description={data.services.description}
-        linkTo="/services"
+        linkTo="/servicios"
         linkLabel="ver servicios"
       />
       <ArrowsDivider />

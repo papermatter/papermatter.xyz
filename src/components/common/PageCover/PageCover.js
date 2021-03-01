@@ -27,9 +27,9 @@ const StyledPageCover = styled.section`
   }
 `
 
-export default function PageCover({ pageName, heading, description }) {
+export default function PageCover({ pageName, heading, description, style = {} }) {
   return (
-    <StyledPageCover>
+    <StyledPageCover style={style}>
       {pageName && <div>{pageName}</div>}
       <h1>{heading}</h1>
       {description && <p>{description}</p>}

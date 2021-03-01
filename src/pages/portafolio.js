@@ -41,9 +41,11 @@ export default function portafolio({ data }) {
   return (
     <Layout>
       <SEO title="Portafolio" />
+
       <PageCover
         pageName="Portafolio"
         heading={data.strapiPagePortfolio.heading}
+        style={{ height: '85vh' }}
       />
 
       <PortfolioNav categories={data.allStrapiServices.nodes} />

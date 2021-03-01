@@ -15,9 +15,9 @@ export default function ServicesSection({ services }) {
             </span>
 
             <h3>{service.title}</h3>
-
             <p>{service.description}</p>
-            <Link to="/projects">ver projectos</Link>
+
+            <Link to={`/servicios/${service.slug}`}>ver {service.title}</Link>
           </div>
 
           <StyledImg fluid={service.cover.childImageSharp.fluid} />
