@@ -5,14 +5,12 @@ import { breakpoints } from "../../../styles/Vars"
 
 const StyledPageCover = styled.section`
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100vw;
   position: relative;
   text-align: center;
+  margin: 0 -1.5rem;
   ${breakpoints.tablet} {
     margin: 0 -6rem;
-    padding: 0;
   }
   ${breakpoints.laptop} {
     margin: 0 -10rem;
@@ -21,11 +19,12 @@ const StyledPageCover = styled.section`
     margin: 0 -14rem;
   }
   h1 {
-    margin: 0;
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
     z-index: 3;
     font-size: var(--font-3xl);
-    width: 100%;
     font-weight: normal;
     color: var(--background);
     ${breakpoints.tablet} {
@@ -38,42 +37,36 @@ const StyledPageCover = styled.section`
       padding: 0 14rem;
     }
   }
-  .gradient {
-    z-index: 2;
-    position: absolute;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.8),
-      rgba(0, 0, 0, 0)
-    );
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    margin: 0 -1.5rem;
-    ${breakpoints.tablet} {
-      margin: 0;
-    }
-  }
 `
 
 const StyledImg = styled(Img)`
   z-index: 1;
   position: absolute;
   top: 0;
+  right: 0;
+  left: 0;
   height: 100vh;
-  width: 100vw;
-  margin: 0 -1.5rem;
-  ${breakpoints.tablet} {
-    margin: 0;
+  &::after {
+    content: "";
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0)
+    );
   }
 `
 
 export default function HomeCover({ cover, heading }) {
   return (
     <StyledPageCover>
-      <h1>{heading}</h1>
-      <div className="gradient" />
       <StyledImg fluid={cover} />
+      <h1>{heading}</h1>
     </StyledPageCover>
   )
 }
