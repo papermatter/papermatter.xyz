@@ -7,15 +7,10 @@ const Close = ({ ...props }) => {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
       {...props}
     >
-      <line x1="18" y1="6" x2="6" y2="18" />
-      <line x1="6" y1="6" x2="18" y2="18" />
+     <path d="M13.376 12l5.124 5.124-1.376 1.376L12 13.376 6.876 18.5 5.5 17.124 10.624 12 5.5 6.876 6.876 5.5 12 10.624 17.124 5.5 18.5 6.876 13.376 12z"/>
     </svg>
   )
 }

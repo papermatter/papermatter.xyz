@@ -1,6 +1,6 @@
 import React from "react"
 
-const Menu = ({ ...props }) => {
+const ChevronUp = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,9 +10,9 @@ const Menu = ({ ...props }) => {
       fill="currentColor"
       {...props}
     >
-     <path d="M21.5 6h-19v2h19V6zm0 10h-19v2h19v-2zm0-5h-19v2h19v-2z" />
+      <path d="M12.005 8.5l6.495 4.348-1.1 1.652-5.395-3.612L6.601 14.5 5.5 12.848 12.005 8.5z" />
     </svg>
   )
 }
 
-export default Menu
+export default ChevronUp

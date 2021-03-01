@@ -7,15 +7,10 @@ const ArrowLeft = ({ ...props }) => {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
       {...props}
     >
-      <line x1="19" y1="12" x2="5" y2="12" />
-      <polyline points="12 19 5 12 12 5" />
+     <path d="M3.5 12.16l6.66-6.85 1.42 1.42-4.28 4.4h12.2v2.05H7.3l.95.97.48.5 2.85 2.92L10.15 19l-4.23-4.35-.49-.5-1.93-1.99z" />
     </svg>
   )
 }
