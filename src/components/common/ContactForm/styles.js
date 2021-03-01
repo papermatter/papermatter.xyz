@@ -2,13 +2,17 @@ import styled from "styled-components"
 import { breakpoints } from "../../../styles/Vars"
 
 export const StyledContainer = styled.section`
-  padding: 5rem 2rem 4rem;
+  padding: 5rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
   h4 {
     font-size: var(--font-3xl);
-    margin: 0.5rem 0;
+    margin-bottom: 1rem;
     text-align: center;
+  }
+  .message {
+    margin-top: 1.5rem;
+    color: red;
   }
   ${breakpoints.tablet} {
     padding: 5rem 4rem 4rem;
@@ -23,14 +27,11 @@ export const StyledContainer = styled.section`
 
 export const StyledForm = styled.form`
   div {
-    border-bottom: 1px solid var(--primary-20);
     position: relative;
     margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--primary-20);
     &:focus-within {
       border-bottom: 1px solid var(--primary-90);
-      textarea {
-        height: 6rem;
-      }
       label {
         transform: translate(0, 0) scale(0.75);
       }
@@ -38,8 +39,8 @@ export const StyledForm = styled.form`
   }
   input,
   textarea {
-    padding: 1.2rem 0 0.8rem;
-    font-size: var(--font-md);
+    font-family: inherit;  
+    font-size: var(--font-lg);
     width: 100%;
     background: transparent;
     border: none;
@@ -48,14 +49,29 @@ export const StyledForm = styled.form`
       transform: translate(0, 0) scale(0.75);
     }
   }
+  input {
+    padding: 1.5rem 0 0.5rem;
+  }
+  textarea {
+    resize: none;
+    padding: 0;
+    height: 1.75rem;
+    margin-top: 1.5rem;
+    &:not(:placeholder-shown), :focus {
+      height: 6rem;
+    }
+  }
+
   label {
-    font-size: var(--font-md);
     position: absolute;
-    color: var(--primary-60);
+    font-family: var(--font-mono);
+    font-size: var(--font-md);
+    color: var(--text-tertiary);
     transform-origin: top left;
     left: 0;
     transform: translate(0, 16px) scale(1);
     transition: transform 0.1s ease-in-out;
+    cursor: text;
   }
 
   ${breakpoints.laptop} {
@@ -75,24 +91,20 @@ export const StyledForm = styled.form`
     #telContainer {
       grid-area: tel;
     }
-  }
-`
-export const StyledTextarea = styled.div`
-  textarea {
-    resize: none;
-    padding: 1rem 0 0;
-    &:not(:placeholder-shown) {
-      height: 6rem;
+    #messageContainer {
+      grid-area: message;
+      border-bottom: none;
     }
-  }
-  ${breakpoints.laptop} {
-    grid-area: message;
-    border-bottom: none !important;
     textarea {
+      border-bottom: 1px solid var(--primary-20);
+      height: 2.25rem;
       &:not(:placeholder-shown),
       :focus {
-        margin-bottom: -6rem;
-        padding-bottom: 0.78rem;
+        height: 85%;
+        padding-bottom: .5rem;
+      }
+      &:focus {
+        border-bottom: 1px solid var(--primary-90);
       }
     }
   }
@@ -101,16 +113,17 @@ export const StyledTextarea = styled.div`
 export const StyledButton = styled.button`
   margin: 2rem auto 0;
   display: block;
+  font-family: var(--font-mono);
   font-size: var(--font-md);
-  border: none;
-  color: var(--primary-60);
+  color: var(--text-tertiary);
+  border-bottom: 1px solid transparent;
   padding: 1rem 2rem;
   grid-area: btn;
-  font-family: inherit;
   cursor: pointer;
+  transition: color, border .1s;
   &:focus,
   :hover {
-    border-bottom: 1px solid var(--primary-90);
+    border-bottom: 1px solid var(--text-secondary);
     color: var(--primary);
   }
   ${breakpoints.laptop} {

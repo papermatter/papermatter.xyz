@@ -4,7 +4,6 @@ import {
   StyledContainer,
   StyledForm,
   StyledButton,
-  StyledTextarea,
 } from "./styles"
 
 export default function ContactForm() {
@@ -76,10 +75,10 @@ export default function ContactForm() {
 
   return (
     <StyledContainer id="contact-form">
-      <h4>¿Algo en mente?</h4>
-      <h4>Hablemos</h4>
+      <h4>¿Algo en mente?<br/>Hablemos</h4>
 
       <ArrowsDivider />
+
       <StyledForm onSubmit={sendEmail}>
         <div id="nameContainer">
           <input ref={nameRef} id="name" type="text" placeholder=" " />
@@ -93,18 +92,14 @@ export default function ContactForm() {
           <input ref={telRef} id="tel" type="tel" name="tel" placeholder=" " />
           <label htmlFor="tel">Teléfono</label>
         </div>
-        <StyledTextarea id="messageContainer">
-          <textarea
-            ref={messageRef}
-            id="message"
-            name="message"
-            placeholder=" "
-          />
+        <div id="messageContainer">
+          <textarea ref={messageRef} id="message" name="message" placeholder=" " />
           <label htmlFor="message">Escribe un mensaje</label>
-        </StyledTextarea>
+        </div>
         <StyledButton type="submit">Enviar</StyledButton>
       </StyledForm>
-      {message && <p>{message}</p>}
+      
+      {message && <p className="message">{message}</p>}
     </StyledContainer>
   )
 }
