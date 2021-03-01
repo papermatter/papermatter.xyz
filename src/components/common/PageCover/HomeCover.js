@@ -27,6 +27,7 @@ const StyledPageCover = styled.section`
     font-size: var(--font-3xl);
     font-weight: normal;
     color: var(--background);
+    padding: 0 1.5rem;
     ${breakpoints.tablet} {
       padding: 0 6rem;
     }
