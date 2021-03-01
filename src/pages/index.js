@@ -104,10 +104,10 @@ const IndexPage = ({
         heading={data.projects.heading}
         linkTo="/portfolio"
         linkLabel="Ir a trabajos"
-      >
+      > 
         <ImagesSlider
           images={allStrapiImages.nodes.slice(0, 2)}
-          initialPosition="25%"
+          initialPosition="-150px"
         />
         <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
       </HomeSection>
