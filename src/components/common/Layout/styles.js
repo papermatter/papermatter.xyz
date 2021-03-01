@@ -13,15 +13,15 @@ export const Main = styled.main`
       : "var(--primary)"};
 
   ${breakpoints.tablet} {
-    padding-left: 6em;
-    padding-right: 6em;
+    padding-left: 6rem;
+    padding-right: 6rem;
   }
   ${breakpoints.laptop} {
-    padding-left: 10em;
-    padding-right: 10em;
+    padding-left: 10rem;
+    padding-right: 10rem;
   }
   ${breakpoints.laptopL} {
-    padding-left: 14em;
-    padding-right: 14em;
+    padding-left: 14rem;
+    padding-right: 14rem;
   }
 `

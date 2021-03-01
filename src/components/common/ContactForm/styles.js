@@ -117,6 +117,6 @@ export const StyledButton = styled.button`
     margin-top: 0;
     width: 35%;
     justify-self: end;
-    padding: 0.5em 0;
+    padding: 0.5rem 0;
   }
 `

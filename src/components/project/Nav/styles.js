@@ -14,27 +14,27 @@ export const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
   position: sticky;
-  height: 2em;
+  height: 2rem;
   margin: 0 -1px;
-  top: 3.8em;
+  top: 3.8rem;
   background: ${colors.white};
   align-items: center;
   h1 {
     display: none;
   }
   .routes-nav {
-    margin-left: 1em;
-    margin-top: -0.4em;
+    margin-left: 1rem;
+    margin-top: -0.4rem;
   }
   ${breakpoints.tablet} {
     justify-content: start;
     align-items: center;
-    height: 3em;
+    height: 3rem;
     h1 {
       display: block;
-      font-size: 1.5em !important;
+      font-size: 1.5rem !important;
       position: absolute;
-      right: 0.5em;
+      right: 0.5rem;
       margin: 0 !important;
       animation: ${slideTop} 0.3s both;
     }
@@ -43,7 +43,7 @@ export const StyledNav = styled.div`
     color: ${colors.gray};
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 0.5em;
+    font-size: 0.5rem;
     &:not(:first-child) {
       :before {
         content: "/";
@@ -51,7 +51,7 @@ export const StyledNav = styled.div`
     }
   }
   ${breakpoints.tablet} {
-    top: 5em;
+    top: 5rem;
     a {
       font-size: var(--font-xs);
     }

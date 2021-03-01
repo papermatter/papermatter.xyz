@@ -5,19 +5,19 @@ import { Link } from "gatsby"
 import { DivPhoto } from "../Project/styles"
 
 const StyledNextProjectCard = styled.div`
-  padding: 2em 0 4em;
+  padding: 2rem 0 4rem;
   border-top: 1px solid ${colors.lightGray};
   .photo-container {
     width: 100%;
   }
   h4 {
-    margin: 1em 0 0;
-    font-size: 1.7em;
+    margin: 1rem 0 0;
+    font-size: 1.7rem;
   }
   a {
   }
   ${breakpoints.tablet} {
-    padding: 4em 0;
+    padding: 4rem 0;
     a {
       display: flex;
       align-items: center;
@@ -30,11 +30,11 @@ const StyledNextProjectCard = styled.div`
       border-radius: 5px;
     }
     h3 {
-      font-size: 2.2em;
+      font-size: 2.2rem;
     }
 
     h4 {
-      font-size: 2.2em;
+      font-size: 2.2rem;
     }
   }
   ${breakpoints.laptopL} {

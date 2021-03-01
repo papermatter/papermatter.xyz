@@ -42,8 +42,8 @@ export const StyledLightbox = styled.div`
   }
   p {
     position: absolute;
-    top: 1em;
-    left: 1em;
+    top: 1rem;
+    left: 1rem;
     color: ${colors.black};
   }
 `

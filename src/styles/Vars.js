@@ -35,16 +35,16 @@ export const breakpoints = {
 export const responsiveSections = () => {
   return `
     ${breakpoints.tablet} {
-      margin: 0 -6em -2em;
-      padding: 8em 6em;
+      margin: 0 -6rem -2rem;
+      padding: 8rem 6rem;
     }
     ${breakpoints.laptop} {
-      margin: 0 -10em -2em;
-      padding: 8em 10em;
+      margin: 0 -10rem -2rem;
+      padding: 8rem 10rem;
     }
     ${breakpoints.laptopL} {
-      margin: 0 -14em -2em;
-      padding: 10em 14em;
+      margin: 0 -14rem -2rem;
+      padding: 10rem 14rem;
     }
   `
 }

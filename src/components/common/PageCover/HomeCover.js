@@ -10,7 +10,6 @@ const StyledPageCover = styled.section`
   justify-content: center;
   position: relative;
   text-align: center;
-  font-size: 1rem;
   ${breakpoints.tablet} {
     margin: 0 -6rem;
     padding: 0;
@@ -22,12 +21,12 @@ const StyledPageCover = styled.section`
     margin: 0 -14rem;
   }
   h1 {
-    font-size: var(--font-xl);
-    margin: 1.5rem 0 3rem;
+    margin: 0;
     position: absolute;
     z-index: 3;
     font-size: var(--font-3xl);
     width: 100%;
+    font-weight: normal;
     color: var(--background);
     ${breakpoints.tablet} {
       padding: 0 6rem;
