@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import { breakpoints } from "../../styles/utils"
+import { breakpoints, responsiveSectionMargin, responsiveSectionPadding } from "../../styles/utils"
 
 export default function ServicesSection({ services }) {
   return (
@@ -31,16 +31,24 @@ const StyledServicesSection = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background: var(--primary);
+  color: var(--background);
+  ${responsiveSectionMargin}
+  ${responsiveSectionPadding}
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   ${breakpoints.laptop} {
+    padding-top: 15rem;
+    padding-bottom: 15rem;
     &:hover .service-card {
       opacity: 0.1;
     }
   }
+
   .service-card {
-    width: 50%;
-    min-width: 350px;
+    width: 100%;
     height: 36rem;
-    border-bottom: 2px dashed var(--primary-20);
+    border-bottom: 2px dashed var(--primary-10);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,7 +56,8 @@ const StyledServicesSection = styled.section`
     cursor: pointer;
     transition: opacity 0.35s;
     ${breakpoints.laptop} {
-      border: 1px solid var(--primary-60);
+      width: 50%;
+      border: 1px dashed var(--primary-60);
       &:first-child,
       :nth-child(2) {
         border-top: none;
@@ -72,14 +81,20 @@ const StyledServicesSection = styled.section`
     ${breakpoints.laptop} {
       padding: 4rem;
     }
+    span, a {
+      font-family: var(--font-mono);
+    }
     a {
       text-decoration: underline;
     }
     h3 {
       margin: 1.5rem 0 0;
-      font-size: var(--font-xl);
+      font-size: var(--font-3xl);
     }
     p {
+      color: var(--primary-20);
+      font-size: var(--font-lg);
+      line-height: 1.5;
       margin: 2rem 0;
     }
   }

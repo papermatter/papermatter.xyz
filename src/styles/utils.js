@@ -63,3 +63,18 @@ export const responsiveSectionMargin  = () => {
     }
   `
 }
+
+export const responsiveSectionPadding  = () => {
+  return `
+    padding: 0 1.5rem;
+    ${breakpoints.tablet} {
+      padding: 0 6rem;
+    }
+    ${breakpoints.laptop} {
+      padding: 0 10rem;
+    }
+    ${breakpoints.laptopL} {
+      padding: 0 14rem;
+    }
+  `
+}

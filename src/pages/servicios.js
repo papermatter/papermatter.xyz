@@ -55,7 +55,7 @@ const ServicesPage = ({ data }) => {
           data.strapiPageServices.cover.project_photo.childImageSharp.fluid
         }
         alt={data.strapiPageServices.cover.alt}
-        style={{ margin: "0 -1.5rem 8rem" }}
+        style={{ margin: "0 -1.5rem" }}
       />
 
       <ServicesSection services={data.allStrapiServices.nodes} />
