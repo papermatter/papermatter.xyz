@@ -4,7 +4,7 @@ import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
 import { PageCover } from "../components/common/PageCover"
 import AboutSection from "../components/sections/AboutSection"
-import ClientsSlider from "../components/sections/ClientsSlider"
+import ExpirienceSection from "../components/sections/ExpirienceSection"
 import ImagesSlider from "../components/sections/ImagesSlider"
 
 import Img from "gatsby-image"
@@ -79,27 +79,21 @@ const AboutPage = ({
       <AboutSection
         heading={data.goal.heading}
         description={data.goal.description}
-      >
-        <ImagesSlider
-          images={allStrapiImages.nodes.slice(0, 2)}
-          initialPosition="25%"
-        />
-        <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
-      </AboutSection>
+      />
+      
+      <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
 
-      <AboutSection
+      <ExpirienceSection
         heading={data.experience.heading}
         description={data.experience.description}
-      >
-        <ClientsSlider clients={allStrapiClients.nodes} />
-      </AboutSection>
-
+        clients={allStrapiClients.nodes}
+      />
+      
       <AboutSection
         heading={data.location.heading}
         description={data.location.description}
-      >
-        <div>Hola</div>
-      </AboutSection>
+      />
+
     </Layout>
   )
 }

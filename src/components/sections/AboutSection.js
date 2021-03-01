@@ -2,30 +2,27 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledAboutSection = styled.div`
-  text-align: center;
-  padding: 6.5rem 0;
+  text-align: left;
+  padding: 10rem 0;
   display: flex;
   flex-direction: column;
-  &:first-of-type {
-    h3,
-    p {
-      text-align: left;
-    }
-  }
   h3 {
-    font-size: var(--font-xl);
+    margin-bottom: 3rem;
+    font-size: var(--font-3xl);
   }
   p {
-    margin: 3rem 0 4rem;
+    font-size: var(--font-lg);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
   }
-`
+` 
 
-const AboutSection = ({ heading, description, children }) => {
+const AboutSection = ({ heading, description, style = {}  }) => {
   return (
-    <StyledAboutSection>
+    <StyledAboutSection style={style}>
       <h3>{heading}</h3>
       <p>{description}</p>
-      {children}
     </StyledAboutSection>
   )
 }

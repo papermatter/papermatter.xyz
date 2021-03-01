@@ -3,12 +3,17 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import Slider from "../UI/Slider"
+import { responsiveSectionMargin } from "../../styles/utils"
+
+const StyledClientSlider = styled.div`
+  ${responsiveSectionMargin}
+`
 
 const StyledLink = styled.a`
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
-  margin: 0 2rem;
+  margin: 0 5rem;
 `
 
 const StyledImg = styled(Img)`
@@ -19,23 +24,25 @@ const StyledImg = styled(Img)`
 
 const ClientsSlider = ({ clients }) => {
   return (
-    <Slider>
-      {clients.map(client => (
-        <StyledLink
-          key={client.id}
-          href={client.url}
-          aria-label={`Link to ${client.name} website`}
-          target="_blank"
-          rel="noreferrer"
-          title={client.name}
-        >
-          <StyledImg
-            fluid={client.logo.childImageSharp.fluid}
-            alt={client.name}
-          />
-        </StyledLink>
-      ))}
-    </Slider>
+    <StyledClientSlider>
+      <Slider>
+        {clients.map(client => (
+          <StyledLink
+            key={client.id}
+            href={client.url}
+            aria-label={`Link to ${client.name} website`}
+            target="_blank"
+            rel="noreferrer"
+            title={client.name}
+          >
+            <StyledImg
+              fluid={client.logo.childImageSharp.fluid}
+              alt={client.name}
+            />
+          </StyledLink>
+        ))}
+      </Slider>
+    </StyledClientSlider>
   )
 }
 
