@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react"
-import { Logo } from "../../Icons"
+import Logo from "../../Icons/Logo"
 import { Link } from "gatsby"
 import Menu from "../../Icons/Menu"
 import Close from "../../Icons/Close"
@@ -38,7 +38,7 @@ const Header = () => {
       <StyledNav onClick={() => setIsOpen(false)} ref={navRef}>
         <StyledHeader>
           <Link to="/" aria-label="Link to home">
-            <Logo size="1.8em" />
+            <Logo width="48" height="48" />
           </Link>
           <StyledButton onClick={() => setIsOpen(false)} aria-label="Close Nav">
             <Close />
@@ -63,7 +63,7 @@ const Header = () => {
   return (
     <StyledHeader isHidden={isHidden}>
       <Link to="/" aria-label="link to home">
-        <Logo size="1.8em" color="currentColor" />
+        <Logo width="48" height="48" />
       </Link>
 
       <StyledButton onClick={() => setIsOpen(true)} aria-label="Open nav">

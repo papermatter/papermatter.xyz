@@ -19,7 +19,7 @@ export const StyledHeader = styled.div`
   transition: transform 0.15s;
 
   ${breakpoints.tablet} {
-    padding: 2rem 2rem 1rem;
+    padding: 1.5rem 2rem ;
   }
 `
 
