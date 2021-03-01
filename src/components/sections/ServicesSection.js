@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import { breakpoints } from "../../styles/Vars"
+import { breakpoints } from "../../styles/utils"
 
 export default function ServicesSection({ services }) {
   return (

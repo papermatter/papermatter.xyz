@@ -1,7 +1,7 @@
 import React from "react"
 import Slider from "../UI/Slider"
 import styled from "styled-components"
-import { breakpoints, responsiveSectionMargin } from "../../styles/Vars"
+import { breakpoints, responsiveSectionMargin } from "../../styles/utils"
 
 const StyledServicesSlider = styled.div`
   ${responsiveSectionMargin}

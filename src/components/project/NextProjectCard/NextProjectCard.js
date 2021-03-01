@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
-import { colors, breakpoints } from "../../../styles/Vars"
+import { colors, breakpoints } from "../../../styles/utils"
 import { Link } from "gatsby"
 import { DivPhoto } from "../Project/styles"
 

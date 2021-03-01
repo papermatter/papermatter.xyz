@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { breakpoints } from "../../styles/Vars"
+import { breakpoints } from "../../styles/utils"
 import ArrowDown from "../Icons/ArrowDown"
 
 const StyledArrowsDivider = styled.ul`

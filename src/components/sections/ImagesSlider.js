@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import Slider from "../UI/Slider"
-import { responsiveSectionMargin } from "../../styles/Vars"
+import { responsiveSectionMargin } from "../../styles/utils"
 
 
 const StyledImagesSlider = styled.div`
