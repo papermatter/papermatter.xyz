@@ -21,7 +21,8 @@ const StyledPageCover = styled.section`
   }
   p {
     font-size: var(--font-lg);
-    color: var(--text-primary);
+    color: var(--text-secondary);
+    line-height: 1.5;
     margin: 0;
   }
 `
