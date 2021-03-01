@@ -18,11 +18,11 @@ const StyledFooter = styled.div`
   }
   .links {
     text-decoration: underline;
-    color: var(--primary);
+    font-family: var(--font-mono);
   }
   .info {
     padding: 3rem 0 2.5rem;
-    color: var(--primary-60);
+    color: var(--text-secondary);
     font-size: var(--font-sm);
   }
   .social-media {
@@ -45,7 +45,6 @@ export default function Footer() {
             {CONTACT_EMAIL}
           </ExternalLink>
         </li>
-        {/* <li>Política de privacidad</li> */}
       </ul>
       <ul className="info">
       <li>Ciudad de México · {CONTACT_TEL}</li>
