@@ -48,3 +48,18 @@ export const responsiveSections = () => {
     }
   `
 }
+
+export const responsiveSectionMargin  = () => {
+  return `
+    margin: 0 -1.5rem;
+    ${breakpoints.tablet} {
+      margin: 0 -6rem;
+    }
+    ${breakpoints.laptop} {
+      margin: 0 -10rem;
+    }
+    ${breakpoints.laptopL} {
+      margin: 0 -14rem;
+    }
+  `
+}

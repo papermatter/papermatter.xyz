@@ -1,40 +1,42 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 
-const SlideAnimation = initial => keyframes`
+const SlideAnimation = keyframes`
   from {
-    transform: translateX(-${initial});
+    transform: translateX(0);
   }
   to {
-    transform: translateX(calc(-100% - ${initial}));
+    transform: translateX(-100%);
   }
 `
 
 const StyledSlider = styled.div`
   display: flex;
   justify-content: flex-start;
-  padding: 0;
+  align-items: center;
   overflow: hidden;
-  margin: 0 -1.5rem;
+  width: 100%;
+  padding: 0;
+  margin: 0;
   .content {
     display: flex;
-    transform: translateX(-${props => props.initial});
-    justify-content: flex-start;
     margin: 0;
     position: relative;
-    animation: ${props => SlideAnimation(props.initial)} ${props => props.time}
+    justify-content: flex-start;
+    left: ${props => props.initial};
+    animation: ${SlideAnimation} ${props => props.time}
       linear infinite;
   }
   .content > * {
-    padding: 0 ${props => props.gap};
+    margin-right: ${props => props.gap};
   }
 `
 
 const Slider = ({
   children,
-  initialPosition = "0%",
+  initialPosition = "0",
   time = "15s",
-  gap = "1rem",
+  gap = "1.5rem",
 }) => {
   return (
     <StyledSlider initial={initialPosition} time={time} gap={gap}>
