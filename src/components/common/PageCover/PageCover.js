@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledPageCover = styled.section`
-  height: 97vh;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

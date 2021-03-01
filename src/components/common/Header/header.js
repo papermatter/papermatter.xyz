@@ -36,14 +36,14 @@ const Header = () => {
   if (isOpen) {
     return (
       <StyledNav onClick={() => setIsOpen(false)} ref={navRef}>
-        <StyledHeader>
+        <div className="nav-header">
           <Link to="/" aria-label="Link to home">
             <Logo width="48" height="48" />
           </Link>
           <StyledButton onClick={() => setIsOpen(false)} aria-label="Close Nav">
             <Close />
           </StyledButton>
-        </StyledHeader>
+        </div>
 
         <nav>
           <Link to="/">Inicio</Link>
