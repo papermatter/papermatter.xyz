@@ -75,7 +75,7 @@ const IndexPage = ({
 
   return (
     <Layout bgColor={isShowed ? "" : "transparent"}>
-      <SEO title="Inicio" />
+      <SEO title="Experencias visuales interactivas" />
 
       <HomeCover
         heading={data.heading}
@@ -100,6 +100,7 @@ const IndexPage = ({
       <ArrowsDivider />
 
       <HomeSection
+        style={{ textAlign: 'center' }}
         heading={data.projects.heading}
         linkTo="/portfolio"
         linkLabel="Ir a trabajos"

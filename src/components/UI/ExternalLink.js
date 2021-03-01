@@ -6,7 +6,7 @@ const ExternalLink = ({ to, children, ariaLabel, className }) => {
       href={to}
       aria-label={ariaLabel}
       target="_blank"
-      rel="noreferrer"
+      rel="noreferrer noopener"
       className={className}
     >
       {children}
