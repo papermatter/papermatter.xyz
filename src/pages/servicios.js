@@ -12,12 +12,9 @@ export const query = graphql`
       heading
       description
       cover {
-        alt
-        project_photo {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -44,6 +41,7 @@ const ServicesPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Servicios" />
+
       <PageHead
         pageName="Servicios"
         heading={data.strapiPageServices.heading}
@@ -51,7 +49,7 @@ const ServicesPage = ({ data }) => {
       />
 
       <PageCover
-        src={data.strapiPageServices.cover.project_photo.childImageSharp.fluid}
+        src={data.strapiPageServices.cover.childImageSharp.fluid}
         alt="Servicios cover"
       />
 

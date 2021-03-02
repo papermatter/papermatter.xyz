@@ -5,6 +5,7 @@ import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
 import ProjectInfo from "../components/project/ProjectInfo"
 import PageCover from "../components/common/PageCover/PageCover"
+import PhotosList from "../components/project/PhotosList"
 
 export const projectQuery = graphql`
   query GET_PROJECT($slug: String!) {
@@ -25,6 +26,17 @@ export const projectQuery = graphql`
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      photos {
+        id
+        alt
+        photo {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
@@ -54,6 +66,8 @@ export default function project({ data }) {
         status={data.strapiProjects.status}
         description={data.strapiProjects.description}
       />
+
+      <PhotosList photos={data.strapiProjects.photos} />
     </Layout>
   )
 }
