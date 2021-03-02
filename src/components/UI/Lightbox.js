@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import usePanAndZoom from "../../lib/hooks/usePanAndZoom"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { Portal } from "./Portal"
 
 export default function Lightbox({ image, handleCloseClick }) {
   const [isZoomIn, setIsZoomIn] = useState(false)
@@ -16,37 +17,39 @@ export default function Lightbox({ image, handleCloseClick }) {
   }
 
   return (
-    <StyledLightbox>
-      <div
-        role="menuitem"
-        onClick={ZoomIn}
-        onDoubleClick={() => (isZoomIn ? ZoomOut() : null)}
-        onMouseDown={onMouseDown}
-        onTouchStart={onTouchStart}
-        style={{
-          transform: `${
-            !isZoomIn
-              ? "translate(0px, 0px)"
-              : `translate(${translateX}px, ${translateY}px) scale(2.5)`
-          }`,
-          cursor: `${isZoomIn ? "move" : "zoom-in"}`,
-        }}
-      >
-        <StyledImg
-          fluid={image.image.childImageSharp.fluid}
-          alt={image.title}
-        />
-      </div>
+    <Portal id="lightbox">
+      <StyledLightbox>
+        <div
+          role="menuitem"
+          onClick={ZoomIn}
+          onDoubleClick={() => (isZoomIn ? ZoomOut() : null)}
+          onMouseDown={onMouseDown}
+          onTouchStart={onTouchStart}
+          style={{
+            transform: `${
+              !isZoomIn
+                ? "translate(0px, 0px)"
+                : `translate(${translateX}px, ${translateY}px) scale(2.5)`
+            }`,
+            cursor: `${isZoomIn ? "move" : "zoom-in"}`,
+          }}
+        >
+          <StyledImg
+            fluid={image.image.childImageSharp.fluid}
+            alt={image.title}
+          />
+        </div>
 
-      {isZoomIn && (
-        <button className="zoom-out" onClick={() => ZoomOut()}>
-          Click here to zoom out
+        {isZoomIn && (
+          <button className="zoom-out" onClick={() => ZoomOut()}>
+            Click here to zoom out
+          </button>
+        )}
+        <button className="exit-btn" onClick={() => handleCloseClick()}>
+          Cerrar
         </button>
-      )}
-      <button className="exit-btn" onClick={() => handleCloseClick()}>
-        Cerrar
-      </button>
-    </StyledLightbox>
+      </StyledLightbox>
+    </Portal>
   )
 }
 
