@@ -28,7 +28,7 @@ export const query = graphql`
         title
         slug
         description
-        cover {
+        thumbnail {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
@@ -42,7 +42,7 @@ export const query = graphql`
 
 const ServicesPage = ({ data }) => {
   return (
-    <Layout >
+    <Layout>
       <SEO title="Servicios" />
       <PageCover
         pageName="Servicios"

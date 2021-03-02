@@ -2,7 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import { breakpoints, responsiveSectionMargin, responsiveSectionPadding } from "../../styles/utils"
+import {
+  breakpoints,
+  responsiveSectionMargin,
+  responsiveSectionPadding,
+} from "../../styles/utils"
 
 export default function ServicesSection({ services }) {
   return (
@@ -20,7 +24,7 @@ export default function ServicesSection({ services }) {
             <Link to={`/servicios/${service.slug}`}>ver {service.title}</Link>
           </div>
 
-          <StyledImg fluid={service.cover.childImageSharp.fluid} />
+          <StyledImg fluid={service.thumbnail.childImageSharp.fluid} />
         </div>
       ))}
     </StyledServicesSection>
@@ -80,7 +84,8 @@ const StyledServicesSection = styled.section`
     ${breakpoints.laptop} {
       padding: 4rem;
     }
-    span, a {
+    span,
+    a {
       font-family: var(--font-mono);
     }
     a {
