@@ -4,7 +4,7 @@ import { PageCover } from "../components/common/PageCover"
 import SEO from "../components/common/seo"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
-import ProjectInfo from "../components/project/Project/ProjectInfo"
+import ProjectInfo from "../components/project/ProjectInfo"
 
 export const projectQuery = graphql`
   query GET_PROJECT($slug: String!) {
