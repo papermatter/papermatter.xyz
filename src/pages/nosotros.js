@@ -6,8 +6,7 @@ import { PageHead } from "../components/common/PageHead"
 import AboutSection from "../components/sections/AboutSection"
 import ExpirienceSection from "../components/sections/ExpirienceSection"
 import ImagesSlider from "../components/sections/ImagesSlider"
-
-import Img from "gatsby-image"
+import PageCover from "../components/common/PageCover/PageCover"
 
 export const aboutQuery = graphql`
   query GET_ABOUT_US {
@@ -71,10 +70,7 @@ const AboutPage = ({
       <SEO title="Nosotros" />
       <PageHead pageName="nosotros" heading={data.heading} />
 
-      <Img
-        fluid={data.cover.childImageSharp.fluid}
-        style={{ margin: "0 -1.5rem 8rem" }}
-      />
+      <PageCover src={data.cover.childImageSharp.fluid} alt="About us cover" />
 
       <AboutSection
         heading={data.goal.heading}

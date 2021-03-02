@@ -39,6 +39,7 @@ export default function portafolio({ data }) {
   return (
     <Layout>
       <SEO title="Portafolio" />
+
       <PageHead
         pageName="Portafolio"
         heading={data.strapiPagePortfolio.heading}

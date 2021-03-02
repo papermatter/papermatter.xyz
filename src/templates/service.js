@@ -3,11 +3,11 @@ import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
 import { PageHead } from "../components/common/PageHead"
-import Img from "gatsby-image"
 import HomeSection from "../components/sections/HomeSection"
 import ServiceSteps from "../components/sections/ServiceSteps"
 import ServicesSliderLink from "../components/sections/ServicesSliderLink"
 import ProjectCardsContainer from "../components/project/ProjectCardsContainer"
+import PageCover from "../components/common/PageCover/PageCover"
 
 export const portfolioQuery = graphql`
   query GET_SERVICE($slug: String!) {
@@ -64,10 +64,9 @@ export default function portafolio({ data }) {
         style={{ height: "85vh" }}
       />
 
-      <Img
-        fluid={data.strapiServices.cover.childImageSharp.fluid}
+      <PageCover
+        src={data.strapiServices.cover.childImageSharp.fluid}
         alt={data.strapiServices.cover.alt}
-        style={{ margin: "0 -1.5rem" }}
       />
 
       <HomeSection

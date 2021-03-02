@@ -4,7 +4,7 @@ import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
 import { PageHead } from "../components/common/PageHead"
 import ServicesSection from "../components/sections/ServicesSection"
-import Img from "gatsby-image"
+import PageCover from "../components/common/PageCover/PageCover"
 
 export const query = graphql`
   query GET_SERVICES {
@@ -50,12 +50,9 @@ const ServicesPage = ({ data }) => {
         description={data.strapiPageServices.description}
       />
 
-      <Img
-        fluid={
-          data.strapiPageServices.cover.project_photo.childImageSharp.fluid
-        }
-        alt={data.strapiPageServices.cover.alt}
-        style={{ margin: "0 -1.5rem" }}
+      <PageCover
+        src={data.strapiPageServices.cover.project_photo.childImageSharp.fluid}
+        alt="Servicios cover"
       />
 
       <ServicesSection services={data.allStrapiServices.nodes} />
