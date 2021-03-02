@@ -13,8 +13,10 @@ import {
   clearAllBodyScrollLocks,
 } from "body-scroll-lock"
 
-const Header = () => {
+const Header = ({ toggleHeaderColor }) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const [isBackgroundShowed, setIsBackgroundShowed] = useState(true)
 
   const navRef = useRef(null)
 
@@ -32,6 +34,23 @@ const Header = () => {
       clearAllBodyScrollLocks()
     }
   }, [isOpen])
+
+  useEffect(() => {
+    if (!toggleHeaderColor) return
+
+    const showBackground = () => {
+      if (window.scrollY > 100) {
+        setIsBackgroundShowed(true)
+      } else {
+        setIsBackgroundShowed(false)
+      }
+    }
+
+    window.addEventListener("scroll", showBackground)
+    return () => {
+      window.removeEventListener("scroll", showBackground)
+    }
+  }, [toggleHeaderColor])
 
   if (isOpen) {
     return (
@@ -61,7 +80,10 @@ const Header = () => {
   }
 
   return (
-    <StyledHeader isHidden={isHidden}>
+    <StyledHeader
+      isHidden={isHidden}
+      className={isBackgroundShowed ? "" : "no-background"}
+    >
       <Link to="/" aria-label="link to home">
         <Logo width="48" height="48" />
       </Link>

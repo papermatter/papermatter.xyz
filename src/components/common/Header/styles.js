@@ -8,7 +8,7 @@ export const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem .75rem 1rem 1.5rem;
+  padding: 1rem 0.75rem 1rem 1.5rem;
   z-index: 1000;
   transition: color 0.65s;
   color: var(--primary);
@@ -16,16 +16,22 @@ export const StyledHeader = styled.div`
   backdrop-filter: blur(20px) saturate(130%);
   transform: ${props =>
     props.isHidden ? "translateY(-100%)" : "translateY(0)"};
-  transition: transform 0.15s;
-
+  transition: transform, color, background-color 0.15s;
   ${breakpoints.tablet} {
-    padding: 1.5rem 2rem ;
+    padding: 1.5rem 2rem;
   }
-
   @supports not (backdrop-filter: none) {
     .sticky-nav {
       backdrop-filter: none;
       background: var(--background);
+    }
+  }
+  &.no-background {
+    backdrop-filter: none;
+    background: transparent;
+    color: var(--background);
+    svg {
+      fill: var(--background);
     }
   }
 `
@@ -35,7 +41,7 @@ export const StyledButton = styled.button`
   border: none;
   height: 2.75rem;
   width: 2.75rem;
-  line-height: .5;
+  line-height: 0.5;
   &:hover {
     background: var(--primary-05);
   }
@@ -61,9 +67,9 @@ export const StyledNav = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem .75rem 0 1.5rem;
+    padding: 1rem 0.75rem 0 1.5rem;
     ${breakpoints.tablet} {
-      padding: 1.5rem 2rem ;
+      padding: 1.5rem 2rem;
     }
   }
   .contact-email {
