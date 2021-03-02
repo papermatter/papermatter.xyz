@@ -7,18 +7,8 @@
 // You can delete this file if you're not using it
 
 const React = require("react")
-const { BreakpointProvider } = require("./src/lib/hooks/useBreakpoints")
-
-const queries = {
-  mobileS: "(max-width: 320px)",
-  mobileM: "(min-width: 375px)",
-  mobileL: "(min-width: 425px)",
-  tablet: "(min-width: 720px)",
-  laptop: "(min-width: 1024px)",
-  laptopL: "(min-width: 1440px)",
-  or: "(orientation: portrait)", // Check orientation
-}
+const { UIContextProvider } = require("./src/components/UI/use-ui")
 
 exports.wrapRootElement = ({ element }) => (
-  <BreakpointProvider queries={queries}>{element}</BreakpointProvider>
+  <UIContextProvider>{element}</UIContextProvider>
 )

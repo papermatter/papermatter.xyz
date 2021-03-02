@@ -5,7 +5,12 @@ import styled from "styled-components"
 import { Portal } from "./Portal"
 
 export default function Lightbox({ image, handleCloseClick }) {
+  const [activeTab, setActiveTab] = useState(0)
   const [isZoomIn, setIsZoomIn] = useState(false)
+
+  useEffect(() => {
+    setActiveTab(initialActiveTab)
+  }, [initialActiveTab])
 
   const { onMouseDown, onTouchStart, translateX, translateY } = usePanAndZoom()
 
@@ -15,6 +20,34 @@ export default function Lightbox({ image, handleCloseClick }) {
   const ZoomOut = () => {
     setIsZoomIn(false)
   }
+
+  const prevPhoto = () => {
+    activeTab === 0
+      ? setActiveTab(photos.length - 1)
+      : setActiveTab(activeTab - 1)
+    ZoomOut()
+  }
+
+  const nextPhoto = () => {
+    activeTab === photos.length - 1
+      ? setActiveTab(0)
+      : setActiveTab(activeTab + 1)
+    ZoomOut()
+  }
+
+  const onKeyDown = e => {
+    if (e.keyCode === 37) {
+      return prevPhoto()
+    } else if (e.keyCode === 39) {
+      return nextPhoto()
+    }
+    return
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [onKeyDown])
 
   return (
     <Portal id="lightbox">
