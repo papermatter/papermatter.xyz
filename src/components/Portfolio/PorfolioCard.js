@@ -36,7 +36,7 @@ const StyledImg = styled(Img)`
 
 const PorfolioCard = ({project}) => {
   return (
-    <StyledPortfolioCard to="/portfolio">
+    <StyledPortfolioCard to={`/portafolio/${project.slug}`}>
       <StyledImg fluid={project.cover.childImageSharp.fluid} alt={project.title}/>
       <div className="info">
         <h3>

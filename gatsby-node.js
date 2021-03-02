@@ -1,42 +1,71 @@
-exports.createPages = async ({ graphql, actions }) => {
+const graphqlRequest = (graphql, request) => new Promise((resolve, reject) => {
+  resolve(
+    graphql(request).then(result => {
+      if (result.errors) {
+        reject(result.errors)
+      }
+      return result;
+    })
+  )
+})
+
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const result = await graphql(
-    `
-      {
-        services: allStrapiServices {
-          edges {
-            node {
-              slug
-            }
+
+  const getServices = graphqlRequest(graphql, `
+    {
+      allStrapiServices {
+        edges {
+          node {
+            slug
           }
         }
       }
-    `
-  )
+    }
+  `).then(result => {
+      result.data.allStrapiServices.edges.forEach(({node}) => {
+      /* Service Page */
+      createPage({
+        path: `/servicios/${node.slug}`,
+        component: require.resolve("./src/templates/service.js"),
+        context: {
+          slug: node.slug,
+        },
+      })
 
-  if (result.errors) {
-    throw result.errors
-  }
-
-  // Create blog articles pages.
-  const services = result.data.services.edges
-
-  services.forEach(project => {
-    /* Service Page */
-    createPage({
-      path: `/servicios/${project.node.slug}`,
-      component: require.resolve("./src/templates/service.js"),
-      context: {
-        slug: project.node.slug,
-      },
-    })
-    /* Porfolio Category page */
-    createPage({
-      path: `/portafolio/${project.node.slug}`,
-      component: require.resolve("./src/templates/portfolioCategory.js"),
-      context: {
-        slug: project.node.slug,
-      },
+      /* Porfolio Category page */
+      createPage({
+        path: `/portafolio/${node.slug}`,
+        component: require.resolve("./src/templates/portfolioCategory.js"),
+        context: {
+          slug: node.slug,
+        },
+      })
     })
   })
+
+
+  const getProjects = graphqlRequest(graphql, `
+    {
+      allStrapiProjects {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `).then(result => {
+      result.data.allStrapiProjects.edges.forEach(({node}) => {
+      createPage({
+        path: `/portafolio/${node.slug}`,
+        component: require.resolve("./src/templates/project.js"),
+        context: {
+          slug: node.slug,
+        },
+      })
+    })
+  })
+
+  return Promise.all([getServices, getProjects])
 }
