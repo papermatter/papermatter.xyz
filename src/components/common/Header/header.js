@@ -16,7 +16,9 @@ import {
 const Header = ({ toggleHeaderColor }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const [isBackgroundShowed, setIsBackgroundShowed] = useState(true)
+  const [isBackgroundShowed, setIsBackgroundShowed] = useState(
+    toggleHeaderColor ? false : true
+  )
 
   const navRef = useRef(null)
 
