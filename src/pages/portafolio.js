@@ -3,7 +3,7 @@ import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
 import { PageCover } from "../components/common/PageCover"
-import PortfolioContainer from "../components/Portfolio/PortfolioContainer"
+import ProjectCardsContainer from "../components/project/ProjectCardsContainer"
 import PortfolioNav from "../components/Portfolio/PortfolioNav"
 
 export const portfolioQuery = graphql`
@@ -25,9 +25,9 @@ export const portfolioQuery = graphql`
         description
         title
         client {
-            name
-            url
-          }
+          name
+          url
+        }
         service {
           slug
           title
@@ -40,7 +40,7 @@ export const portfolioQuery = graphql`
           }
         }
       }
-    } 
+    }
   }
 `
 
@@ -52,12 +52,12 @@ export default function portafolio({ data }) {
       <PageCover
         pageName="Portafolio"
         heading={data.strapiPagePortfolio.heading}
-        style={{ height: '85vh' }}
+        style={{ height: "85vh" }}
       />
 
       <PortfolioNav categories={data.allStrapiServices.nodes} />
 
-      <PortfolioContainer projects={data.allStrapiProjects.nodes} />
+      <ProjectCardsContainer projects={data.allStrapiProjects.nodes} />
     </Layout>
   )
 }
