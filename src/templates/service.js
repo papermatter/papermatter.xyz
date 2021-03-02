@@ -6,6 +6,7 @@ import { PageCover } from "../components/common/PageCover"
 import Img from "gatsby-image"
 import HomeSection from "../components/sections/HomeSection"
 import ServiceSteps from "../components/sections/ServiceSteps"
+import ServicesSliderLink from "../components/sections/ServicesSliderLink"
 
 export const portfolioQuery = graphql`
   query GET_SERVICE($slug: String!) {
@@ -81,6 +82,7 @@ export default function portafolio({ data }) {
 
       <ServiceSteps steps={data.strapiServices.steps}/>
 
+      <ServicesSliderLink services={data.allStrapiServices.nodes} />
 
     </Layout>
   )
