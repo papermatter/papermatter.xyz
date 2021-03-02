@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
-import { PageCover } from "../components/common/PageCover"
+import { PageHead } from "../components/common/PageHead"
 import AboutSection from "../components/sections/AboutSection"
 import ExpirienceSection from "../components/sections/ExpirienceSection"
 import ImagesSlider from "../components/sections/ImagesSlider"
@@ -69,7 +69,7 @@ const AboutPage = ({
   return (
     <Layout>
       <SEO title="Nosotros" />
-      <PageCover pageName="nosotros" heading={data.heading} />
+      <PageHead pageName="nosotros" heading={data.heading} />
 
       <Img
         fluid={data.cover.childImageSharp.fluid}
@@ -80,7 +80,7 @@ const AboutPage = ({
         heading={data.goal.heading}
         description={data.goal.description}
       />
-      
+
       <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
 
       <ExpirienceSection
@@ -88,12 +88,11 @@ const AboutPage = ({
         description={data.experience.description}
         clients={allStrapiClients.nodes}
       />
-      
+
       <AboutSection
         heading={data.location.heading}
         description={data.location.description}
       />
-
     </Layout>
   )
 }

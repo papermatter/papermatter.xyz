@@ -2,7 +2,7 @@ import React from "react"
 import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
-import { PageCover } from "../components/common/PageCover"
+import { PageHead } from "../components/common/PageHead"
 import ServicesSection from "../components/sections/ServicesSection"
 import Img from "gatsby-image"
 
@@ -44,7 +44,7 @@ const ServicesPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Servicios" />
-      <PageCover
+      <PageHead
         pageName="Servicios"
         heading={data.strapiPageServices.heading}
         description={data.strapiPageServices.description}

@@ -1,6 +1,6 @@
 import React from "react"
 import { Layout } from "../components/common/Layout"
-import { PageCover } from "../components/common/PageCover"
+import { PageHead } from "../components/common/PageHead"
 import SEO from "../components/common/seo"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
@@ -37,8 +37,8 @@ export default function project({ data }) {
     <Layout>
       <SEO title={data.strapiProjects.title} />
 
-      <PageCover
-        pageName="Proyectos / Servicios"
+      <PageHead
+        pageName={`Proyectos / ${data.strapiProjects.service.title}`}
         heading={data.strapiProjects.title}
         style={{ height: "85vh" }}
       />

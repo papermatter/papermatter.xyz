@@ -39,7 +39,7 @@ const Header = ({ toggleHeaderColor }) => {
     if (!toggleHeaderColor) return
 
     const showBackground = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 200) {
         setIsBackgroundShowed(true)
       } else {
         setIsBackgroundShowed(false)

@@ -2,7 +2,7 @@ import React from "react"
 import { Layout } from "../components/common/Layout"
 import SEO from "../components/common/seo"
 import { graphql } from "gatsby"
-import { PageCover } from "../components/common/PageCover"
+import { PageHead } from "../components/common/PageHead"
 import Img from "gatsby-image"
 import HomeSection from "../components/sections/HomeSection"
 import ServiceSteps from "../components/sections/ServiceSteps"
@@ -58,7 +58,7 @@ export default function portafolio({ data }) {
     <Layout>
       <SEO title="Portafolio" />
 
-      <PageCover
+      <PageHead
         pageName="Servicios/"
         heading={data.strapiServices.title}
         style={{ height: "85vh" }}

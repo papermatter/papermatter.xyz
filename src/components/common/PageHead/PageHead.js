@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-const StyledPageCover = styled.section`
+const StyledPageHead = styled.section`
   height: 95vh;
   display: flex;
   flex-direction: column;
@@ -27,12 +27,17 @@ const StyledPageCover = styled.section`
   }
 `
 
-export default function PageCover({ pageName, heading, description, style = {} }) {
+export default function PageHead({
+  pageName,
+  heading,
+  description,
+  style = {},
+}) {
   return (
-    <StyledPageCover style={style}>
+    <StyledPageHead style={style}>
       {pageName && <div>{pageName}</div>}
       <h1>{heading}</h1>
       {description && <p>{description}</p>}
-    </StyledPageCover>
+    </StyledPageHead>
   )
 }
