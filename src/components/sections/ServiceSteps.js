@@ -1,10 +1,9 @@
-
 import React from "react"
 import styled from "styled-components"
-import {AccordionButton, AccordionItem, AccordionPanel} from '../UI/Accordion'
+import { AccordionButton, AccordionItem, AccordionPanel } from "../UI/Accordion"
 
 const StyledServiceSteps = styled.div`
-  padding: 3rem 0;
+  padding: 3rem 0 10rem;
   h3 {
     font-size: var(--font-3xl);
     margin-bottom: 1.5rem;
@@ -21,7 +20,7 @@ const StyledAccordionButton = styled.div`
   span {
     text-align: left;
     display: block;
-    margin-bottom: .25rem;
+    margin-bottom: 0.25rem;
     color: var(--text-tertiary);
     font-size: var(--font-md);
     font-family: var(--font-mono);
@@ -34,12 +33,10 @@ const ServiceSteps = ({ steps }) => {
       <h3>Los Pasos del proceso*</h3>
       <p>*Pueden ser más de los descritos</p>
       {steps.map((step, index) => (
-        <AccordionItem key={step.id}> 
+        <AccordionItem key={step.id}>
           <StyledAccordionButton>
             <AccordionButton>
-              <span>
-                {index < 9 ? `0${index+1}` : index+1}
-              </span>
+              <span>{index < 9 ? `0${index + 1}` : index + 1}</span>
               {step.title}
             </AccordionButton>
           </StyledAccordionButton>

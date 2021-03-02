@@ -1,8 +1,8 @@
-import { Link } from 'gatsby'
-import React from 'react'
-import styled from 'styled-components'
-import { breakpoints, responsiveSectionMargin } from '../../styles/utils'
-import Slider from '../UI/Slider'
+import { Link } from "gatsby"
+import React from "react"
+import styled from "styled-components"
+import { breakpoints, responsiveSectionMargin } from "../../styles/utils"
+import Slider from "../UI/Slider"
 
 const StyledServicesSlider = styled.div`
   ${responsiveSectionMargin}
@@ -33,14 +33,14 @@ const StyledContainer = styled.div`
   }
 `
 
-const ServicesSliderLink = ({services}) => {
+const ServicesSliderLink = ({ services }) => {
   return (
     <StyledContainer>
       <h3>Explora otros servicios</h3>
-      <StyledServicesSlider >
+      <StyledServicesSlider>
         <Slider time="24s">
           {services.map(service => (
-            <Link key={service.id} to={`/servicios/${service.slug}`}>
+            <Link key={service.slug} to={`/servicios/${service.slug}`}>
               {service.title}
             </Link>
           ))}

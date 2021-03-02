@@ -22,16 +22,7 @@ export const portfolioQuery = graphql`
         id
         slug
         location
-        description
         title
-        client {
-          name
-          url
-        }
-        service {
-          slug
-          title
-        }
         cover {
           childImageSharp {
             fluid {

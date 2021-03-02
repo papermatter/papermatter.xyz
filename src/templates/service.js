@@ -7,10 +7,11 @@ import Img from "gatsby-image"
 import HomeSection from "../components/sections/HomeSection"
 import ServiceSteps from "../components/sections/ServiceSteps"
 import ServicesSliderLink from "../components/sections/ServicesSliderLink"
+import ProjectCardsContainer from "../components/project/ProjectCardsContainer"
 
 export const portfolioQuery = graphql`
   query GET_SERVICE($slug: String!) {
-    strapiServices(slug: {eq: $slug}) {
+    strapiServices(slug: { eq: $slug }) {
       heading
       slug
       title
@@ -34,15 +35,13 @@ export const portfolioQuery = graphql`
         title
       }
     }
-    allStrapiImages(filter: { service: { slug: { eq: $slug } } }) {
+    allStrapiProjects(filter: { service: { slug: { eq: $slug } } }, limit: 4) {
       nodes {
         id
+        slug
+        location
         title
-        client {
-          name
-          url
-        }
-        image {
+        cover {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
@@ -62,13 +61,11 @@ export default function portafolio({ data }) {
       <PageCover
         pageName="Servicios/"
         heading={data.strapiServices.title}
-        style={{height: '85vh'}}
+        style={{ height: "85vh" }}
       />
 
       <Img
-        fluid={
-          data.strapiServices.cover.childImageSharp.fluid
-        }
+        fluid={data.strapiServices.cover.childImageSharp.fluid}
         alt={data.strapiServices.cover.alt}
         style={{ margin: "0 -1.5rem" }}
       />
@@ -80,10 +77,11 @@ export default function portafolio({ data }) {
         linkLabel="Trabaja con nosotros"
       />
 
-      <ServiceSteps steps={data.strapiServices.steps}/>
+      <ServiceSteps steps={data.strapiServices.steps} />
+
+      <ProjectCardsContainer projects={data.allStrapiProjects.nodes} />
 
       <ServicesSliderLink services={data.allStrapiServices.nodes} />
-
     </Layout>
   )
 }
