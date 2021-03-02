@@ -14,6 +14,7 @@ const StyledPortfolioNav = styled.div`
   }
   a {
     font-size: var(--font-md);
+    font-family: var(--font-mono);
     padding: 1rem 0;
     margin-right: 1.5rem;
     white-space: nowrap;

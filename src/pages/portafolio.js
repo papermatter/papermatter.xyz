@@ -17,15 +17,22 @@ export const portfolioQuery = graphql`
         title
       }
     }
-    allStrapiImages {
+    allStrapiProjects {
       nodes {
         id
+        slug
+        location
+        description
         title
         client {
-          name
-          url
+            name
+            url
+          }
+        service {
+          slug
+          title
         }
-        image {
+        cover {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
@@ -33,7 +40,7 @@ export const portfolioQuery = graphql`
           }
         }
       }
-    }
+    } 
   }
 `
 
@@ -50,7 +57,7 @@ export default function portafolio({ data }) {
 
       <PortfolioNav categories={data.allStrapiServices.nodes} />
 
-      <PortfolioContainer images={data.allStrapiImages.nodes} />
+      <PortfolioContainer projects={data.allStrapiProjects.nodes} />
     </Layout>
   )
 }

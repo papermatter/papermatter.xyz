@@ -15,15 +15,22 @@ export const portfolioQuery = graphql`
         description
       }
     }
-    allStrapiImages(filter: { service: { slug: { eq: $slug } } }) {
+    allStrapiProjects(filter: { service: { slug: { eq: $slug } } }) {
       nodes {
         id
+        slug
+        location
+        description
         title
         client {
-          name
-          url
+            name
+            url
+          }
+        service {
+          slug
+          title
         }
-        image {
+        cover {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
@@ -31,7 +38,7 @@ export const portfolioQuery = graphql`
           }
         }
       }
-    }
+    } 
   }
 `
 

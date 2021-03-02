@@ -1,19 +1,19 @@
 import React from "react"
 import styled from "styled-components"
-import PortfolioImageCard from "./PortfolioImageCard"
+import PortfolioCard from './PorfolioCard'
 
 const StyledPortafolioContainer = styled.div`
-  padding: 1rem 0;
+  padding: 2rem 0 10rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 `
 
-const PortfolioContainer = ({ images }) => {
+const PortfolioContainer = ({ projects }) => {
   return (
     <StyledPortafolioContainer>
-      {images.map(image => (
-        <PortfolioImageCard image={image} key={image.id} />
+      {projects.map(project => (
+        <PortfolioCard project={project} key={project.id} />
       ))}
     </StyledPortafolioContainer>
   )
