@@ -8,13 +8,11 @@ import PortfolioNav from "../components/Portfolio/PortfolioNav"
 
 export const portfolioQuery = graphql`
   query GET_SERVICE_IMAGES($slug: String!) {
-    strapiPagePortfolio {
-      heading
-    }
     allStrapiServices {
       nodes {
         slug
         title
+        description
       }
     }
     allStrapiImages(filter: { service: { slug: { eq: $slug } } }) {

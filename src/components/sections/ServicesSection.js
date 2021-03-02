@@ -77,7 +77,6 @@ const StyledServicesSection = styled.section`
     position: absolute;
     z-index: 2;
     width: 100%;
-    pointer-events: none;
     ${breakpoints.laptop} {
       padding: 4rem;
     }
