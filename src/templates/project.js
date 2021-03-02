@@ -3,6 +3,7 @@ import { Layout } from '../components/common/Layout'
 import { PageCover } from '../components/common/PageCover'
 import SEO from '../components/common/seo'
 import Img from "gatsby-image"
+import { graphql } from 'gatsby'
 
 export const projectQuery = graphql`
   query GET_PROJECT($slug: String!) {
