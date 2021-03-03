@@ -35,26 +35,26 @@ export default function ContactForm() {
       return
     }
 
-    // const res = await fetch("/api/contact", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json, text/plain, */*",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     name: nameRef.current.value,
-    //     email: emailRef.current.value,
-    //     tel: telRef.current.value,
-    //     message: messageRef.current.value,
-    //   }),
-    // })
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: nameRef.current.value,
+        email: emailRef.current.value,
+        tel: telRef.current.value,
+        message: messageRef.current.value,
+      }),
+    })
 
-    // const { error } = await res.json()
+    const { error } = await res.json()
 
-    // if (error) {
-    //   setMessage(error)
-    //   return
-    // }
+    if (error) {
+      setMessage(error)
+      return
+    }
 
     messageRef.current.value = ""
     nameRef.current.value = ""
