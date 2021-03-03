@@ -16,7 +16,7 @@ export const StyledHeader = styled.div`
   backdrop-filter: blur(20px) saturate(130%);
   transform: ${props =>
     props.isHidden ? "translateY(-100%)" : "translateY(0)"};
-  transition: transform, color, background-color 0.15s;
+  transition: transform, color, background-color, 0.15s;
   ${breakpoints.tablet} {
     padding: 1.5rem 2rem;
   }

@@ -10,6 +10,8 @@ const StyledPortfolioNav = styled.div`
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
+  background-color: white;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -26,12 +28,12 @@ const StyledPortfolioNav = styled.div`
     text-decoration: underline;
   }
   ${breakpoints.laptop} {
-    width: max-content;
-    max-width: 100%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 2rem 0;
+    justify-content: space-between;
     overflow-x: scroll;
     a {
-      margin: 0 2.5rem;
+      margin: 0 3rem;
       &:first-child {
         margin-left: 0;
       }
