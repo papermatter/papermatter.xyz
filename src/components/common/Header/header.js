@@ -12,6 +12,7 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from "body-scroll-lock"
+import { useBreakpoint } from "../../../lib/hooks/useBreakpoints"
 
 const Header = ({ toggleHeaderColor }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,6 +24,7 @@ const Header = ({ toggleHeaderColor }) => {
   const navRef = useRef(null)
 
   const { isHidden } = useHideOnScroll()
+  const breakpoints = useBreakpoint()
 
   useEffect(() => {
     if (navRef.current) {
@@ -89,6 +91,10 @@ const Header = ({ toggleHeaderColor }) => {
       <Link to="/" aria-label="link to home">
         <Logo width="48" height="48" />
       </Link>
+
+      <a className="contact-link" href="#contact-form">
+        contáctanos
+      </a>
 
       <StyledButton onClick={() => setIsOpen(true)} aria-label="Open nav">
         <Menu />

@@ -34,6 +34,17 @@ export const StyledHeader = styled.div`
       fill: var(--background);
     }
   }
+  .contact-link {
+    font-family: var(--font-mono);
+    text-decoration: underline;
+    font-size: var(--font-sm);
+    margin-left: auto;
+    margin-right: 2rem;
+    display: none;
+    ${breakpoints.laptop} {
+      display: block;
+    }
+  }
 `
 
 export const StyledButton = styled.button`
