@@ -26,6 +26,10 @@ const StyledPageHead = styled.section`
     margin: 0;
   }
   ${breakpoints.laptop} {
+    h1 {
+      width: 90%;
+      margin: 1.5rem auto 3rem;
+    }
     p {
       font-size: var(--font-md);
       width: 60%;

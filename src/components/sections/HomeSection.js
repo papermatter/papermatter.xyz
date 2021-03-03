@@ -33,13 +33,17 @@ const StyledHomeSection = styled.div`
     p {
       font-size: var(--font-md);
     }
+    a {
+      padding: 1.5rem;
+      border: 1px solid var(--element-tertiary);
+      width: max-content;
+    }
   }
 `
 
 const HomeSection = ({
   heading,
   description,
-  children,
   linkTo,
   linkLabel,
   style = {},
@@ -48,7 +52,6 @@ const HomeSection = ({
     <StyledHomeSection style={style}>
       <h3>{heading}</h3>
       {description && <p>{description}</p>}
-      {children && children}
       <Link to={linkTo}>{linkLabel}</Link>
     </StyledHomeSection>
   )

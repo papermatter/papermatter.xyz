@@ -5,7 +5,6 @@ import SEO from "../components/common/seo"
 import HomeCover from "../components/common/PageCover/HomeCover"
 import HomeSection from "../components/sections/HomeSection"
 import ServicesSlider from "../components/sections/ServicesSlider"
-import ImagesSlider from "../components/sections/ImagesSlider"
 import ArrowsDivider from "../components/UI/ArrowsDivider"
 import { useIsMobile } from "../lib/hooks/use-media-queries"
 import ExploreOurWorkSection from "../components/sections/ExploreOurWorkSection"
@@ -79,32 +78,28 @@ const IndexPage = ({
       <ServicesSlider services={allStrapiServices.nodes} />
 
       <HomeSection
+        style={
+          isMobile
+            ? {}
+            : {
+                textAlign: "center",
+                width: "90%",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }
+        }
         heading={data.services.heading}
         description={data.services.description}
         linkTo="/servicios"
         linkLabel="ver servicios"
       />
+
       <ArrowsDivider />
 
-      {isMobile ? (
-        <HomeSection
-          style={{ textAlign: "center" }}
-          heading={data.projects.heading}
-          linkTo="/portfolio"
-          linkLabel="Ir a trabajos"
-        >
-          <ImagesSlider
-            images={allStrapiImages.nodes.slice(0, 2)}
-            initialPosition="-150px"
-          />
-          <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
-        </HomeSection>
-      ) : (
-        <ExploreOurWorkSection
-          heading={data.projects.heading}
-          images={allStrapiImages.nodes.slice(0, 3)}
-        />
-      )}
+      <ExploreOurWorkSection
+        heading={data.projects.heading}
+        images={allStrapiImages.nodes.slice(0, 4)}
+      />
     </Layout>
   )
 }
