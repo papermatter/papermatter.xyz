@@ -19,10 +19,10 @@ export const usePortal = id => {
   useEffect(() => {
     const existingParent = document.querySelector(`#${id}`)
 
-    const parentElement = existingParent || createRootElem(id)
+    const parentElem = existingParent || createRootElem(id)
 
     if (!existingParent) {
-      addRootElement(parentElement)
+      addRootElement(parentElem)
     }
 
     parentElem.appendChild(rootElemRef.current)

@@ -1,6 +1,51 @@
 import { useReducer } from "react"
-import { reducer, initialState } from "../reducer/reducer"
-import { pan, startPan } from "../reducer/actions"
+
+const initialState = {
+  translateX: 0,
+  translateY: 0,
+  prevMouseX: 0,
+  prevMouseY: 0,
+  touchX: 0,
+  touchY: 0,
+  scale: 1,
+}
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "PAN_START":
+      return {
+        ...state,
+        prevMouseX: action.clientX,
+        prevMouseY: action.clientY,
+      }
+    case "PAN":
+      const deltaMouseX = action.clientX - state.prevMouseX
+      const deltaMouseY = action.clientY - state.prevMouseY
+      return {
+        ...state,
+        translateX: state.translateX + deltaMouseX,
+        translateY: state.translateY + deltaMouseY,
+        prevMouseX: action.clientX,
+        prevMouseY: action.clientY,
+      }
+    case "RESET":
+      return initialState
+    default:
+      return state
+  }
+}
+
+const startPan = event => ({
+  type: "PAN_START",
+  clientX: event.clientX,
+  clientY: event.clientY,
+})
+
+const pan = event => ({
+  type: "PAN",
+  clientX: event.clientX,
+  clientY: event.clientY,
+})
 
 export default function usePanAndZoom() {
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -41,9 +86,12 @@ export default function usePanAndZoom() {
     document.addEventListener("touchmove", onTouchMove, false)
   }
 
+  const reset = () => dispatch({ type: "RESET" })
+
   return {
     ...state,
     onMouseDown,
     onTouchStart,
+    reset,
   }
 }

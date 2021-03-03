@@ -15,6 +15,11 @@ const uiReducer = (state, action) => {
         ...state,
         displayLightbox: true,
       }
+    case "CLOSE_LIGHTBOX":
+      return {
+        ...state,
+        displayLightbox: false,
+      }
     case "SET_LIGHTBOX_PHOTOS":
       return {
         ...state,
@@ -29,6 +34,8 @@ const UIProvider = props => {
   const [state, dispatch] = useReducer(uiReducer, initialState)
 
   const openLightbox = () => dispatch({ type: "OPEN_LIGHTBOX" })
+  const closeLightbox = () => dispatch({ type: "CLOSE_LIGHTBOX" })
+
   const setLightboxPhotos = photos =>
     dispatch({ type: "SET_LIGHTBOX_PHOTOS", payload: photos })
 
@@ -36,6 +43,7 @@ const UIProvider = props => {
     () => ({
       ...state,
       openLightbox,
+      closeLightbox,
       setLightboxPhotos,
     }),
     [state]
