@@ -26,7 +26,7 @@ export const aboutQuery = graphql`
       }
       cover {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 2000) {
             ...GatsbyImageSharpFluid
           }
         }

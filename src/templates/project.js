@@ -24,7 +24,7 @@ export const projectQuery = graphql`
       }
       cover {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 2000) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -34,7 +34,7 @@ export const projectQuery = graphql`
         alt
         photo {
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 3500) {
               ...GatsbyImageSharpFluid
             }
           }

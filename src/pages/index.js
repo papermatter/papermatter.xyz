@@ -25,7 +25,7 @@ export const homeQuery = graphql`
       }
       cover {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 2000) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -43,7 +43,7 @@ export const homeQuery = graphql`
         title
         image {
           childImageSharp {
-            fluid(maxWidth: 300) {
+            fluid(maxWidth: 1500) {
               ...GatsbyImageSharpFluid
             }
           }

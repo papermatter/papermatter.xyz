@@ -13,7 +13,7 @@ export const query = graphql`
       description
       cover {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 2000) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -27,7 +27,7 @@ export const query = graphql`
         description
         thumbnail {
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 500) {
               ...GatsbyImageSharpFluid
             }
           }
