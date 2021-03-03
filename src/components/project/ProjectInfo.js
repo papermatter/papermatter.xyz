@@ -1,9 +1,13 @@
 import React from "react"
 import styled from "styled-components"
+import { breakpoints } from "../../styles/utils"
 
 const StyledProjectInfo = styled.ul`
   padding: 10rem 0;
+  display: flex;
+  flex-wrap: wrap;
   li {
+    flex: 0 0 100%;
     padding: 1rem 0;
     display: flex;
     flex-direction: column;
@@ -16,6 +20,15 @@ const StyledProjectInfo = styled.ul`
     p {
       color: var(--text-secondary);
       font-size: var(--font-lg);
+    }
+  }
+  ${breakpoints.tablet} {
+    li {
+      flex: 0 0 45%;
+      padding: 2rem 0;
+    }
+    li:nth-of-type(2n) {
+      flex: 0 0 55%;
     }
   }
 `
