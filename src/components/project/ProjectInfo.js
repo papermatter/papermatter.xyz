@@ -46,7 +46,7 @@ const ProjectInfo = ({ description, client, location, status }) => {
       </li>
       <li>
         <span>Estatus</span>
-        <p>{status}</p>
+        {status && <p>{status}</p>}
       </li>
       <li>
         <span>Descriptión</span>
