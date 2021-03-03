@@ -78,6 +78,10 @@ export default function portafolio({ data }) {
 
       <ServiceSteps steps={data.strapiServices.steps} />
 
+      <h3 style={{ fontSize: "var(--font-2xl)", marginBottom: "1rem" }}>
+        Proyectos
+      </h3>
+
       <ProjectCardsContainer projects={data.allStrapiProjects.nodes} />
 
       <ServicesSliderLink services={data.allStrapiServices.nodes} />

@@ -7,7 +7,7 @@ const StyledImg = styled(Img)`
   ${responsiveSectionMargin}
   height: 70vh;
   ${breakpoints.laptop} {
-    height: 90vh;
+    height: 100vh;
   }
 `
 
