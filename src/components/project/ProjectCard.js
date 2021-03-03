@@ -3,25 +3,39 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import ArrowRight from "../Icons/ArrowRight"
 import { Link } from "gatsby"
+import { breakpoints } from "../../styles/utils"
 
 const StyledProjectCard = styled(Link)`
-  width: 100%;
+  flex: 0 0 100%;
+  margin: 0 0 2rem;
+  height: min-content;
   .info {
     padding: 1.5rem 0;
     position: relative;
+    color: var(--text-tertiary);
     h3 {
       font-size: var(--font-xl);
-      margin-bottom: 0.25rem;
-    }
-    p {
-      color: var(--text-tertiary);
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
     }
     span {
       line-height: 0.5;
       position: absolute;
-      right: 0;
+      right: 0.5rem;
       top: 50%;
       transform: translateY(-50%);
+    }
+  }
+  ${breakpoints.tablet} {
+    flex: 0 0 49%;
+    &:nth-child(2n) {
+      transform: translateY(25%);
+    }
+    .info h3 {
+      font-size: var(--font-lg);
+    }
+    .info p {
+      font-size: var(--font-sm);
     }
   }
 `
@@ -31,7 +45,7 @@ const StyledImg = styled(Img)`
   z-index: 1;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 22.5rem;
 `
 
 const ProjectCard = ({ project }) => {
