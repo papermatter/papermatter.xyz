@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { breakpoints } from "../../../styles/utils"
 
 const StyledPageHead = styled.section`
   height: 95vh;
@@ -8,11 +9,11 @@ const StyledPageHead = styled.section`
   justify-content: center;
   position: relative;
   text-align: center;
+  color: var(--text-secondary);
   div {
     text-transform: capitalize;
     font-size: var(--font-md);
     font-family: var(--font-mono);
-    color: var(--text-primary);
   }
   h1 {
     font-size: var(--font-3xl);
@@ -21,9 +22,15 @@ const StyledPageHead = styled.section`
   }
   p {
     font-size: var(--font-lg);
-    color: var(--text-secondary);
     line-height: 1.5;
     margin: 0;
+  }
+  ${breakpoints.laptop} {
+    p {
+      font-size: var(--font-md);
+      width: 60%;
+      margin: 0 auto;
+    }
   }
 `
 
