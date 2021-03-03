@@ -88,6 +88,12 @@ const AboutPage = ({
       <AboutSection
         heading={data.location.heading}
         description={data.location.description}
+        style={{
+          backgroundImage: "url(/images/cdmxMap.svg)",
+          backgroundSize: "80% auto",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
       />
     </Layout>
   )

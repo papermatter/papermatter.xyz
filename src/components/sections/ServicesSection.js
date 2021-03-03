@@ -132,6 +132,8 @@ const StyledImg = styled(Img)`
   height: 26rem;
   width: 100%;
   margin: 0;
-  opacity: 0;
   transition: opacity 0.35s;
+  ${breakpoints.laptop} {
+    opacity: 0;
+  }
 `
