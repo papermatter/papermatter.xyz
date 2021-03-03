@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import { breakpoints } from "../../../styles/utils"
@@ -17,13 +18,31 @@ const StyledPageHead = styled.section`
   }
   h1 {
     font-size: var(--font-3xl);
-    margin: 1.5rem 0 3rem;
+    margin: 1rem 0 3rem;
     font-weight: normal;
   }
   p {
     font-size: var(--font-lg);
     line-height: 1.5;
     margin: 0;
+  }
+  .breadcrumbs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    p,
+    a {
+      width: max-content;
+      margin: 0.5rem 0;
+      &:not(:first-child):before {
+        content: "/";
+        margin: 0 1rem;
+      }
+    }
+    a:hover {
+      opacity: 0.5;
+    }
   }
   ${breakpoints.laptop} {
     h1 {
@@ -41,12 +60,21 @@ const StyledPageHead = styled.section`
 export default function PageHead({
   pageName,
   heading,
+  breadcrumbs = [],
   description,
   style = {},
 }) {
   return (
     <StyledPageHead style={style}>
-      {pageName && <div>{pageName}</div>}
+      <div className="breadcrumbs">
+        {pageName && <p>{pageName}</p>}
+        {breadcrumbs.length > 0 &&
+          breadcrumbs.map(link => (
+            <Link key={link.href} to={link.href}>
+              {link.title}
+            </Link>
+          ))}
+      </div>
       <h1>{heading}</h1>
       {description && <p>{description}</p>}
     </StyledPageHead>

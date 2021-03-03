@@ -48,9 +48,18 @@ export default function project({ data }) {
   return (
     <Layout>
       <SEO title={data.strapiProjects.title} />
-
       <PageHead
-        pageName={`Proyectos / ${data.strapiProjects.service.title}`}
+        pageName="Proejctos"
+        breadcrumbs={[
+          {
+            title: "Proyectos",
+            href: "/portafolio",
+          },
+          {
+            title: data.strapiProjects.service.title,
+            href: `/servicios/${data.strapiProjects.service.slug}`,
+          },
+        ]}
         heading={data.strapiProjects.title}
         style={{ height: "85vh" }}
       />
