@@ -4,9 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Estudio Moncada`,
-    description: `Estudio de diseño, modelado 3d, Rendering, animación 3d, Tours virtuales y serviós de porducción de material audiovisual.`,
-    author: `@estudioMoncada`,
+    title: `Papermatter`,
+    description: `3D Visual Studio`,
   },
   plugins: [
     {

@@ -5,6 +5,7 @@ import { breakpoints, responsiveSectionMargin } from "../../../styles/utils"
 
 const StyledImg = styled(Img)`
   ${responsiveSectionMargin}
+  width: 100vw;
   height: 70vh;
   ${breakpoints.laptop} {
     height: 100vh;
