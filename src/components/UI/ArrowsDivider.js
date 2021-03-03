@@ -9,8 +9,8 @@ const StyledArrowsDivider = styled.ul`
   width: 100%;
   margin: 4rem auto;
   li {
-    padding: .75rem;
-    line-height: .5;
+    padding: 0.75rem;
+    line-height: 0.5;
   }
   ${breakpoints.tablet} {
     margin: 6rem auto;
@@ -21,9 +21,15 @@ const StyledArrowsDivider = styled.ul`
 const ArrowsDivider = () => {
   return (
     <StyledArrowsDivider>
-      <li><ArrowDown /></li>
-      <li><ArrowDown /></li>
-      <li><ArrowDown /></li>
+      <li>
+        <ArrowDown />
+      </li>
+      <li>
+        <ArrowDown />
+      </li>
+      <li>
+        <ArrowDown />
+      </li>
     </StyledArrowsDivider>
   )
 }

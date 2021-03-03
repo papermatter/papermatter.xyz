@@ -15,6 +15,7 @@ const StyledExploreOurWork = styled.ul`
   width: calc(100vw + 25rem);
   ${breakpoints.laptopL} {
     width: calc(100vw + 21rem);
+    margin: 12rem 0;
   }
   li {
     height: 100vh;
