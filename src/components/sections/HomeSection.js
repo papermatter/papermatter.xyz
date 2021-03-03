@@ -30,10 +30,29 @@ const StyledHomeSection = styled.div`
   }
   ${breakpoints.laptop} {
     padding: 16rem 0;
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    &.align-center {
+      text-align: center;
+      .info {
+        flex-direction: column;
+      }
+      p {
+        width: 60%;
+        margin: 0 auto 4rem;
+      }
+    }
     p {
+      margin: 0;
+      flex: 0 0 60%;
       font-size: var(--font-md);
     }
     a {
+      margin: 0;
       padding: 1.5rem;
       border: 1px solid var(--element-tertiary);
       width: max-content;
@@ -46,13 +65,15 @@ const HomeSection = ({
   description,
   linkTo,
   linkLabel,
-  style = {},
+  alignCenter = false,
 }) => {
   return (
-    <StyledHomeSection style={style}>
+    <StyledHomeSection className={alignCenter ? "align-center" : ""}>
       <h3>{heading}</h3>
-      {description && <p>{description}</p>}
-      <Link to={linkTo}>{linkLabel}</Link>
+      <div className="info">
+        {description && <p>{description}</p>}
+        <Link to={linkTo}>{linkLabel}</Link>
+      </div>
     </StyledHomeSection>
   )
 }

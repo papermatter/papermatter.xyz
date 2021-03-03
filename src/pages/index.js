@@ -6,7 +6,6 @@ import HomeCover from "../components/common/PageCover/HomeCover"
 import HomeSection from "../components/sections/HomeSection"
 import ServicesSlider from "../components/sections/ServicesSlider"
 import ArrowsDivider from "../components/UI/ArrowsDivider"
-import { useIsMobile } from "../lib/hooks/use-media-queries"
 import ExploreOurWorkSection from "../components/sections/ExploreOurWorkSection"
 
 export const homeQuery = graphql`
@@ -57,8 +56,6 @@ export const homeQuery = graphql`
 const IndexPage = ({
   data: { strapiHome: data, allStrapiServices, allStrapiImages },
 }) => {
-  const isMobile = useIsMobile()
-
   return (
     <Layout toggleHeaderColor>
       <SEO title="Experencias visuales interactivas" />
@@ -78,20 +75,11 @@ const IndexPage = ({
       <ServicesSlider services={allStrapiServices.nodes} />
 
       <HomeSection
-        style={
-          isMobile
-            ? {}
-            : {
-                textAlign: "center",
-                width: "90%",
-                marginLeft: "auto",
-                marginRight: "auto",
-              }
-        }
         heading={data.services.heading}
         description={data.services.description}
         linkTo="/servicios"
         linkLabel="ver servicios"
+        alignCenter
       />
 
       <ArrowsDivider />
