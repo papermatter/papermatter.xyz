@@ -7,6 +7,7 @@ import ExternalLink from "../../UI/ExternalLink"
 import { CONTACT_EMAIL } from "../../../lib/contants"
 import { StyledHeader, StyledNav, StyledButton } from "./styles"
 import { useHideOnScroll } from "../../../lib/hooks/use-hide-on-scroll"
+import { useIsMobile } from "../../../lib/hooks/use-media-queries"
 import {
   disableBodyScroll,
   enableBodyScroll,
@@ -23,6 +24,8 @@ const Header = ({ toggleHeaderColor }) => {
   const navRef = useRef(null)
 
   const { isHidden } = useHideOnScroll()
+
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     if (navRef.current) {
@@ -74,9 +77,14 @@ const Header = ({ toggleHeaderColor }) => {
           <a href="#contact-form">Contáctanos</a>
         </nav>
 
-        <ExternalLink to={`mailto:${CONTACT_EMAIL}`} className="contact-email">
-          {CONTACT_EMAIL}
-        </ExternalLink>
+        {isMobile && (
+          <ExternalLink
+            to={`mailto:${CONTACT_EMAIL}`}
+            className="contact-email"
+          >
+            {CONTACT_EMAIL}
+          </ExternalLink>
+        )}
       </StyledNav>
     )
   }

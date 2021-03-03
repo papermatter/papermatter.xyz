@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { breakpoints } from "../../../styles/utils"
+import { breakpoints, responsiveSectionPadding } from "../../../styles/utils"
 
 export const StyledHeader = styled.div`
   position: fixed;
@@ -19,6 +19,10 @@ export const StyledHeader = styled.div`
   transition: transform, color, background-color 0.15s;
   ${breakpoints.tablet} {
     padding: 1.5rem 2rem;
+  }
+  ${breakpoints.laptop} {
+    padding-left: 8rem;
+    padding-right: 8rem;
   }
   @supports not (backdrop-filter: none) {
     .sticky-nav {
@@ -72,15 +76,20 @@ export const StyledNav = styled.div`
   justify-content: space-between;
   color: var(--primary);
   background: var(--background);
+
   .nav-header {
     top: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0.75rem 0 1.5rem;
+    padding: 1rem 0.75rem 1rem 1.5rem;
     ${breakpoints.tablet} {
       padding: 1.5rem 2rem;
+    }
+    ${breakpoints.laptop} {
+      padding-left: 8rem;
+      padding-right: 8rem;
     }
   }
   .contact-email {
@@ -94,6 +103,7 @@ export const StyledNav = styled.div`
   nav {
     padding: 0 1.5rem 0;
     margin: auto 0;
+    ${responsiveSectionPadding}
     a {
       color: var(--primary);
       font-size: var(--font-3xl);
@@ -111,6 +121,9 @@ export const StyledNav = styled.div`
         height: 100%;
         right: 0;
         pointer-events: none;
+      }
+      ${breakpoints.laptop} {
+        font-size: var(--font-2xl);
       }
     }
   }
