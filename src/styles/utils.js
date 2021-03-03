@@ -49,7 +49,7 @@ export const responsiveSections = () => {
   `
 }
 
-export const responsiveSectionMargin  = () => {
+export const responsiveSectionMargin = () => {
   return `
     margin: 0 -1.5rem;
     ${breakpoints.tablet} {
@@ -64,7 +64,7 @@ export const responsiveSectionMargin  = () => {
   `
 }
 
-export const responsiveSectionPadding  = () => {
+export const responsiveSectionPadding = () => {
   return `
     padding: 0 1.5rem;
     ${breakpoints.tablet} {

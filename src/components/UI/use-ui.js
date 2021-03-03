@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useMemo, useReducer } from "react"
-import { BreakpointProvider } from "../../lib/hooks/useBreakpoints"
 
 const initialState = {
   displayLightbox: false,
@@ -60,18 +59,6 @@ export const useUI = () => {
   return context
 }
 
-const queries = {
-  mobileS: "(max-width: 320px)",
-  mobileM: "(min-width: 375px)",
-  mobileL: "(min-width: 425px)",
-  tablet: "(min-width: 720px)",
-  laptop: "(min-width: 1024px)",
-  laptopL: "(min-width: 1440px)",
-  or: "(orientation: portrait)", // we can check orientation also
-}
-
 export const UIContextProvider = ({ children }) => (
-  <UIProvider>
-    <BreakpointProvider queries={queries}>{children}</BreakpointProvider>
-  </UIProvider>
+  <UIProvider>{children}</UIProvider>
 )

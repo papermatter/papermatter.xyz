@@ -7,6 +7,8 @@ import HomeSection from "../components/sections/HomeSection"
 import ServicesSlider from "../components/sections/ServicesSlider"
 import ImagesSlider from "../components/sections/ImagesSlider"
 import ArrowsDivider from "../components/UI/ArrowsDivider"
+import { useIsMobile } from "../lib/hooks/use-media-queries"
+import ExploreOurWorkSection from "../components/sections/ExploreOurWorkSection"
 
 export const homeQuery = graphql`
   query GET_HOME {
@@ -56,6 +58,8 @@ export const homeQuery = graphql`
 const IndexPage = ({
   data: { strapiHome: data, allStrapiServices, allStrapiImages },
 }) => {
+  const isMobile = useIsMobile()
+
   return (
     <Layout toggleHeaderColor>
       <SEO title="Experencias visuales interactivas" />
@@ -82,18 +86,25 @@ const IndexPage = ({
       />
       <ArrowsDivider />
 
-      <HomeSection
-        style={{ textAlign: "center" }}
-        heading={data.projects.heading}
-        linkTo="/portfolio"
-        linkLabel="Ir a trabajos"
-      >
-        <ImagesSlider
-          images={allStrapiImages.nodes.slice(0, 2)}
-          initialPosition="-150px"
+      {isMobile ? (
+        <HomeSection
+          style={{ textAlign: "center" }}
+          heading={data.projects.heading}
+          linkTo="/portfolio"
+          linkLabel="Ir a trabajos"
+        >
+          <ImagesSlider
+            images={allStrapiImages.nodes.slice(0, 2)}
+            initialPosition="-150px"
+          />
+          <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
+        </HomeSection>
+      ) : (
+        <ExploreOurWorkSection
+          heading={data.projects.heading}
+          images={allStrapiImages.nodes.slice(0, 3)}
         />
-        <ImagesSlider images={allStrapiImages.nodes.slice(2, 4)} />
-      </HomeSection>
+      )}
     </Layout>
   )
 }
