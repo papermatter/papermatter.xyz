@@ -49,7 +49,7 @@ export default function project({ data }) {
     <Layout>
       <SEO title={data.strapiProjects.title} />
       <PageHead
-        pageName="Proejctos"
+        pageName="Proyectos"
         breadcrumbs={[
           {
             title: "Proyectos",

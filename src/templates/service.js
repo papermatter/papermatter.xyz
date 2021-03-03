@@ -59,7 +59,12 @@ export default function portafolio({ data }) {
       <SEO title="Portafolio" />
 
       <PageHead
-        pageName="Servicios/"
+        breadcrumbs={[
+          {
+            title: "Servicios",
+            href: "/servicios",
+          },
+        ]}
         heading={data.strapiServices.title}
         style={{ height: "85vh" }}
       />
