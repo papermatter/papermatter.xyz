@@ -37,7 +37,7 @@ export const usePortal = id => {
 
   const getRootElem = () => {
     /* Only run on client */
-    if (typeof window !== undefined && !rootElemRef.current) {
+    if (typeof window !== "undefined" && !rootElemRef.current) {
       rootElemRef.current = document.createElement("div")
     }
     return rootElemRef.current
