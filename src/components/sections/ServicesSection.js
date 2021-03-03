@@ -14,9 +14,7 @@ export default function ServicesSection({ services }) {
       {services.map((service, index) => (
         <div className="service-card" key={service.id}>
           <div className="info">
-            <span>
-              {index < 10 ? `0${index + 1}` : index + 1} / {services.length}
-            </span>
+            <span>{index < 10 ? `0${index + 1}` : index + 1}</span>
 
             <h3>{service.title}</h3>
             <p>{service.description}</p>
@@ -45,7 +43,7 @@ const StyledServicesSection = styled.section`
     padding-top: 15rem;
     padding-bottom: 15rem;
     &:hover .service-card {
-      opacity: 0.1;
+      opacity: 0.6;
     }
   }
 
@@ -81,9 +79,6 @@ const StyledServicesSection = styled.section`
     position: absolute;
     z-index: 2;
     width: 100%;
-    ${breakpoints.laptop} {
-      padding: 4rem;
-    }
     span,
     a {
       font-family: var(--font-mono);
@@ -108,6 +103,26 @@ const StyledServicesSection = styled.section`
       overflow: hidden;
       padding: 0;
     }
+    ${breakpoints.laptop} {
+      padding: 4rem 6rem;
+      h3 {
+        font-size: var(--font-2xl);
+      }
+      p {
+        font-size: var(--font-md);
+        opacity: 0;
+      }
+      a {
+        opacity: 0;
+      }
+      &:hover {
+        + div,
+        a,
+        p {
+          opacity: 1;
+        }
+      }
+    }
   }
 `
 
@@ -117,12 +132,6 @@ const StyledImg = styled(Img)`
   height: 26rem;
   width: 100%;
   margin: 0;
-  opacity: 0.5;
-  ${breakpoints.laptop} {
-    opacity: 0;
-    transition: opacity 0.35s;
-    &:hover {
-      opacity: 0.5;
-    }
-  }
+  opacity: 0;
+  transition: opacity 0.35s;
 `
