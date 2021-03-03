@@ -8,9 +8,11 @@ const StyledAboutSection = styled.div`
   padding: 10rem 0;
   display: flex;
   flex-direction: column;
+
   h3 {
     margin-bottom: 3rem;
     font-size: var(--font-3xl);
+    color: var(--text-secondary);
   }
   p {
     font-size: var(--font-lg);
@@ -38,32 +40,51 @@ const StyledAboutSection = styled.div`
       margin: 0;
       font-size: 4rem;
       font-weight: bold;
+      color: var(--text-primary);
     }
     span {
       font-size: var(--font-lg);
       color: var(--text-tertiary);
     }
-    ${breakpoints.tablet} {
-      width: 12rem;
+  }
+  ${breakpoints.laptop} {
+    padding: 18rem 0;
+    text-align: center;
+    li {
+      width: 32%;
     }
-    ${breakpoints.laptop} {
-      width: 16rem;
+    ul {
+      margin: 4rem 0;
+    }
+    p {
+      font-size: var(--font-md);
+      width: 60%;
+      margin: 0 auto 10rem;
     }
   }
-` 
+`
 
-const ExpirienceSection = ({ heading, description, clients  }) => {
+const ExpirienceSection = ({ heading, description, clients }) => {
   return (
     <StyledAboutSection>
       <h3>{heading}</h3>
       <ul>
-        <li><p>+50</p><span>Proyectos</span></li>
-        <li><p>+20</p><span>Clientes Satisfechos</span></li>
-        <li><p>+5</p><span>Años de experiencia</span></li>
+        <li>
+          <p>+50</p>
+          <span>Proyectos</span>
+        </li>
+        <li>
+          <p>+20</p>
+          <span>Clientes Satisfechos</span>
+        </li>
+        <li>
+          <p>+5</p>
+          <span>Años de experiencia</span>
+        </li>
       </ul>
       <p>{description}</p>
-      
-      <ClientsSlider clients={clients}  />
+
+      <ClientsSlider clients={clients} />
     </StyledAboutSection>
   )
 }
