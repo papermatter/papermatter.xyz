@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { breakpoints } from "../../styles/utils"
 
 const StyledPortfolioNav = styled.div`
   position: sticky;
@@ -23,6 +24,21 @@ const StyledPortfolioNav = styled.div`
   .active {
     color: var(--primary);
     text-decoration: underline;
+  }
+  ${breakpoints.laptop} {
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: scroll;
+    a {
+      margin: 0 2.5rem;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 `
 
