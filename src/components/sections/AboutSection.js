@@ -19,9 +19,10 @@ const StyledAboutSection = styled.div`
     margin-bottom: 1.5rem;
   }
   ${breakpoints.laptop} {
-    padding: 18rem 0;
+    padding: 18rem 4rem;
     p {
       font-size: var(--font-md);
+      width: 60%;
     }
   }
 `
