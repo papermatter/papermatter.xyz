@@ -15,7 +15,7 @@ oauth2Client.setCredentials({
 const accessToken = oauth2Client.getAccessToken()
 
 module.exports = async (req, res) => {
-  const { name, email, message } = req.body
+  const { name, email, message, tel } = req.body
 
   if (!name) res.status(400).json({ error: "El nombre es requerido" })
   if (!email)
@@ -44,6 +44,8 @@ module.exports = async (req, res) => {
     subject: `Nuevo mensaje de: ${email}`,
     text: `
     ${name}:
+    ${tel ? `tel: ${tel}` : ""}
+    ${email ? `email: ${email}` : ""}
     ${message}
     `,
   }
