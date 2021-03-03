@@ -12,19 +12,47 @@ export const StyledContainer = styled.section`
   }
   .message {
     margin-top: 1.5rem;
-    color: var(--text-secondary)
+    color: var(--text-secondary);
   }
   .message.error {
     color: red;
   }
+  .contact-info {
+    display: none;
+    text-align: right;
+    font-family: var(--font-mono);
+    flex-direction: column;
+    span {
+      color: var(--text-tertiary);
+      margin-top: 1rem;
+      font-size: var(--font-sm);
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
   ${breakpoints.tablet} {
-    padding: 5rem 4rem 4rem;
+    padding: 5rem 6rem 4rem;
   }
   ${breakpoints.laptop} {
     padding: 5rem 8rem 4rem;
-  }
-  ${breakpoints.laptopL} {
-    padding: 5rem 12rem 4rem;
+    h4 {
+      display: inline-block;
+      text-align: left;
+      margin: 0;
+    }
+    ul {
+      display: none;
+    }
+    .contact-info {
+      display: flex;
+    }
+    .contact-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
   }
 `
 
@@ -42,7 +70,7 @@ export const StyledForm = styled.form`
   }
   input,
   textarea {
-    font-family: inherit;  
+    font-family: inherit;
     font-size: var(--font-lg);
     width: 100%;
     background: transparent;
@@ -60,7 +88,8 @@ export const StyledForm = styled.form`
     padding: 0;
     height: 1.75rem;
     margin-top: 1.5rem;
-    &:not(:placeholder-shown), :focus {
+    &:not(:placeholder-shown),
+    :focus {
       height: 6rem;
     }
   }
@@ -98,13 +127,16 @@ export const StyledForm = styled.form`
       grid-area: message;
       border-bottom: none;
     }
+    div {
+      margin-bottom: 0.5rem;
+    }
     textarea {
       border-bottom: 1px solid var(--primary-20);
       height: 2.25rem;
       &:not(:placeholder-shown),
       :focus {
         height: 85%;
-        padding-bottom: .5rem;
+        padding-bottom: 0.5rem;
       }
       &:focus {
         border-bottom: 1px solid var(--primary-90);
@@ -123,14 +155,14 @@ export const StyledButton = styled.button`
   padding: 1rem 2rem;
   grid-area: btn;
   cursor: pointer;
-  transition: color, border .1s;
+  transition: color, border 0.1s;
   &:focus,
   :hover {
     border-bottom: 1px solid var(--text-secondary);
     color: var(--primary);
   }
   ${breakpoints.laptop} {
-    margin-top: 0;
+    margin: 0;
     width: 35%;
     justify-self: end;
     padding: 0.5rem 0;

@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from "react"
+import { CONTACT_EMAIL, CONTACT_TEL } from "../../../lib/contants"
 import ArrowsDivider from "../../UI/ArrowsDivider"
-import {
-  StyledContainer,
-  StyledForm,
-  StyledButton,
-} from "./styles"
+import ExternalLink from "../../UI/ExternalLink"
+import { StyledContainer, StyledForm, StyledButton } from "./styles"
 
 export default function ContactForm() {
   const [message, setMessage] = useState(null)
@@ -18,19 +16,22 @@ export default function ContactForm() {
     e.preventDefault()
 
     if (!nameRef.current.value) {
-      setMessage({status: "error", content: "El nombre es requerido*"})
+      setMessage({ status: "error", content: "El nombre es requerido*" })
       return
     }
     if (!emailRef.current.value) {
-      setMessage({status: "error", content: "El correo electrónico es requerido*"})
+      setMessage({
+        status: "error",
+        content: "El correo electrónico es requerido*",
+      })
       return
     }
     if (!telRef.current.value) {
-      setMessage({status: "error", content: "El teléfono es requerido*"})
+      setMessage({ status: "error", content: "El teléfono es requerido*" })
       return
     }
     if (!messageRef.current.value) {
-      setMessage({status: "error", content: "El mensaje es requerido*"})
+      setMessage({ status: "error", content: "El mensaje es requerido*" })
       return
     }
 
@@ -59,8 +60,11 @@ export default function ContactForm() {
     nameRef.current.value = ""
     telRef.current.value = ""
     emailRef.current.value = ""
-    
-    setMessage({status: "succes", content:"Se envió el correo exitosamente."})
+
+    setMessage({
+      status: "succes",
+      content: "Se envió el correo exitosamente.",
+    })
   }
 
   useEffect(() => {
@@ -76,7 +80,21 @@ export default function ContactForm() {
 
   return (
     <StyledContainer id="contact-form">
-      <h4>¿Algo en mente?<br/>Hablemos</h4>
+      <div className="contact-heading">
+        <h4>
+          ¿Algo en mente?
+          <br />
+          Hablemos
+        </h4>
+
+        <div className="contact-info">
+          <ExternalLink to={`mailto:${CONTACT_EMAIL}`}>
+            {CONTACT_EMAIL}
+          </ExternalLink>
+          <span>Ciudad de México</span>
+          <span>{CONTACT_TEL}</span>
+        </div>
+      </div>
 
       <ArrowsDivider />
 
@@ -94,14 +112,19 @@ export default function ContactForm() {
           <label htmlFor="tel">Teléfono</label>
         </div>
         <div id="messageContainer">
-          <textarea ref={messageRef} id="message" name="message" placeholder=" " />
+          <textarea
+            ref={messageRef}
+            id="message"
+            name="message"
+            placeholder=" "
+          />
           <label htmlFor="message">Escribe un mensaje</label>
         </div>
         <StyledButton type="submit">Enviar</StyledButton>
       </StyledForm>
 
       {message && (
-        <p className={`message ${message.status === 'error' ? 'error' : ''}`}>
+        <p className={`message ${message.status === "error" ? "error" : ""}`}>
           {message.content}
         </p>
       )}
