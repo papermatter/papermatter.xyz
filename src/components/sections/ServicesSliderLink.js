@@ -29,7 +29,12 @@ const StyledContainer = styled.div`
   margin: 6rem 0;
   h3 {
     font-size: var(--font-3xl);
+    color: var(--text-secondary);
     margin-bottom: 4rem;
+    ${breakpoints.laptop} {
+      margin-bottom: 8rem;
+      text-align: center;
+    }
   }
 `
 
