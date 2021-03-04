@@ -10,9 +10,24 @@ const Styled404 = styled.main`
   justify-content: center;
   text-align: center;
   height: 90vh;
+  h1 {
+    font-weight: bold;
+    font-size: var(--font-3xl);
+    color: var(--text-secondary);
+  }
+  p {
+    margin: 1rem;
+    color: var(--text-secondary);
+  }
   a {
-    margin-top: 3rem;
+    margin: 1rem auto;
+    padding: 1rem 2rem;
+    border: solid 1px var(--element-tertiary);
+    width: max-content;
     text-decoration: underline;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 `
 
