@@ -75,18 +75,10 @@ const Header = ({ toggleHeaderColor }) => {
         </div>
 
         <nav>
-          <Link onClick={onCloseClick} to="/">
-            Inicio
-          </Link>
-          <Link onClick={onCloseClick} to="/portafolio">
-            Portafolio
-          </Link>
-          <Link onClick={onCloseClick} to="/servicios">
-            Servicios
-          </Link>
-          <Link onClick={onCloseClick} to="/nosotros">
-            Nosotros
-          </Link>
+          <Link to="/">Inicio</Link>
+          <Link to="/portafolio">Portafolio</Link>
+          <Link to="/servicios">Servicios</Link>
+          <Link to="/nosotros">Nosotros</Link>
           <a onClick={onCloseClick} href="#contact-form">
             Contáctanos
           </a>

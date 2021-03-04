@@ -78,11 +78,12 @@ export default function Lightbox({ photos }) {
     const onKeyDown = e => {
       if (e.keyCode === 37) prevPhoto()
       if (e.keyCode === 39) nextPhoto()
+      if (e.keyCode === 27) closeLightbox()
     }
 
     window.addEventListener("keydown", onKeyDown)
     return () => window.removeEventListener("keydown", onKeyDown)
-  }, [])
+  }, [closeLightbox])
 
   return (
     <Portal id="lightbox">
