@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import usePanAndZoom from "../../lib/hooks/use-pan-and-zoom"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -32,7 +32,8 @@ export default function Lightbox({ photos }) {
     reset,
   } = usePanAndZoom()
 
-  const zoomIn = () => {
+  const onLightboxClick = e => {
+    e.preventDefault()
     setIsZoomIn(true)
   }
 
@@ -60,19 +61,19 @@ export default function Lightbox({ photos }) {
     }
   }, [displayLightbox])
 
-  const prevPhoto = () => {
+  const prevPhoto = useCallback(() => {
     lightboxActiveIndex === 0
       ? setLightboxActiveIndex(photos.length - 1)
       : setLightboxActiveIndex(lightboxActiveIndex - 1)
-    zoomOut()
-  }
+    setIsZoomIn(false)
+  }, [lightboxActiveIndex, setLightboxActiveIndex, setIsZoomIn, photos])
 
-  const nextPhoto = () => {
+  const nextPhoto = useCallback(() => {
     lightboxActiveIndex === photos.length - 1
       ? setLightboxActiveIndex(0)
       : setLightboxActiveIndex(lightboxActiveIndex + 1)
-    zoomOut()
-  }
+    setIsZoomIn(false)
+  }, [lightboxActiveIndex, setLightboxActiveIndex, setIsZoomIn, photos])
 
   useEffect(() => {
     const onKeyDown = e => {
@@ -83,7 +84,7 @@ export default function Lightbox({ photos }) {
 
     window.addEventListener("keydown", onKeyDown)
     return () => window.removeEventListener("keydown", onKeyDown)
-  }, [closeLightbox])
+  }, [closeLightbox, prevPhoto, nextPhoto])
 
   return (
     <Portal id="lightbox">
@@ -92,7 +93,7 @@ export default function Lightbox({ photos }) {
           <button
             ref={lightboxRef}
             className="image-container"
-            onClick={zoomIn}
+            onClick={onLightboxClick}
             onDoubleClick={() => (isZoomIn ? zoomOut() : null)}
             onMouseDown={onMouseDown}
             onTouchStart={onTouchStart}
