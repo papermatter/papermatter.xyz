@@ -2,6 +2,7 @@ import React, { createContext, useContext, useMemo, useReducer } from "react"
 
 const initialState = {
   displayLightbox: false,
+  lightboxActiveIndex: 0,
   lightboxPhotos: [],
 }
 
@@ -19,10 +20,10 @@ const uiReducer = (state, action) => {
         ...state,
         displayLightbox: false,
       }
-    case "SET_LIGHTBOX_PHOTOS":
+    case "SET_LIGHTBOX_ACTIVE_INDEX":
       return {
         ...state,
-        lightboxPhotos: action.payload,
+        lightboxActiveIndex: action.payload,
       }
     default:
       return state
@@ -35,15 +36,15 @@ const UIProvider = props => {
   const openLightbox = () => dispatch({ type: "OPEN_LIGHTBOX" })
   const closeLightbox = () => dispatch({ type: "CLOSE_LIGHTBOX" })
 
-  const setLightboxPhotos = photos =>
-    dispatch({ type: "SET_LIGHTBOX_PHOTOS", payload: photos })
+  const setLightboxActiveIndex = index =>
+    dispatch({ type: "SET_LIGHTBOX_ACTIVE_INDEX", payload: index })
 
   const value = useMemo(
     () => ({
       ...state,
       openLightbox,
       closeLightbox,
-      setLightboxPhotos,
+      setLightboxActiveIndex,
     }),
     [state]
   )

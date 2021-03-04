@@ -12,14 +12,17 @@ import {
   clearAllBodyScrollLocks,
 } from "body-scroll-lock"
 
-export default function Lightbox({ photos, initialIndex }) {
-  const [activeTab, setActiveTab] = useState(initialIndex)
-
+export default function Lightbox({ photos }) {
   const [isZoomIn, setIsZoomIn] = useState(false)
 
   const lightboxRef = useRef(null)
 
-  const { closeLightbox, displayLightbox } = useUI()
+  const {
+    closeLightbox,
+    displayLightbox,
+    setLightboxActiveIndex,
+    lightboxActiveIndex,
+  } = useUI()
 
   const {
     onMouseDown,
@@ -28,10 +31,6 @@ export default function Lightbox({ photos, initialIndex }) {
     translateY,
     reset,
   } = usePanAndZoom()
-
-  // useEffect(() => {
-  //   setActiveTab(initialIndex)
-  // }, [initialIndex])
 
   const zoomIn = () => {
     setIsZoomIn(true)
@@ -62,16 +61,16 @@ export default function Lightbox({ photos, initialIndex }) {
   }, [displayLightbox])
 
   const prevPhoto = () => {
-    activeTab === 0
-      ? setActiveTab(photos.length - 1)
-      : setActiveTab(activeTab - 1)
+    lightboxActiveIndex === 0
+      ? setLightboxActiveIndex(photos.length - 1)
+      : setLightboxActiveIndex(lightboxActiveIndex - 1)
     zoomOut()
   }
 
   const nextPhoto = () => {
-    activeTab === photos.length - 1
-      ? setActiveTab(0)
-      : setActiveTab(activeTab + 1)
+    lightboxActiveIndex === photos.length - 1
+      ? setLightboxActiveIndex(0)
+      : setLightboxActiveIndex(lightboxActiveIndex + 1)
     zoomOut()
   }
 
@@ -84,11 +83,12 @@ export default function Lightbox({ photos, initialIndex }) {
     window.addEventListener("keydown", onKeyDown)
     return () => window.removeEventListener("keydown", onKeyDown)
   }, [])
+
   return (
     <Portal id="lightbox">
       {displayLightbox ? (
         <StyledLightbox>
-          <div
+          <button
             ref={lightboxRef}
             className="image-container"
             onClick={zoomIn}
@@ -108,11 +108,15 @@ export default function Lightbox({ photos, initialIndex }) {
               <StyledImg
                 key={photo.id}
                 fluid={photo.photo.childImageSharp.fluid}
-                style={{ display: `${index === activeTab ? "block" : "none"}` }}
+                style={{
+                  display: `${
+                    index === lightboxActiveIndex ? "block" : "none"
+                  }`,
+                }}
                 alt={photo.title}
               />
             ))}
-          </div>
+          </button>
 
           <button
             className="btn-left"

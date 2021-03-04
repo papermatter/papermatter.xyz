@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { breakpoints } from "../../styles/utils"
@@ -11,16 +11,18 @@ const StyledPhotoList = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  > div {
+  .image-container {
     flex: 0 0 100%;
+    margin-bottom: 2.5rem;
+    cursor: pointer;
   }
   ${breakpoints.tablet} {
     margin: 0 -6rem;
   }
   ${breakpoints.laptop} {
     margin: 0;
-    > div:nth-child(3n),
-    div:nth-child(3n -1) {
+    .image-container:nth-child(3n),
+    .image-container:nth-child(3n -1) {
       flex: 0 0 48%;
       div {
         height: 25rem;
@@ -29,16 +31,11 @@ const StyledPhotoList = styled.div`
   }
 `
 
-const StyledImg = styled(Img)`
-  margin-bottom: 2.5rem;
-`
-
 const PhotosList = ({ photos }) => {
-  const [imageIndex, setImageIndex] = useState(0)
-  const { openLightbox } = useUI()
+  const { openLightbox, setLightboxActiveIndex } = useUI()
 
   const onImageClick = index => {
-    setImageIndex(index)
+    setLightboxActiveIndex(index)
     openLightbox()
   }
 
@@ -46,13 +43,17 @@ const PhotosList = ({ photos }) => {
     <>
       <StyledPhotoList>
         {photos.map((photo, index) => (
-          <div onClick={() => onImageClick(index)} key={photo.id}>
-            <StyledImg fluid={photo.photo.childImageSharp.fluid} />
-          </div>
+          <button
+            className="image-container"
+            onClick={() => onImageClick(index)}
+            key={photo.id}
+          >
+            <Img fluid={photo.photo.childImageSharp.fluid} />
+          </button>
         ))}
       </StyledPhotoList>
 
-      <Lightbox photos={photos} initialIndex={imageIndex} />
+      <Lightbox photos={photos} />
     </>
   )
 }
