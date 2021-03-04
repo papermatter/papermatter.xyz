@@ -25,10 +25,13 @@ export default function Lightbox({ photos }) {
   } = useUI()
 
   const {
+    containerRef,
     onMouseDown,
     onTouchStart,
+    onWheel,
     translateX,
     translateY,
+    scale,
     reset,
   } = usePanAndZoom()
 
@@ -48,18 +51,18 @@ export default function Lightbox({ photos }) {
     zoomOut()
   }
 
-  useEffect(() => {
-    if (lightboxRef.current) {
-      if (displayLightbox) {
-        disableBodyScroll(lightboxRef.current)
-      } else {
-        enableBodyScroll(lightboxRef.current)
-      }
-    }
-    return () => {
-      clearAllBodyScrollLocks()
-    }
-  }, [displayLightbox])
+  // useEffect(() => {
+  //   if (lightboxRef.current) {
+  //     if (displayLightbox) {
+  //       disableBodyScroll(lightboxRef.current)
+  //     } else {
+  //       enableBodyScroll(lightboxRef.current)
+  //     }
+  //   }
+  //   return () => {
+  //     clearAllBodyScrollLocks()
+  //   }
+  // }, [displayLightbox])
 
   const prevPhoto = useCallback(() => {
     lightboxActiveIndex === 0
@@ -91,18 +94,22 @@ export default function Lightbox({ photos }) {
       {displayLightbox ? (
         <StyledLightbox>
           <button
-            ref={lightboxRef}
+            // ref={lightboxRef}
+            ref={containerRef}
             className="image-container"
             onClick={onLightboxClick}
             onDoubleClick={() => (isZoomIn ? zoomOut() : null)}
             onMouseDown={onMouseDown}
             onTouchStart={onTouchStart}
+            onWheel={onWheel}
             style={{
-              transform: `${
-                !isZoomIn
-                  ? "translate(0, 0)"
-                  : `translate(${translateX}px, ${translateY}px) scale(2)`
-              }`,
+              // transform: `${
+              //   !isZoomIn
+              //     ? "translate(0, 0)"
+              //     : `translate(${translateX}px, ${translateY}px) scale(${scale})`
+              // }`,
+              // cursor: `${isZoomIn ? "move" : "zoom-in"}`,
+              transform: `translate(${translateX}px, ${translateY}px) scale(${scale})`,
               cursor: `${isZoomIn ? "move" : "zoom-in"}`,
             }}
           >
