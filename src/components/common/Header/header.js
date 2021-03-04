@@ -57,6 +57,11 @@ const Header = ({ toggleHeaderColor }) => {
     }
   }, [toggleHeaderColor])
 
+  const onCloseClick = e => {
+    e.preventDefault()
+    setIsOpen(false)
+  }
+
   if (isOpen) {
     return (
       <StyledNav ref={navRef}>
@@ -64,17 +69,27 @@ const Header = ({ toggleHeaderColor }) => {
           <Link to="/" aria-label="Link to home">
             <Logo width="48" height="48" />
           </Link>
-          <StyledButton onClick={() => setIsOpen(false)} aria-label="Close Nav">
+          <StyledButton onClick={onCloseClick} aria-label="Close Nav">
             <Close />
           </StyledButton>
         </div>
 
-        <nav onClick={() => setIsOpen(false)}>
-          <Link to="/">Inicio</Link>
-          <Link to="/portafolio">Portafolio</Link>
-          <Link to="/servicios">Servicios</Link>
-          <Link to="/nosotros">Nosotros</Link>
-          <a href="#contact-form">Contáctanos</a>
+        <nav>
+          <Link onClick={onCloseClick} to="/">
+            Inicio
+          </Link>
+          <Link onClick={onCloseClick} to="/portafolio">
+            Portafolio
+          </Link>
+          <Link onClick={onCloseClick} to="/servicios">
+            Servicios
+          </Link>
+          <Link onClick={onCloseClick} to="/nosotros">
+            Nosotros
+          </Link>
+          <a onClick={onCloseClick} href="#contact-form">
+            Contáctanos
+          </a>
         </nav>
 
         {isMobile && (
