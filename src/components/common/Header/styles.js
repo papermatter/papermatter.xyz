@@ -57,8 +57,9 @@ export const StyledButton = styled.button`
   height: 2.75rem;
   width: 2.75rem;
   line-height: 0.5;
+  cursor: pointer;
   &:hover {
-    background: var(--primary-05);
+    opacity: 0.5;
   }
 `
 

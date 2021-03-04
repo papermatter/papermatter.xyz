@@ -59,7 +59,7 @@ const Header = ({ toggleHeaderColor }) => {
 
   if (isOpen) {
     return (
-      <StyledNav onClick={() => setIsOpen(false)} ref={navRef}>
+      <StyledNav ref={navRef}>
         <div className="nav-header">
           <Link to="/" aria-label="Link to home">
             <Logo width="48" height="48" />
@@ -69,7 +69,7 @@ const Header = ({ toggleHeaderColor }) => {
           </StyledButton>
         </div>
 
-        <nav>
+        <nav onClick={() => setIsOpen(false)}>
           <Link to="/">Inicio</Link>
           <Link to="/portafolio">Portafolio</Link>
           <Link to="/servicios">Servicios</Link>
