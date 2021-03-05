@@ -28,7 +28,6 @@ export default function Lightbox({ photos }) {
     containerRef,
     onMouseDown,
     onTouchStart,
-    onWheel,
     translateX,
     translateY,
     scale,
@@ -101,7 +100,7 @@ export default function Lightbox({ photos }) {
             onDoubleClick={() => (isZoomIn ? zoomOut() : null)}
             onMouseDown={onMouseDown}
             onTouchStart={onTouchStart}
-            onWheel={onWheel}
+            // onWheel={onWheel}
             style={{
               // transform: `${
               //   !isZoomIn

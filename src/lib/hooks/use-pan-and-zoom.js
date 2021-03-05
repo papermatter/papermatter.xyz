@@ -1,4 +1,5 @@
-import { useReducer, useRef } from "react"
+import { useCallback, useReducer } from "react"
+import { useRefWithCallback } from "./use-ref-with-callback"
 
 const startPan = event => ({
   type: "PAN_START",
@@ -105,8 +106,6 @@ const reducer = (state, action) => {
 export default function usePanAndZoom() {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const containerRef = useRef(null)
-
   const onMouseMoveInWindow = event => {
     event.preventDefault()
     dispatch(pan(event))
@@ -139,12 +138,24 @@ export default function usePanAndZoom() {
     document.addEventListener("touchmove", onTouchMove, false)
   }
 
-  const onWheel = event => {
-    if (event.deltaY !== 0 && containerRef.current) {
-      const containerRect = containerRef.current.getBoundingClientRect()
+  const onWheel = useCallback(event => {
+    event.preventDefault()
+    event.stopPropagation()
+    event.stopImmediatePropagation()
+
+    if (event.deltaY !== 0) {
+      const containerRect = event.target.getBoundingClientRect()
       dispatch(zoom(event, containerRect))
     }
-  }
+  }, [])
+
+  const containerRef = useRefWithCallback(
+    node => node.addEventListener("wheel", onWheel, { passive: false }),
+    node =>
+      node.removeEventListener("wheel", onWheel, {
+        passive: false,
+      })
+  )
 
   const reset = () => dispatch({ type: "RESET" })
 
