@@ -14,7 +14,7 @@ const StyledPhotoList = styled.div`
   .image-container {
     flex: 0 0 100%;
     margin-bottom: 2.5rem;
-    cursor: pointer;
+    cursor: zoom-in;
   }
   ${breakpoints.tablet} {
     margin: 0 -6rem;
