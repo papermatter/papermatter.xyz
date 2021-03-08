@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react"
-import usePanAndZoom from "../../lib/hooks/use-pan-and-zoom/use-pan-and-zoom"
+import React, { useCallback, useEffect, useRef } from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { Portal } from "./Portal"
@@ -15,8 +14,6 @@ import {
 } from "body-scroll-lock"
 
 export default function Lightbox({ photos }) {
-  const [isZoomIn, setIsZoomIn] = useState(false)
-
   const lightboxRef = useRef(null)
 
   const {
@@ -26,58 +23,35 @@ export default function Lightbox({ photos }) {
     lightboxActiveIndex,
   } = useUI()
 
-  const {
-    containerRef,
-    onMouseDown,
-    onTouchStart,
-    translateX,
-    translateY,
-    scale,
-    reset,
-  } = usePanAndZoom()
-
-  const onLightboxClick = e => {
-    e.preventDefault()
-    setIsZoomIn(true)
-  }
-
-  const zoomOut = () => {
-    setIsZoomIn(false)
-  }
-
   const onClose = e => {
     e.preventDefault()
     closeLightbox()
-    reset()
-    zoomOut()
   }
 
-  // useEffect(() => {
-  //   if (lightboxRef.current) {
-  //     if (displayLightbox) {
-  //       disableBodyScroll(lightboxRef.current)
-  //     } else {
-  //       enableBodyScroll(lightboxRef.current)
-  //     }
-  //   }
-  //   return () => {
-  //     clearAllBodyScrollLocks()
-  //   }
-  // }, [displayLightbox])
+  useEffect(() => {
+    if (lightboxRef.current) {
+      if (displayLightbox) {
+        disableBodyScroll(lightboxRef.current)
+      } else {
+        enableBodyScroll(lightboxRef.current)
+      }
+    }
+    return () => {
+      clearAllBodyScrollLocks()
+    }
+  }, [displayLightbox])
 
   const prevPhoto = useCallback(() => {
     lightboxActiveIndex === 0
       ? setLightboxActiveIndex(photos.length - 1)
       : setLightboxActiveIndex(lightboxActiveIndex - 1)
-    setIsZoomIn(false)
-  }, [lightboxActiveIndex, setLightboxActiveIndex, setIsZoomIn, photos])
+  }, [lightboxActiveIndex, setLightboxActiveIndex, photos])
 
   const nextPhoto = useCallback(() => {
     lightboxActiveIndex === photos.length - 1
       ? setLightboxActiveIndex(0)
       : setLightboxActiveIndex(lightboxActiveIndex + 1)
-    setIsZoomIn(false)
-  }, [lightboxActiveIndex, setLightboxActiveIndex, setIsZoomIn, photos])
+  }, [lightboxActiveIndex, setLightboxActiveIndex, photos])
 
   useEffect(() => {
     const onKeyDown = e => {
@@ -93,76 +67,60 @@ export default function Lightbox({ photos }) {
   return (
     <Portal id="lightbox">
       {displayLightbox ? (
-        <StyledLightbox>
-          <TransformWrapper>
-            <TransformComponent>
-              {photos.map((photo, index) => (
-                <StyledImg
-                  key={photo.id}
-                  fluid={photo.photo.childImageSharp.fluid}
-                  style={{
-                    visibility:
-                      index === lightboxActiveIndex ? "visible" : "hidden",
-                    display: `${
-                      index === lightboxActiveIndex ? "block" : "none"
-                    }`,
-                  }}
-                  alt={photo.title}
-                />
-              ))}
-            </TransformComponent>
-            {/* <button
-              // ref={lightboxRef}
-              ref={containerRef}
-              className="image-container"
-              onClick={onLightboxClick}
-              onDoubleClick={() => (isZoomIn ? zoomOut() : null)}
-              onMouseDown={onMouseDown}
-              onTouchStart={onTouchStart}
-              style={{
-                // transform: `${
-                //   !isZoomIn
-                //     ? "translate(0, 0)"
-                //     : `translate(${translateX}px, ${translateY}px) scale(${scale})`
-                // }`,
-                // cursor: `${isZoomIn ? "move" : "zoom-in"}`,
-                transform: `translate(${translateX}px, ${translateY}px) scale(${scale})`,
-                cursor: `${isZoomIn ? "move" : "zoom-in"}`,
-              }}
-            ></button> */}
-
-            <button
-              className="btn-left"
-              aria-label="prev photo"
-              onClick={() => prevPhoto()}
+        <StyledLightbox ref={lightboxRef}>
+          {photos.map((photo, index) => (
+            <StyledImgContainer
+              key={photo.id}
+              index={index}
+              activeIndex={lightboxActiveIndex}
             >
-              <ArrowLeft />
-            </button>
-            <button
-              className="btn-right"
-              aria-label="next photo"
-              onClick={() => nextPhoto()}
-            >
-              <ArrowRight />
-            </button>
-            {isZoomIn && (
-              <button className="zoom-out" onClick={() => zoomOut()}>
-                Click here to zoom out
-              </button>
-            )}
-            <button
-              className="exit-btn"
-              aria-label="Close lightbox"
-              onClick={onClose}
-            >
-              Cerrar
-            </button>
-          </TransformWrapper>
+              <TransformWrapper>
+                <TransformComponent>
+                  <StyledImg
+                    fluid={photo.photo.childImageSharp.fluid}
+                    alt={photo.title}
+                  />
+                </TransformComponent>
+              </TransformWrapper>
+            </StyledImgContainer>
+          ))}
+          <button
+            className="btn-left"
+            aria-label="prev photo"
+            onClick={() => prevPhoto()}
+          >
+            <ArrowLeft />
+          </button>
+          <button
+            className="btn-right"
+            aria-label="next photo"
+            onClick={() => nextPhoto()}
+          >
+            <ArrowRight />
+          </button>
+          <button
+            className="exit-btn"
+            aria-label="Close lightbox"
+            onClick={onClose}
+          >
+            Cerrar
+          </button>
         </StyledLightbox>
       ) : null}
     </Portal>
   )
 }
+
+const StyledImgContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: ${props => (props.index === props.activeIndex ? 1 : 0)};
+  visibility: ${props =>
+    props.index === props.activeIndex ? "visible" : "hidden"};
+`
 
 const StyledLightbox = styled.div`
   position: fixed;
@@ -175,24 +133,21 @@ const StyledLightbox = styled.div`
   justify-content: center;
   background-color: var(--background);
   z-index: 100000;
-  > .react-transform-component {
-    height: 100vh;
+  .react-transform-component {
+    height: 100%;
   }
   .react-transform-component,
   .react-transform-element {
-    position: relative;
     width: 100%;
   }
-  .image-container {
-    width: 100%;
-    position: relative;
-  }
+
   button {
     position: fixed;
     cursor: pointer;
   }
   .exit-btn,
   .zoom-out {
+    color: white;
     left: 50%;
     transform: translateX(-50%);
     font-size: var(--font-md);
@@ -200,17 +155,24 @@ const StyledLightbox = styled.div`
   }
   .exit-btn {
     bottom: 2rem;
+    padding: 0.5rem 2rem;
   }
   .zoom-out {
     bottom: 4rem;
   }
   .btn-left,
   .btn-right {
-    top: 50%;
-    transform: translateY(-50%);
+    color: white;
+    height: 10vh;
   }
   .btn-left {
-    left: 1rem;
+    padding: 0 1rem;
+    background: rgb(17, 17, 17);
+    background: linear-gradient(
+      90deg,
+      rgba(20, 20, 20, 0.7) 0%,
+      rgba(20, 20, 20, 0) 100%
+    );
   }
   .btn-right {
     right: 1rem;
@@ -219,8 +181,4 @@ const StyledLightbox = styled.div`
 
 const StyledImg = styled(Img)`
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
 `
