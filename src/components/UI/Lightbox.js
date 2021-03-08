@@ -4,9 +4,11 @@ import styled from "styled-components"
 import { Portal } from "./Portal"
 import { useUI } from "./use-ui"
 import ArrowLeft from "../Icons/ArrowLeft"
+import Close from "../Icons/Close"
 import ArrowRight from "../Icons/ArrowRight"
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
-
+import { breakpoints } from "../../styles/utils"
+import { useIsMobile } from "../../lib/hooks/use-media-queries"
 import {
   disableBodyScroll,
   enableBodyScroll,
@@ -27,6 +29,8 @@ export default function Lightbox({ photos }) {
     e.preventDefault()
     closeLightbox()
   }
+
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     if (lightboxRef.current) {
@@ -68,6 +72,18 @@ export default function Lightbox({ photos }) {
     <Portal id="lightbox">
       {displayLightbox ? (
         <StyledLightbox ref={lightboxRef}>
+          <span className="photo-indicator">
+            {lightboxActiveIndex + 1} / {photos.length}
+          </span>
+          {!isMobile && (
+            <button
+              className="desktop-exit"
+              aria-label="Close lightbox"
+              onClick={onClose}
+            >
+              <Close />
+            </button>
+          )}
           {photos.map((photo, index) => (
             <StyledImgContainer
               key={photo.id}
@@ -98,13 +114,15 @@ export default function Lightbox({ photos }) {
           >
             <ArrowRight />
           </button>
-          <button
-            className="exit-btn"
-            aria-label="Close lightbox"
-            onClick={onClose}
-          >
-            Cerrar
-          </button>
+          {isMobile && (
+            <button
+              className="exit-btn"
+              aria-label="Close lightbox"
+              onClick={onClose}
+            >
+              Cerrar
+            </button>
+          )}
         </StyledLightbox>
       ) : null}
     </Portal>
@@ -134,48 +152,76 @@ const StyledLightbox = styled.div`
   background-color: var(--background);
   z-index: 100000;
   .react-transform-component {
-    height: 100%;
-  }
-  .react-transform-component,
-  .react-transform-element {
-    width: 100%;
-  }
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
 
+    width: 100%;
+    max-height: 100vh;
+  }
+  .react-transform-element {
+    height: 100%;
+    width: auto;
+  }
+  .photo-indicator {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--primary);
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+  }
+  .desktop-exit {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--primary);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+  }
   button {
     position: fixed;
     cursor: pointer;
   }
-  .exit-btn,
-  .zoom-out {
+  .exit-btn {
     color: white;
+    text-shadow: 0px 0px 10px black;
     left: 50%;
     transform: translateX(-50%);
     font-size: var(--font-md);
     font-weight: bold;
-  }
-  .exit-btn {
-    bottom: 2rem;
+    bottom: 1.5rem;
     padding: 0.5rem 2rem;
-  }
-  .zoom-out {
-    bottom: 4rem;
   }
   .btn-left,
   .btn-right {
     color: white;
-    height: 10vh;
+    height: 4rem;
+    line-height: 0.5;
+    background: rgb(17, 17, 17);
+    padding: 0 0.5rem;
+    ${breakpoints.tablet} {
+      padding: 0 1rem;
+    }
   }
   .btn-left {
-    padding: 0 1rem;
-    background: rgb(17, 17, 17);
     background: linear-gradient(
       90deg,
-      rgba(20, 20, 20, 0.7) 0%,
+      rgba(20, 20, 20, 0.4) 0%,
       rgba(20, 20, 20, 0) 100%
     );
   }
   .btn-right {
-    right: 1rem;
+    right: 0;
+    background: linear-gradient(
+      270deg,
+      rgba(20, 20, 20, 0.4) 0%,
+      rgba(20, 20, 20, 0) 100%
+    );
   }
 `
 
