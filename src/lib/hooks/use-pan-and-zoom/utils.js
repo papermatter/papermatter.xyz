@@ -19,7 +19,7 @@ export const getDistance = (firstPoint, secondPoint) => {
   )
 }
 
-const getCurrentDistance = e => {
+export const getCurrentDistance = e => {
   return getDistance(e.touches[0], e.touches[1])
 }
 

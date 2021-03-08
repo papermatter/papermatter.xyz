@@ -21,6 +21,7 @@ const Layout = ({ children, toggleHeaderColor = false }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  toggleHeaderColor: PropTypes.bool,
 }
 
 export default Layout

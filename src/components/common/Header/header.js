@@ -13,6 +13,7 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from "body-scroll-lock"
+import PropTypes from "prop-types"
 
 const Header = ({ toggleHeaderColor }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -117,3 +118,7 @@ const Header = ({ toggleHeaderColor }) => {
 }
 
 export default Header
+
+Header.propTypes = {
+  toggleHeaderColor: PropTypes.bool.isRequired,
+}

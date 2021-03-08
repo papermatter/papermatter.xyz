@@ -1,6 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 import { breakpoints, responsiveSectionMargin } from "../../../styles/utils"
 
 const StyledImg = styled(Img)`
@@ -17,3 +18,7 @@ const PageCover = ({ src, alt }) => {
 }
 
 export default PageCover
+
+PageCover.propTypes = {
+  alt: PropTypes.string,
+}

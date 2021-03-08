@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { breakpoints } from "../../../styles/utils"
+import PropTypes from "prop-types"
 
 const StyledPageCover = styled.section`
   height: 100vh;
@@ -70,4 +71,8 @@ export default function HomeCover({ cover, heading }) {
       <h1>{heading}</h1>
     </StyledPageCover>
   )
+}
+
+HomeCover.propTypes = {
+  heading: PropTypes.string.isRequired,
 }
