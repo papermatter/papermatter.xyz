@@ -90,7 +90,11 @@ export default function Lightbox({ photos }) {
               index={index}
               activeIndex={lightboxActiveIndex}
             >
-              <TransformWrapper>
+              <TransformWrapper
+                wheel={{
+                  step: 45,
+                }}
+              >
                 <TransformComponent>
                   <StyledImg
                     fluid={photo.photo.childImageSharp.fluid}
