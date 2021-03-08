@@ -22,8 +22,8 @@ const StyledHomeSection = styled.div`
     display: block;
     font-family: var(--font-mono);
     margin: 2.5rem auto 0;
-    padding: 1.5rem;
     text-decoration: underline;
+    padding: 0;
     &:hover {
       opacity: 0.5;
     }
