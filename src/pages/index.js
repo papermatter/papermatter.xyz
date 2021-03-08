@@ -68,7 +68,7 @@ const IndexPage = ({
       <HomeSection
         heading={data.about.heading}
         description={data.about.description}
-        linkTo="/about-us"
+        linkTo="/nosotros"
         linkLabel="ver nosotros"
       />
 

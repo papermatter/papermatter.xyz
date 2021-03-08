@@ -88,7 +88,7 @@ const ExploreOurWorkSection = ({ heading, images }) => {
         <h3>{heading}</h3>
         <ImagesSlider images={images.slice(0, 2)} initialPosition="-150px" />
         <ImagesSlider images={images.slice(2, 4)} />
-        <Link to="/portfolio">Ir a trabajos</Link>
+        <Link to="/portafolio">Ir a trabajos</Link>
       </StyledMobileSection>
     )
   }
@@ -103,7 +103,7 @@ const ExploreOurWorkSection = ({ heading, images }) => {
       </li>
       <li className="info">
         <h3>{heading}</h3>
-        <Link to="/portfolio">Ir a trabajos</Link>
+        <Link to="/portafolio">Ir a trabajos</Link>
       </li>
       <li>
         <StyledImg
