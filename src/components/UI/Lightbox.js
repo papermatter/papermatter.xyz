@@ -157,13 +157,15 @@ const StyledLightbox = styled.div`
     bottom: 0;
     right: 0;
     left: 0;
-
     width: 100%;
-    max-height: 100vh;
+    height: 100%;
   }
   .react-transform-element {
-    height: 100%;
-    width: auto;
+    width: 100%;
+    cursor: move;
+    ${breakpoints.laptop} {
+      width: 65%;
+    }
   }
   .photo-indicator {
     font-family: var(--font-mono);
