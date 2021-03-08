@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react"
-import usePanAndZoom from "../../lib/hooks/use-pan-and-zoom"
+import usePanAndZoom from "../../lib/hooks/use-pan-and-zoom/use-pan-and-zoom"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { Portal } from "./Portal"
 import { useUI } from "./use-ui"
 import ArrowLeft from "../Icons/ArrowLeft"
 import ArrowRight from "../Icons/ArrowRight"
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
+
 import {
   disableBodyScroll,
   enableBodyScroll,
@@ -92,66 +94,70 @@ export default function Lightbox({ photos }) {
     <Portal id="lightbox">
       {displayLightbox ? (
         <StyledLightbox>
-          <button
-            // ref={lightboxRef}
-            ref={containerRef}
-            className="image-container"
-            onClick={onLightboxClick}
-            onDoubleClick={() => (isZoomIn ? zoomOut() : null)}
-            onMouseDown={onMouseDown}
-            onTouchStart={onTouchStart}
-            // onWheel={onWheel}
-            style={{
-              // transform: `${
-              //   !isZoomIn
-              //     ? "translate(0, 0)"
-              //     : `translate(${translateX}px, ${translateY}px) scale(${scale})`
-              // }`,
-              // cursor: `${isZoomIn ? "move" : "zoom-in"}`,
-              transform: `translate(${translateX}px, ${translateY}px) scale(${scale})`,
-              cursor: `${isZoomIn ? "move" : "zoom-in"}`,
-            }}
-          >
-            {photos.map((photo, index) => (
-              <StyledImg
-                key={photo.id}
-                fluid={photo.photo.childImageSharp.fluid}
-                style={{
-                  display: `${
-                    index === lightboxActiveIndex ? "block" : "none"
-                  }`,
-                }}
-                alt={photo.title}
-              />
-            ))}
-          </button>
+          <TransformWrapper>
+            <TransformComponent>
+              {photos.map((photo, index) => (
+                <StyledImg
+                  key={photo.id}
+                  fluid={photo.photo.childImageSharp.fluid}
+                  style={{
+                    visibility:
+                      index === lightboxActiveIndex ? "visible" : "hidden",
+                    display: `${
+                      index === lightboxActiveIndex ? "block" : "none"
+                    }`,
+                  }}
+                  alt={photo.title}
+                />
+              ))}
+            </TransformComponent>
+            {/* <button
+              // ref={lightboxRef}
+              ref={containerRef}
+              className="image-container"
+              onClick={onLightboxClick}
+              onDoubleClick={() => (isZoomIn ? zoomOut() : null)}
+              onMouseDown={onMouseDown}
+              onTouchStart={onTouchStart}
+              style={{
+                // transform: `${
+                //   !isZoomIn
+                //     ? "translate(0, 0)"
+                //     : `translate(${translateX}px, ${translateY}px) scale(${scale})`
+                // }`,
+                // cursor: `${isZoomIn ? "move" : "zoom-in"}`,
+                transform: `translate(${translateX}px, ${translateY}px) scale(${scale})`,
+                cursor: `${isZoomIn ? "move" : "zoom-in"}`,
+              }}
+            ></button> */}
 
-          <button
-            className="btn-left"
-            aria-label="prev photo"
-            onClick={() => prevPhoto()}
-          >
-            <ArrowLeft />
-          </button>
-          <button
-            className="btn-right"
-            aria-label="next photo"
-            onClick={() => nextPhoto()}
-          >
-            <ArrowRight />
-          </button>
-          {isZoomIn && (
-            <button className="zoom-out" onClick={() => zoomOut()}>
-              Click here to zoom out
+            <button
+              className="btn-left"
+              aria-label="prev photo"
+              onClick={() => prevPhoto()}
+            >
+              <ArrowLeft />
             </button>
-          )}
-          <button
-            className="exit-btn"
-            aria-label="Close lightbox"
-            onClick={onClose}
-          >
-            Cerrar
-          </button>
+            <button
+              className="btn-right"
+              aria-label="next photo"
+              onClick={() => nextPhoto()}
+            >
+              <ArrowRight />
+            </button>
+            {isZoomIn && (
+              <button className="zoom-out" onClick={() => zoomOut()}>
+                Click here to zoom out
+              </button>
+            )}
+            <button
+              className="exit-btn"
+              aria-label="Close lightbox"
+              onClick={onClose}
+            >
+              Cerrar
+            </button>
+          </TransformWrapper>
         </StyledLightbox>
       ) : null}
     </Portal>
@@ -169,6 +175,14 @@ const StyledLightbox = styled.div`
   justify-content: center;
   background-color: var(--background);
   z-index: 100000;
+  > .react-transform-component {
+    height: 100vh;
+  }
+  .react-transform-component,
+  .react-transform-element {
+    position: relative;
+    width: 100%;
+  }
   .image-container {
     width: 100%;
     position: relative;
@@ -205,4 +219,8 @@ const StyledLightbox = styled.div`
 
 const StyledImg = styled(Img)`
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 `
