@@ -26,7 +26,7 @@ export const useIntersectionObserver = ({ rootMargin = "10px" } = {}) => {
     }
 
     return () => observer && observer.disconnect()
-  }, [])
+  }, [rootMargin])
 
   return { isIntersecting, ref }
 }
