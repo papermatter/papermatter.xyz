@@ -74,6 +74,7 @@ body {
   font-size: var(--font-md);
   min-height: 100vh;
   letter-spacing: normal;
+  transform-style: preserve-3d;
   font-family: var(--font-sans);
   font-weight: normal;
   word-wrap: break-word;
