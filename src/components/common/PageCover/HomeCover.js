@@ -1,14 +1,16 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { breakpoints } from "../../../styles/utils"
 import PropTypes from "prop-types"
+import { useIntersectionObserver } from "../../../lib/hooks/use-intersection-observer"
 
 const StyledPageCover = styled.section`
   height: 100vh;
   width: 100vw;
   position: relative;
   text-align: center;
+  overflow: hidden;
   margin: 0 -1.5rem;
   ${breakpoints.tablet} {
     margin: 0 -6rem;
@@ -65,9 +67,26 @@ const StyledImg = styled(Img)`
 `
 
 export default function HomeCover({ cover, heading }) {
+  const { isIntersecting, ref } = useIntersectionObserver()
+  const [offset, setOffset] = useState(0)
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (isIntersecting) {
+        setOffset(window.scrollY)
+      }
+    }
+
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [isIntersecting])
+
   return (
-    <StyledPageCover>
-      <StyledImg fluid={cover} />
+    <StyledPageCover ref={ref}>
+      <StyledImg
+        fluid={cover}
+        style={{ transform: `translateY(${offset * 0.3}px)` }}
+      />
       <h1>{heading}</h1>
     </StyledPageCover>
   )

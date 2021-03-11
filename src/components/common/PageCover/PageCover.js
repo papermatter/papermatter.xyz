@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import BackgroundImage from "gatsby-background-image"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import PropTypes from "prop-types"
@@ -51,7 +50,7 @@ const PageCover = ({ src, alt }) => {
         <StyledImg
           fluid={src}
           alt={alt}
-          style={{ transform: `translateY(${offset * 0.3}px)` }}
+          style={{ transform: `translateY(${offset * 0.2}px)` }}
         />
       </div>
     </StyledPageCover>
