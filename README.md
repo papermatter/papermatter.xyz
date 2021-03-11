@@ -1,6 +1,10 @@
-## Papermatter
+## The Paper Matter
 
-Papermatter website. build with Gatsby and Strapi CMS.
+The Paper Matter website. built with Gatsby and Strapi CMS.
+
+<p align="center">
+  <img src="https://res.cloudinary.com/dliiwavlg/image/upload/v1615250890/papermatter_yvsvxc.png" width="450px" />
+</p>
 
 ## Quick start
 
