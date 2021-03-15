@@ -1,9 +1,8 @@
-export const INSTAGRAM_URL = "https://instagram.com/edgar.lr"
-export const BEHANCE_URL = "https://behance.com/edgarlr"
-export const CONTACT_EMAIL = "info@thepapermatter.com"
-export const CONTACT_TEL = "5522334455"
+export const INSTAGRAM_URL = "https://instagram.com/paper.matter"
+export const BEHANCE_URL = "https://behance.com/thepapermatter"
+export const CONTACT_EMAIL = "info@papermatter.xyz"
+export const CONTACT_TEL = "5586155469"
 
 // SEO
 export const SITE_NAME = "The Paper Matter"
-export const SITE_DESCRIPTION = "The paper matter description"
-export const TWITTER_USERNAME = "@edgarlr_"
+export const SITE_URL = "https://papermatter.xyz"

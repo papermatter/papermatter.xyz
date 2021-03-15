@@ -1,14 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import {
-  SITE_DESCRIPTION,
-  SITE_NAME,
-  TWITTER_USERNAME,
-} from "../../lib/contants"
+import { SITE_NAME, SITE_URL } from "../../lib/contants"
+import { useLocation } from "@reach/router"
 
-function SEO({ description, lang, meta, title }) {
-  const metaDescription = description || SITE_DESCRIPTION
+function SEO({ description, lang, meta, title, image }) {
+  const { pathname } = useLocation()
+
+  const url = pathname ? `${SITE_URL}${pathname}` : SITE_URL
 
   return (
     <Helmet
@@ -17,10 +16,24 @@ function SEO({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={`%s | ${SITE_NAME}`}
+      link={[
+        {
+          rel: "canonical",
+          href: url,
+        },
+      ]}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: description,
+        },
+        {
+          rel: `canonial`,
+          content: url,
+        },
+        {
+          property: `og:url`,
+          content: url,
         },
         {
           property: `og:title`,
@@ -28,19 +41,19 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: description,
         },
         {
           property: `og:type`,
           content: `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          property: `og:image`,
+          content: image,
         },
         {
-          name: `twitter:creator`,
-          content: TWITTER_USERNAME,
+          name: `twitter:card`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:title`,
@@ -48,7 +61,11 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: description,
+        },
+        {
+          name: `twitter:image`,
+          content: image,
         },
       ].concat(meta)}
     />
@@ -56,9 +73,12 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `es`,
   meta: [],
-  description: ``,
+  image:
+    "https://res.cloudinary.com/djciv53p8/image/upload/v1615825502/OG_IMAGE_1_dd2450a607.jpg",
+  description:
+    "Estudio Visual 3D basado en Ciudad de México. Realidad Virtual, Realidad Aumentada, OG Still Images, 3D Models, Rendering, Animación, Diseño UI & UX.",
 }
 
 SEO.propTypes = {
@@ -66,6 +86,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  image: PropTypes.string,
 }
 
 export default SEO
