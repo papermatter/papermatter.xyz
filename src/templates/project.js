@@ -24,6 +24,9 @@ export const projectQuery = graphql`
       }
       cover {
         childImageSharp {
+          original {
+            src
+          }
           fluid(maxWidth: 2000) {
             ...GatsbyImageSharpFluid
           }
@@ -45,9 +48,14 @@ export const projectQuery = graphql`
 `
 
 export default function project({ data }) {
+  const description = `${data.strapiProjects.service.title}. ${data.strapiProjects.description}`
   return (
     <Layout>
-      <SEO title={data.strapiProjects.title} />
+      <SEO
+        title={data.strapiProjects.title}
+        description={description}
+        image={data.strapiProjects.cover.src}
+      />
       <PageHead
         breadcrumbs={[
           {

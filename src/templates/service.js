@@ -18,6 +18,9 @@ export const portfolioQuery = graphql`
       description
       cover {
         childImageSharp {
+          original {
+            src
+          }
           fluid(maxWidth: 2000) {
             ...GatsbyImageSharpFluid
           }
@@ -39,6 +42,7 @@ export const portfolioQuery = graphql`
       nodes {
         id
         slug
+        description
         location
         title
         cover {
@@ -56,7 +60,11 @@ export const portfolioQuery = graphql`
 export default function portafolio({ data }) {
   return (
     <Layout>
-      <SEO title="Portafolio" />
+      <SEO
+        title={data.strapiServices.title}
+        description={data.strapiServices.description}
+        image={data.strapiServices.cover.original.src}
+      />
 
       <PageHead
         breadcrumbs={[

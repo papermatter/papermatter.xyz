@@ -1,13 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { SITE_NAME, SITE_URL } from "../../lib/contants"
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "../../lib/contants"
 import { useLocation } from "@reach/router"
 
 function SEO({ description, lang, meta, title, image }) {
   const { pathname } = useLocation()
 
   const url = pathname ? `${SITE_URL}${pathname}` : SITE_URL
+
+  const ogImage = image ? `${SITE_URL}${image}` : DEFAULT_OG_IMAGE
 
   return (
     <Helmet
@@ -49,7 +51,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           property: `og:image`,
-          content: image,
+          content: ogImage,
         },
         {
           name: `twitter:card`,
@@ -65,7 +67,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `twitter:image`,
-          content: image,
+          content: ogImage,
         },
       ].concat(meta)}
     />
@@ -75,8 +77,6 @@ function SEO({ description, lang, meta, title, image }) {
 SEO.defaultProps = {
   lang: `es`,
   meta: [],
-  image:
-    "https://res.cloudinary.com/djciv53p8/image/upload/v1615825502/OG_IMAGE_1_dd2450a607.jpg",
   description:
     "Estudio Visual 3D basado en Ciudad de México. Realidad Virtual, Realidad Aumentada, OG Still Images, 3D Models, Rendering, Animación, Diseño UI & UX.",
 }
