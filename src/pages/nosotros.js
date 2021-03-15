@@ -32,7 +32,7 @@ export const aboutQuery = graphql`
         }
       }
     }
-    allStrapiClients {
+    allStrapiClients(filter: { featured: { eq: true } }) {
       nodes {
         id
         url
