@@ -14,6 +14,7 @@ export const projectQuery = graphql`
       description
       title
       location
+      status
       client {
         url
         name
