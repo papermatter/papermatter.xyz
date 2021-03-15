@@ -54,7 +54,7 @@ export default function project({ data }) {
       <SEO
         title={data.strapiProjects.title}
         description={description}
-        image={data.strapiProjects.cover.src}
+        image={data.strapiProjects.cover.childImageSharp.original.src}
       />
       <PageHead
         breadcrumbs={[

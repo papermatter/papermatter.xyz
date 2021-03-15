@@ -63,7 +63,7 @@ export default function portafolio({ data }) {
       <SEO
         title={data.strapiServices.title}
         description={data.strapiServices.description}
-        image={data.strapiServices.cover.original.src}
+        image={data.strapiServices.cover.childImageSharp.original.src}
       />
 
       <PageHead
